@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jobenmora.com/sitemap-index.xml

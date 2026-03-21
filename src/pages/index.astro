@@ -1,0 +1,64 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import AppScreensSection from '../components/AppScreensSection.astro';
+import Features from '../components/Features.astro';
+import AppStoreBadges from '../components/AppStoreBadges.astro';
+import FAQPreview from '../components/FAQPreview.astro';
+import AnimatedSection from '../components/AnimatedSection.tsx';
+---
+
+<Layout
+  title="NomsAI — AI Calorie Tracker. No Login. No BS."
+  description="The privacy-first AI calorie tracker for iOS and Android. Type what you ate, get macro estimates instantly. No login required, no data collection, device-only storage."
+  ogTitle="NomsAI — Track Calories with AI. No Login. No BS."
+  ogDescription="Type what you ate, get macros instantly. The AI food diary that keeps your data on your device. Free, no account needed."
+>
+
+  <!-- Hero -->
+  <Hero />
+
+  <!-- Social Proof Strip -->
+  <section class="py-12 border-y bg-white dark:bg-[#0a0a0a]" style="border-color:#d4ccc4" aria-label="Social proof">
+    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <AnimatedSection animation="staggerUp" client:load>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 text-center" style="--divider:#d4ccc4">
+          <div class="flex flex-col items-center gap-1 px-6 sm:border-r" style="border-color:#d4ccc4">
+            <span class="text-3xl sm:text-4xl font-black text-[#1c1714] dark:text-white tabular-nums">10,000+</span>
+            <span class="text-sm font-medium" style="color:#6b6560">Meals tracked</span>
+          </div>
+          <div class="flex flex-col items-center gap-1 px-6 sm:border-r" style="border-color:#d4ccc4">
+            <span class="text-3xl sm:text-4xl font-black text-[#1c1714] dark:text-white flex items-center gap-1.5">
+              4.8
+              <svg class="h-7 w-7 mt-0.5" fill="#c8920a" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </span>
+            <span class="text-sm font-medium" style="color:#6b6560">App Store rating</span>
+          </div>
+          <div class="flex flex-col items-center gap-1 px-6">
+            <span class="text-3xl sm:text-4xl font-black" style="color:#c8920a">100%</span>
+            <span class="text-sm font-medium" style="color:#6b6560">Private — device only</span>
+          </div>
+        </div>
+      </AnimatedSection>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <HowItWorks />
+
+  <!-- App Screens -->
+  <AppScreensSection />
+
+  <!-- Features -->
+  <Features />
+
+  <!-- App Store Download -->
+  <AppStoreBadges variant="section" />
+
+  <!-- FAQ Preview -->
+  <FAQPreview />
+
+</Layout>

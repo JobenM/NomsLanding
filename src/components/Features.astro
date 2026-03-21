@@ -1,0 +1,139 @@
+---
+import AnimatedSection from './AnimatedSection.tsx';
+
+// Icons match Ionicons used in the app (flash-outline, pie-chart-outline, shield-checkmark-outline, etc.)
+const features = [
+  {
+    // Ionicons flash-outline
+    iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+    iconType: 'path',
+    title: 'Instant logging',
+    description: 'Just type what you ate in plain English. No menus, no barcode scanning, no database searches. Describe it — done.',
+    highlight: false,
+  },
+  {
+    // Ionicons pie-chart-outline
+    iconPaths: [
+      'M21.21 15.89A10 10 0 1 1 8 2.83',
+      'M22 12A10 10 0 0 0 12 2v10z',
+    ],
+    iconType: 'multi',
+    title: 'Full macros',
+    description: 'Calories, protein, carbs and fat — all estimated in under a second. Adjust anything the AI got wrong before saving.',
+    highlight: true,
+  },
+  {
+    // Ionicons shield-checkmark-outline
+    iconPaths: [
+      'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z',
+    ],
+    iconExtra: '<polyline points="9 12 11 14 15 10"/>',
+    iconType: 'shield',
+    title: 'No account needed',
+    description: 'Open and start immediately. No email, no password, no account setup. Everything stays on your phone — always.',
+    highlight: false,
+  },
+  {
+    // Ionicons lock-closed-outline
+    iconPath: 'M19 11H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2zm-7 4v4M8 11V7a4 4 0 0 1 8 0v4',
+    iconType: 'path',
+    title: 'Privacy-first',
+    description: 'Your food diary never leaves your device. No cloud sync, no data harvesting. Uninstall and it\'s gone — completely.',
+    highlight: false,
+  },
+  {
+    // Ionicons barbell-outline
+    iconPath: 'M6 6h12M6 18h12M4 9h2v6H4zM18 9h2v6h-2zM1 11h3v2H1zM20 11h3v2h-3z',
+    iconType: 'path',
+    title: 'Workout logging',
+    description: 'Log walks, runs, cycles and more. See calories burned alongside calories eaten for a complete daily picture.',
+    highlight: false,
+  },
+  {
+    // Ionicons flash-outline (fuel)
+    iconPath: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z',
+    iconType: 'path',
+    title: 'Fuel tank system',
+    description: 'Free daily logs included. Top up with Emergency Credits or unlock unlimited with the Supporter Pass — monthly or annual.',
+    highlight: false,
+  },
+];
+---
+
+<section class="py-20 sm:py-28 bg-white dark:bg-[#0a0a0a]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+    <AnimatedSection animation="fadeUp" client:load>
+      <div class="text-center mb-16">
+        <p class="text-sm font-bold uppercase tracking-widest mb-3" style="color:#c8920a">Why NomsAI</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1c1714] dark:text-white tracking-tight">
+          Built different, on purpose
+        </h2>
+        <p class="mt-4 text-lg max-w-2xl mx-auto" style="color:#6b6560">
+          Every decision prioritises your time, your privacy, and your experience.
+        </p>
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection animation="staggerUp" client:load>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {features.map(({ iconPath, iconPaths, iconExtra, iconType, title, description, highlight }) => (
+          <div class:list={[
+            "group relative rounded-2xl p-7 border transition-all duration-300",
+            highlight
+              ? "border-transparent text-white shadow-xl"
+              : "bg-[#f4f2ef] dark:bg-[#1a1a1a] hover:shadow-lg hover:-translate-y-0.5"
+          ]}
+          style={highlight
+            ? 'background-color:#c8920a;border-color:#c8920a;box-shadow:0 8px 32px rgba(200,146,10,0.3)'
+            : 'border-color:#d4ccc4'}
+          >
+            <div class:list={[
+              "inline-flex items-center justify-center h-12 w-12 rounded-xl mb-5",
+              highlight ? "" : "bg-white dark:bg-[#2a2a2a]"
+            ]}
+            style={highlight ? 'background:rgba(255,255,255,0.2)' : ''}>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke={highlight ? 'white' : '#c8920a'}
+                stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                {iconType === 'path' && <path d={iconPath}/>}
+                {iconType === 'multi' && iconPaths?.map((p) => <path d={p}/>)}
+                {iconType === 'shield' && (
+                  <>
+                    {iconPaths?.map((p) => <path d={p}/>)}
+                    <polyline points="9 12 11 14 15 10"/>
+                  </>
+                )}
+              </svg>
+            </div>
+
+            <h3 class:list={[
+              "text-lg font-bold mb-2",
+              highlight ? "text-white" : "text-[#1c1714] dark:text-white"
+            ]}>
+              {title}
+            </h3>
+
+            <p class:list={[
+              "text-sm leading-relaxed",
+              highlight ? "" : ""
+            ]}
+            style={highlight ? 'color:rgba(255,255,255,0.8)' : 'color:#6b6560'}>
+              {description}
+            </p>
+
+            {highlight && (
+              <div class="absolute top-4 right-4">
+                <span class="inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold" style="background:rgba(255,255,255,0.2);color:white">
+                  Core feature
+                </span>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </AnimatedSection>
+
+  </div>
+</section>

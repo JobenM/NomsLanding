@@ -1,0 +1,145 @@
+---
+import { getCollection, getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import AnimatedSection from '../../components/AnimatedSection.tsx';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+}
+---
+
+<Layout
+  title={`${post.data.title} — NomsAI`}
+  description={post.data.description}
+  ogTitle={post.data.title}
+  ogDescription={post.data.description}
+>
+
+  <style>
+    .prose-article h2 { font-size: 1.5rem; font-weight: 800; color: #1c1714; margin-top: 3rem; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .prose-article h3 { font-size: 1.25rem; font-weight: 700; color: #1c1714; margin-top: 2rem; margin-bottom: 0.75rem; }
+    .prose-article p { color: #6b6560; line-height: 1.75; margin-bottom: 1.25rem; }
+    .prose-article a { color: #c8920a; font-weight: 500; text-decoration: none; }
+    .prose-article a:hover { text-decoration: underline; }
+    .prose-article strong { color: #1c1714; }
+    .prose-article ul, .prose-article ol { color: #6b6560; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+    .prose-article li { margin-bottom: 0.5rem; line-height: 1.75; }
+    .prose-article code { color: #c8920a; background: #edeae5; padding: 0.125rem 0.375rem; border-radius: 0.25rem; font-size: 0.875em; }
+    .prose-article pre { background: #1a1a1a; color: #f4f2ef; padding: 1.5rem; border-radius: 1rem; overflow-x: auto; margin-bottom: 1.5rem; }
+    .prose-article pre code { background: none; color: inherit; padding: 0; }
+    .prose-article blockquote { border-left: 3px solid #c8920a; padding-left: 1.25rem; margin-left: 0; color: #6b6560; font-style: italic; }
+    .prose-article hr { border-color: #d4ccc4; margin: 2.5rem 0; }
+    /* Dark mode overrides */
+    html.dark .prose-article h2, html.dark .prose-article h3, html.dark .prose-article strong { color: #ffffff; }
+    html.dark .prose-article p, html.dark .prose-article li, html.dark .prose-article blockquote { color: #9ca3af; }
+    html.dark .prose-article code { background: #1a1a1a; }
+  </style>
+
+  <!-- Article Header -->
+  <section class="py-16 sm:py-24 border-b bg-white dark:bg-[#0a0a0a]" style="border-color:#d4ccc4">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <AnimatedSection animation="fadeUp" client:load>
+        <!-- Back link -->
+        <a
+          href="/articles"
+          class="inline-flex items-center gap-2 text-sm mb-8 transition-colors duration-200"
+          style="color:#6b6560"
+          onmouseover="this.style.color='#c8920a'"
+          onmouseout="this.style.color='#6b6560'"
+        >
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+          </svg>
+          All articles
+        </a>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-2 mb-6">
+          {post.data.tags.map((tag) => (
+            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-medium"
+              style="background:#edeae5;color:#c8920a">
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6 leading-tight" style="color:#1c1714">
+          {post.data.title}
+        </h1>
+
+        <p class="text-xl leading-relaxed mb-8" style="color:#6b6560">
+          {post.data.description}
+        </p>
+
+        <div class="flex items-center gap-4">
+          <div class="flex h-10 w-10 items-center justify-center rounded-full" style="background:#edeae5">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="#c8920a" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold" style="color:#1c1714">NomsAI Team</p>
+            <time datetime={post.data.pubDate.toISOString()} class="text-sm" style="color:#6b6560">
+              {formatDate(post.data.pubDate)}
+            </time>
+          </div>
+        </div>
+      </AnimatedSection>
+    </div>
+  </section>
+
+  <!-- Article Body -->
+  <section class="py-16 bg-white dark:bg-[#0a0a0a]">
+    <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+      <AnimatedSection animation="fadeUp" client:load>
+        <div class="prose-article max-w-none">
+          <Content />
+        </div>
+      </AnimatedSection>
+
+      <!-- Article footer -->
+      <div class="mt-16 pt-10 border-t" style="border-color:#d4ccc4">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <a
+            href="/articles"
+            class="inline-flex items-center gap-2 text-sm font-semibold transition-colors duration-200"
+            style="color:#6b6560"
+            onmouseover="this.style.color='#c8920a'"
+            onmouseout="this.style.color='#6b6560'"
+          >
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+            </svg>
+            Back to all articles
+          </a>
+          <a
+            href="/#download"
+            class="inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold transition-all duration-200 hover:opacity-90 active:scale-95"
+            style="background:#c8920a;color:#1c1714"
+          >
+            Try NomsAI free
+            <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</Layout>

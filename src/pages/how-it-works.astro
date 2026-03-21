@@ -1,0 +1,485 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnimatedSection from '../components/AnimatedSection.tsx';
+import AppStoreBadges from '../components/AppStoreBadges.astro';
+---
+
+<Layout
+  title="How NomsAI Works — AI Calorie Tracking in Plain English"
+  description="See exactly how NomsAI works: type what you ate, AI estimates macros instantly via Google Gemini, review and adjust, then see your daily calorie ring and macro totals. No login required."
+>
+
+  <!-- Hero -->
+  <section class="py-20 sm:py-24 border-b bg-[#f4f2ef] dark:bg-[#0a0a0a]" style="border-color:#d4ccc4">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
+      <AnimatedSection animation="fadeUp" client:load>
+        <p class="text-sm font-bold uppercase tracking-widest mb-4" style="color:#c8920a">How it works</p>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1c1714] dark:text-white mb-6">
+          Calorie tracking that actually sticks
+        </h1>
+        <p class="text-xl leading-relaxed max-w-2xl mx-auto" style="color:#6b6560">
+          Traditional calorie apps fail because the friction is too high. NomsAI removes every barrier between you and your food diary.
+        </p>
+      </AnimatedSection>
+    </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="py-20 sm:py-28 bg-[#edeae5] dark:bg-[#0a0a0a]">
+    <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-28">
+
+      <!-- Step 1: Type what you ate -->
+      <AnimatedSection animation="fadeUp" client:load>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-3 mb-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl font-black text-xl text-[#1c1714]" style="background:#c8920a">1</div>
+              <span class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Step one</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
+              Type what you ate — in plain English
+            </h2>
+            <p class="text-lg leading-relaxed mb-6" style="color:#6b6560">
+              Forget barcode scanners and database searches. Tap the input bar at the bottom of the screen and describe your meal exactly how you'd say it to a friend. Multiple items in one go.
+            </p>
+            <ul class="space-y-3">
+              {[
+                '"2 eggs, toast and butter"',
+                '"bowl of ramen with pork belly and a soft-boiled egg"',
+                '"chicken burrito bowl, extra guacamole"',
+                '"handful of almonds and an apple"',
+                '"oat milk latte 300ml"',
+              ].map((example) => (
+                <li class="flex items-start gap-3">
+                  <svg class="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="#c8920a" stroke-width="2" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                  <span class="text-sm font-mono" style="color:#6b6560">{example}</span>
+                </li>
+              ))}
+            </ul>
+            <p class="text-sm mt-5 italic" style="color:#bbb5af">
+              You can even type in any language — French, Spanish, Japanese, whatever works for you.
+            </p>
+          </div>
+
+          <!-- Input bar mockup -->
+          <div class="rounded-3xl border p-8 shadow-lg bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+            <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#6b6560">The input bar</p>
+            <!-- Simulated app input bar -->
+            <div class="rounded-2xl border flex items-center gap-3 px-4 py-3 mb-3" style="background:#1a1a1a;border-color:#2a2a2a">
+              <p class="flex-1 text-sm italic" style="color:#6b7280">2 eggs, toast and butter</p>
+              <div class="flex h-8 w-8 items-center justify-center rounded-xl text-sm font-bold" style="background:#2a2a2a;color:#9ca3af">+</div>
+            </div>
+            <div class="flex items-center justify-between px-1">
+              <span class="text-xs font-bold" style="color:#c8920a">+ Add manually</span>
+              <div class="flex items-center gap-1">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                  <path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4z"/><path d="M12 12c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/>
+                </svg>
+                <span class="text-xs" style="color:#6b7280">5 remaining today</span>
+              </div>
+            </div>
+            <p class="text-xs mt-6 leading-relaxed" style="color:#bbb5af">
+              Max 100 characters. You can log multiple items in one entry — commas tell the AI where to split.
+            </p>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <!-- Step 2: AI estimates macros -->
+      <AnimatedSection animation="fadeUp" client:load>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div class="order-last lg:order-first">
+
+            <!-- AI pipeline mockup -->
+            <div class="rounded-3xl border p-8 shadow-lg bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+              <p class="text-xs font-bold uppercase tracking-widest mb-5" style="color:#6b6560">Under the hood</p>
+              <div class="space-y-4">
+
+                <!-- Stage 1 -->
+                <div class="flex items-start gap-3 rounded-xl p-4" style="background:#f4f2ef;border:1px solid #d4ccc4">
+                  <div class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg text-[#1c1714] text-xs font-black" style="background:#c8920a">1</div>
+                  <div>
+                    <p class="text-sm font-bold text-[#1c1714] mb-0.5">Parse input</p>
+                    <p class="text-xs" style="color:#6b6560">Gemini identifies each item, brand, amount and unit from your text</p>
+                  </div>
+                </div>
+
+                <!-- Stage 2a -->
+                <div class="flex items-start gap-3 rounded-xl p-4" style="background:#f4f2ef;border:1px solid #d4ccc4">
+                  <div class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg text-[#1c1714] text-xs font-black" style="background:#c8920a">2</div>
+                  <div>
+                    <p class="text-sm font-bold text-[#1c1714] mb-0.5">Lookup macros</p>
+                    <p class="text-xs" style="color:#6b6560">Checks cache → UK food database (50k products) → Google Search grounding</p>
+                  </div>
+                </div>
+
+                <!-- Result -->
+                <div class="rounded-xl p-4 border-2" style="border-color:#c8920a;background:#f4f2ef">
+                  <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#c8920a">Result (per item)</p>
+                  <div class="grid grid-cols-2 gap-2">
+                    {[
+                      { label: 'Calories', value: '380', unit: 'kcal' },
+                      { label: 'Protein',  value: '22',  unit: 'g' },
+                      { label: 'Carbs',    value: '35',  unit: 'g' },
+                      { label: 'Fat',      value: '18',  unit: 'g' },
+                    ].map(({ label, value, unit }) => (
+                      <div class="rounded-lg p-2.5" style="background:white;border:1px solid #d4ccc4">
+                        <p class="text-[10px]" style="color:#6b6560">{label}</p>
+                        <p class="text-lg font-black text-[#1c1714]">{value}<span class="text-xs font-medium ml-0.5" style="color:#6b6560">{unit}</span></p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="inline-flex items-center gap-3 mb-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl font-black text-xl text-[#1c1714]" style="background:#c8920a">2</div>
+              <span class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Step two</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
+              AI estimates your macros instantly
+            </h2>
+            <p class="text-lg leading-relaxed mb-4" style="color:#6b6560">
+              NomsAI sends your text to <strong class="text-[#1c1714]">Google Gemini</strong>, which parses each item and looks up macros via a three-tier pipeline: a cache of previously looked-up foods, a 50,000-product UK food database, and Google Search grounding for anything unusual.
+            </p>
+            <p class="text-lg leading-relaxed mb-6" style="color:#6b6560">
+              The result comes back in under a second — calories, protein, carbs, and fat for each item you described.
+            </p>
+            <div class="rounded-2xl p-5 border bg-[#f4f2ef] dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+              <h3 class="font-bold text-[#1c1714] mb-2">About AI accuracy</h3>
+              <p class="text-sm leading-relaxed" style="color:#6b6560">
+                Estimates are within 15–20% of actual values for most foods — similar to how you'd estimate yourself. That's more than enough for building nutritional awareness. Consistency beats perfection every time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <!-- Step 3: Review screen -->
+      <AnimatedSection animation="fadeUp" client:load>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-3 mb-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl font-black text-xl text-[#1c1714]" style="background:#c8920a">3</div>
+              <span class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Step three</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
+              Review — adjust anything the AI got wrong
+            </h2>
+            <p class="text-lg leading-relaxed mb-6" style="color:#6b6560">
+              Before anything is logged, the <strong class="text-[#1c1714]">Review screen</strong> shows you each parsed item with its calories, protein, carbs, and fat. Edit any number you disagree with, remove items, or adjust amounts. Then hit <strong class="text-[#1c1714]">Confirm & Log</strong>.
+            </p>
+            <ul class="space-y-4">
+              {[
+                { title: 'Edit macro values directly', desc: 'Tap any number and type a correction before saving.' },
+                { title: 'Adjust portion amounts', desc: 'Change the amount in grams — macros recalculate automatically.' },
+                { title: 'Remove individual items', desc: 'Logged a coffee but didn\'t want it counted? Remove it.' },
+                { title: 'Flag bad estimates', desc: 'Tap "Something wrong? Report item" to help improve accuracy.' },
+              ].map(({ title, desc }) => (
+                <li class="flex items-start gap-3">
+                  <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full mt-0.5" style="background:rgba(200,146,10,0.15)">
+                    <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="#c8920a" stroke-width="3" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-[#1c1714]">{title}</p>
+                    <p class="text-sm" style="color:#6b6560">{desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Review modal mockup — matches ReviewModal.tsx exactly -->
+          <div class="rounded-3xl border shadow-xl overflow-hidden" style="background:#1a1a1a;border-color:#2a2a2a">
+            <!-- Header -->
+            <div class="flex items-center justify-between px-5 pt-5 pb-3">
+              <div>
+                <p class="text-lg font-bold text-white">Review</p>
+                <p class="text-sm" style="color:#9ca3af">Adjust anything the AI got wrong.</p>
+              </div>
+              <div class="flex h-8 w-8 items-center justify-center rounded-full text-lg" style="color:#9ca3af;background:#2a2a2a">✕</div>
+            </div>
+
+            <!-- Item card 1 -->
+            <div class="mx-4 mb-3 rounded-2xl p-4" style="background:#2a2a2a">
+              <div class="flex items-center justify-between mb-3">
+                <p class="text-sm font-semibold text-white">2 eggs</p>
+                <div class="flex h-6 w-6 items-center justify-center rounded-full text-xs" style="color:#9ca3af;background:#1a1a1a">✕</div>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5">
+                {[
+                  { l:'Calories', v:'156', u:'kcal' },
+                  { l:'Protein',  v:'12',  u:'g' },
+                  { l:'Carbs',    v:'1',   u:'g' },
+                  { l:'Fat',      v:'11',  u:'g' },
+                ].map(({ l, v, u }) => (
+                  <div class="rounded-lg p-2 border" style="background:#1a1a1a;border-color:#2a2a2a">
+                    <p class="text-[9px]" style="color:#6b7280">{l}</p>
+                    <p class="text-sm font-bold text-white leading-tight">{v}<span class="text-[9px] font-normal" style="color:#6b7280"> {u}</span></p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Item card 2 -->
+            <div class="mx-4 mb-4 rounded-2xl p-4" style="background:#2a2a2a">
+              <div class="flex items-center justify-between mb-3">
+                <p class="text-sm font-semibold text-white">toast and butter</p>
+                <div class="flex h-6 w-6 items-center justify-center rounded-full text-xs" style="color:#9ca3af;background:#1a1a1a">✕</div>
+              </div>
+              <div class="grid grid-cols-4 gap-1.5">
+                {[
+                  { l:'Calories', v:'224', u:'kcal' },
+                  { l:'Protein',  v:'4',   u:'g' },
+                  { l:'Carbs',    v:'26',  u:'g' },
+                  { l:'Fat',      v:'12',  u:'g' },
+                ].map(({ l, v, u }) => (
+                  <div class="rounded-lg p-2 border" style="background:#1a1a1a;border-color:#2a2a2a">
+                    <p class="text-[9px]" style="color:#6b7280">{l}</p>
+                    <p class="text-sm font-bold text-white leading-tight">{v}<span class="text-[9px] font-normal" style="color:#6b7280"> {u}</span></p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <!-- Total -->
+            <div class="mx-4 mb-4 rounded-xl px-4 py-3 border" style="background:#0a0a0a;border-color:#2a2a2a">
+              <p class="text-[9px] font-bold uppercase tracking-widest mb-1" style="color:#6b7280">TOTAL</p>
+              <p class="text-sm font-bold text-white">380 kcal</p>
+              <p class="text-xs" style="color:#9ca3af">16g protein · 27g carbs · 23g fat</p>
+            </div>
+
+            <!-- Buttons -->
+            <div class="flex gap-3 px-4 pb-5">
+              <button class="flex-1 rounded-xl py-3 border text-sm font-semibold text-white" style="border-color:#2a2a2a;background:transparent">Discard</button>
+              <button class="flex-2 rounded-xl py-3 text-sm font-bold text-[#1c1714]" style="background:#c8920a;flex:2">Confirm & Log</button>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      <!-- Step 4: Dashboard -->
+      <AnimatedSection animation="fadeUp" client:load>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="inline-flex items-center gap-3 mb-6">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl font-black text-xl text-[#1c1714]" style="background:#c8920a">4</div>
+              <span class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Step four</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
+              See your daily nutrition at a glance
+            </h2>
+            <p class="text-lg leading-relaxed mb-6" style="color:#6b6560">
+              Your dashboard updates instantly after each log. The main <strong class="text-[#1c1714]">calorie ring</strong> fills in gold as you approach your daily target. Three smaller rings show protein, carbs, and fat progress. Your full log sits below.
+            </p>
+            <ul class="space-y-4">
+              {[
+                { title: 'Calorie ring fills in gold', desc: 'Reaches 100% when you hit your daily target. Turns red if you go over.' },
+                { title: 'Three macro rings', desc: 'Protein (salmon), carbs (green), fat (purple) — each with a goal target.' },
+                { title: 'Workout calories subtracted', desc: 'Log a walk or run and see your net calories adjust automatically.' },
+                { title: 'Swipe between days', desc: 'Scroll back through the past 7 days to review your intake history.' },
+                { title: 'Celebrates on-track days', desc: '"On track! ✓" animation appears when you hit 90%+ of your targets.' },
+              ].map(({ title, desc }) => (
+                <li class="flex items-start gap-3">
+                  <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full mt-0.5" style="background:rgba(200,146,10,0.15)">
+                    <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="#c8920a" stroke-width="3" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+                    </svg>
+                  </div>
+                  <div>
+                    <p class="font-semibold text-sm text-[#1c1714]">{title}</p>
+                    <p class="text-sm" style="color:#6b6560">{desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Dashboard mockup — matches DayPage.tsx exactly -->
+          <div class="rounded-3xl shadow-xl overflow-hidden" style="background:#0a0a0a">
+            <!-- Greeting -->
+            <div class="px-5 pt-5 pb-1 flex items-center justify-between">
+              <p class="text-sm" style="color:#6b7280">🌙 Good evening</p>
+              <div class="flex items-center gap-1.5 rounded-full px-3 py-1" style="background:#c8920a">
+                <!-- trophy-outline -->
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#1c1714" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="8 21 12 21 16 21"/><line x1="12" y1="21" x2="12" y2="17"/><path d="M7.5 5H6a2 2 0 0 0-2 2v3c0 2.22 1.21 4.15 3 5.19"/><path d="M16.5 5H18a2 2 0 0 1 2 2v3c0 2.22-1.21 4.15-3 5.19"/><path d="M7.5 5a10 10 0 0 0 9 0"/><path d="M7.5 5C7.5 3 9 2 12 2s4.5 1 4.5 3"/>
+                </svg>
+                <span class="text-[10px] font-bold text-[#1c1714]">5 day streak</span>
+              </div>
+            </div>
+
+            <!-- Main calorie ring -->
+            <div class="flex flex-col items-center py-5">
+              <div class="relative" style="width:140px;height:140px">
+                <svg class="absolute inset-0 w-full h-full" style="transform:rotate(-90deg)" viewBox="0 0 140 140" aria-hidden="true">
+                  <circle cx="70" cy="70" r="58" fill="none" stroke="#2a2a2a" stroke-width="11"/>
+                  <circle cx="70" cy="70" r="58" fill="none" stroke="#c8920a" stroke-width="11" stroke-linecap="round"
+                    stroke-dasharray="364" stroke-dashoffset="27"/>
+                </svg>
+                <div class="absolute inset-0 flex flex-col items-center justify-center">
+                  <span class="text-3xl font-black text-white">1,663</span>
+                  <span class="text-[11px] font-bold tracking-wider" style="color:#c8920a">KCAL</span>
+                  <span class="text-[10px]" style="color:#9ca3af">5 left</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Macro rings -->
+            <div class="grid grid-cols-3 gap-2 px-6 pb-3">
+              {[
+                { label:'Protein', val:'66',  goal:'76g',  color:'#d97b5a', offset:'75' },
+                { label:'Carbs',   val:'179', goal:'194g', color:'#7aaa78', offset:'22' },
+                { label:'Fat',     val:'69',  goal:'51g',  color:'#b08898', offset:'0'  },
+              ].map(({ label, val, goal, color, offset }) => (
+                <div class="flex flex-col items-center gap-1">
+                  <div class="relative" style="width:56px;height:56px">
+                    <svg class="absolute inset-0 w-full h-full" style="transform:rotate(-90deg)" viewBox="0 0 56 56" aria-hidden="true">
+                      <circle cx="28" cy="28" r="22" fill="none" stroke="#2a2a2a" stroke-width="5"/>
+                      <circle cx="28" cy="28" r="22" fill="none" stroke={color} stroke-width="5" stroke-linecap="round"
+                        stroke-dasharray="138" stroke-dashoffset={offset}/>
+                    </svg>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                      <span class="text-xs font-bold text-white">{val}</span>
+                    </div>
+                  </div>
+                  <p class="text-[9px]" style="color:#9ca3af">{label}</p>
+                  <p class="text-[9px]" style="color:#6b7280">{goal}</p>
+                </div>
+              ))}
+            </div>
+
+            <!-- Burned -->
+            <div class="flex items-center justify-center gap-1.5 pb-3">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#6b9fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 3z"/>
+              </svg>
+              <span class="text-[10px]" style="color:#6b7280">131 kcal burned · Walk 30 min</span>
+            </div>
+
+            <!-- Log -->
+            <div class="mx-4 mb-5">
+              <p class="text-[9px] font-bold uppercase tracking-widest mb-2" style="color:#6b7280">TODAY'S LOG</p>
+              <div class="border-t py-2.5" style="border-color:#1a1a1a">
+                <div class="flex items-start justify-between">
+                  <div>
+                    <p class="text-[11px] font-semibold text-white leading-snug">2 eggs, toast and butter</p>
+                    <p class="text-[9px] mt-0.5" style="color:#6b7280">20:14 · Protein 16g · Carbs 27g · Fat 23g</p>
+                  </div>
+                  <div class="text-right ml-2">
+                    <p class="text-[11px] font-bold text-white">380</p>
+                    <p class="text-[9px]" style="color:#6b7280">kcal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+    </div>
+  </section>
+
+  <!-- Why it works -->
+  <section class="py-20 sm:py-24 bg-white dark:bg-[#0a0a0a]">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <AnimatedSection animation="fadeUp" client:load>
+        <div class="text-center mb-12">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
+            Why this approach works
+          </h2>
+          <p class="text-lg max-w-2xl mx-auto" style="color:#6b6560">
+            Most calorie apps fail because they optimise for engagement metrics, not your success.
+          </p>
+        </div>
+      </AnimatedSection>
+
+      <AnimatedSection animation="staggerUp" client:load>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          {[
+            {
+              headline: 'Lowest possible friction',
+              body: 'The number one reason people stop tracking is friction — too many taps, too much searching. Natural language input removes that barrier entirely.',
+            },
+            {
+              headline: 'Consistency over precision',
+              body: 'A food log you use every day with ±15% accuracy beats a perfect system you abandon after a week. NomsAI is designed for sustainable habits.',
+            },
+            {
+              headline: 'No surveillance capitalism',
+              body: 'You are not the product. Your food log is not a dataset to sell. NomsAI has no interest in your data because the server never sees it.',
+            },
+            {
+              headline: 'Works everywhere',
+              body: 'No WiFi? No problem. Your log, your history, your goals are all stored locally and always accessible — no cloud required.',
+            },
+            {
+              headline: 'You stay in control',
+              body: 'Every AI estimate goes through the Review screen before it\'s logged. You can edit, remove, or adjust anything. Your log, your rules.',
+            },
+            {
+              headline: 'Built by a solo developer',
+              body: 'No venture capital, no growth targets, no need to monetise your data. The business model is simple: a fair Supporter Pass for people who want unlimited logs.',
+            },
+          ].map(({ headline, body }) => (
+            <div class="rounded-2xl border p-7 bg-[#f4f2ef] dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+              <h3 class="font-bold text-[#1c1714] mb-2">{headline}</h3>
+              <p class="text-sm leading-relaxed" style="color:#6b6560">{body}</p>
+            </div>
+          ))}
+        </div>
+      </AnimatedSection>
+    </div>
+  </section>
+
+  <!-- Fuel tank explainer -->
+  <section class="py-16 sm:py-20 border-y bg-[#edeae5] dark:bg-[#0a0a0a]" style="border-color:#d4ccc4">
+    <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <AnimatedSection animation="fadeUp" client:load>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="rounded-2xl border p-6 bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+            <div class="flex items-center gap-2 mb-3">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              <p class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Welcome Tank</p>
+            </div>
+            <p class="text-2xl font-black text-[#1c1714] mb-1">20 logs</p>
+            <p class="text-sm" style="color:#6b6560">On first launch, you get 20 AI logs to try everything out.</p>
+          </div>
+          <div class="rounded-2xl border p-6 bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+            <div class="flex items-center gap-2 mb-3">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+              <p class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Daily Free</p>
+            </div>
+            <p class="text-2xl font-black text-[#1c1714] mb-1">5 / day</p>
+            <p class="text-sm" style="color:#6b6560">5 free AI logs reset every day at midnight, forever.</p>
+          </div>
+          <div class="rounded-2xl border p-6 bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+            <div class="flex items-center gap-2 mb-3">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4z"/><path d="M12 12c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/>
+              </svg>
+              <p class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Supporter Pass</p>
+            </div>
+            <p class="text-2xl font-black text-[#1c1714] mb-1">Unlimited</p>
+            <p class="text-sm" style="color:#6b6560">Monthly or annual subscription. Supports a solo developer.</p>
+          </div>
+        </div>
+        <p class="text-center text-sm mt-6" style="color:#bbb5af">Manual logs (no AI) are always free and don't use credits.</p>
+      </AnimatedSection>
+    </div>
+  </section>
+
+  <AppStoreBadges variant="section" />
+
+</Layout>

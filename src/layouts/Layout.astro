@@ -1,0 +1,108 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  ogImage?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  canonicalURL?: string;
+}
+
+const {
+  title,
+  description,
+  ogImage = '/og-image.png',
+  ogTitle,
+  ogDescription,
+  canonicalURL,
+} = Astro.props;
+
+const resolvedOgTitle = ogTitle ?? title;
+const resolvedOgDescription = ogDescription ?? description;
+const resolvedCanonical = canonicalURL ?? Astro.url.href;
+const site = 'https://jobenmora.com';
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={resolvedOgTitle} />
+    <meta name="description" content={description} />
+    <meta name="author" content="NomsAI" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={resolvedCanonical} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={resolvedCanonical} />
+    <meta property="og:title" content={resolvedOgTitle} />
+    <meta property="og:description" content={resolvedOgDescription} />
+    <meta property="og:image" content={`${site}${ogImage}`} />
+    <meta property="og:site_name" content="NomsAI" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={resolvedCanonical} />
+    <meta name="twitter:title" content={resolvedOgTitle} />
+    <meta name="twitter:description" content={resolvedOgDescription} />
+    <meta name="twitter:image" content={`${site}${ogImage}`} />
+
+    <!-- Sitemap -->
+    <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Plausible Analytics (privacy-friendly, no cookies) -->
+    <script
+      defer
+      data-domain="yourdomain.com"
+      src="https://plausible.io/js/script.js"
+      is:inline
+    ></script>
+
+    <!-- Theme: default light, respect stored preference -->
+    <script is:inline>
+      (function () {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <style is:global>
+    /* prose-legal — dark-mode-aware legal document styles */
+    .prose-legal h2 { font-size:1.25rem;font-weight:800;color:#1c1714;margin-top:2.5rem;margin-bottom:.75rem;letter-spacing:-.01em; }
+    .prose-legal h3 { font-size:1.05rem;font-weight:700;color:#1c1714;margin-top:1.75rem;margin-bottom:.5rem; }
+    .prose-legal p  { color:#6b6560;line-height:1.8;margin-bottom:1rem; }
+    .prose-legal a  { color:#c8920a;font-weight:500; }
+    .prose-legal a:hover { text-decoration:underline; }
+    .prose-legal ul,.prose-legal ol { color:#6b6560;padding-left:1.5rem;margin-bottom:1rem; }
+    .prose-legal li { margin-bottom:.4rem;line-height:1.8; }
+    .prose-legal strong { color:#1c1714; }
+    .prose-legal code { color:#c8920a;background:#edeae5;padding:.1rem .35rem;border-radius:.25rem;font-size:.875em; }
+    html.dark .prose-legal h2,
+    html.dark .prose-legal h3,
+    html.dark .prose-legal strong { color:#ffffff; }
+    html.dark .prose-legal p,
+    html.dark .prose-legal li { color:#9ca3af; }
+    html.dark .prose-legal code { background:#1a1a1a; }
+  </style>
+  <body class="bg-[#f4f2ef] dark:bg-[#0a0a0a] text-[#1c1714] dark:text-white antialiased transition-colors duration-300">
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,76 @@
+---
+import AnimatedSection from './AnimatedSection.tsx';
+
+const faqs = [
+  {
+    question: 'Is NomsAI really free and no login required?',
+    answer: 'Yes. Download the app, open it, and start logging immediately — no email, no account creation required. You get welcome credits plus a daily free allocation. Top up with Emergency Credits or unlock unlimited logs with the Supporter Pass.',
+  },
+  {
+    question: 'How accurate is the AI calorie estimation?',
+    answer: 'Accuracy is within ~15–20% of actual values for most common foods — similar to how a human would estimate from memory. The app uses Google Gemini with a UK food database for lookup. For building nutritional awareness and tracking trends, this is more than sufficient. Consistency matters more than perfection.',
+  },
+  {
+    question: 'Does it work offline?',
+    answer: 'Your food log and all your data are always available offline — the app reads from local storage. AI-powered parsing for new food entries requires a brief internet connection, but your existing log is fully functional without WiFi.',
+  },
+  {
+    question: 'Where is my food data stored?',
+    answer: 'Your entire food diary, workout logs, weight entries, and goals are stored exclusively on your device. Nothing is uploaded to our servers. We cannot see what you eat, and neither can anyone else. Uninstall the app and the data is gone — no lingering records anywhere.',
+  },
+];
+---
+
+<section class="py-20 sm:py-28 bg-[#f4f2ef] dark:bg-[#0a0a0a]">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+    <AnimatedSection animation="fadeUp" client:load>
+      <div class="text-center mb-12">
+        <p class="text-sm font-bold uppercase tracking-widest mb-3" style="color:#c8920a">Common questions</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight">
+          Answers up front
+        </h2>
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection animation="staggerUp" client:load>
+      <div class="space-y-4">
+        {faqs.map(({ question, answer }) => (
+          <details class="group rounded-2xl border overflow-hidden transition-colors duration-200 bg-white dark:bg-[#1a1a1a]"
+            style="border-color:#d4ccc4">
+            <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
+              <h3 class="text-base font-semibold text-[#1c1714] pr-4">{question}</h3>
+              <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
+                style="background:#edeae5">
+                <svg class="h-4 w-4 transition-transform duration-200 group-open:rotate-45" fill="none" viewBox="0 0 24 24"
+                  stroke="#c8920a" stroke-width="2.5" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </div>
+            </summary>
+            <div class="px-6 pb-5">
+              <p class="leading-relaxed text-sm" style="color:#6b6560">{answer}</p>
+            </div>
+          </details>
+        ))}
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection animation="fadeUp" delay={0.2} client:load>
+      <div class="mt-10 text-center">
+        <p class="mb-4 text-sm" style="color:#6b6560">Have more questions?</p>
+        <a href="/faq"
+          class="inline-flex items-center gap-2 rounded-xl border-2 px-6 py-3 text-sm font-bold transition-all duration-200 hover:text-white"
+          style="border-color:#c8920a;color:#c8920a"
+          onmouseover="this.style.background='#c8920a';this.style.color='#1c1714'"
+          onmouseout="this.style.background='transparent';this.style.color='#c8920a'">
+          View all FAQs
+          <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </a>
+      </div>
+    </AnimatedSection>
+
+  </div>
+</section>

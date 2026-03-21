@@ -1,0 +1,325 @@
+---
+import AnimatedSection from './AnimatedSection.tsx';
+---
+
+<section class="relative overflow-hidden bg-[#f4f2ef] dark:bg-[#0a0a0a] pt-16 pb-24 sm:pt-24 sm:pb-32">
+  <!-- Subtle bg texture -->
+  <div class="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+    <div class="absolute -top-40 -right-32 w-[500px] h-[500px] rounded-full" style="background:radial-gradient(circle,rgba(200,146,10,0.12) 0%,transparent 70%)"></div>
+    <div class="absolute -bottom-20 -left-32 w-[400px] h-[400px] rounded-full" style="background:radial-gradient(circle,rgba(200,146,10,0.08) 0%,transparent 70%)"></div>
+    <div class="absolute inset-0 bg-hero-pattern opacity-25"></div>
+  </div>
+
+  <div class="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+      <!-- Left: Text -->
+      <div class="text-center lg:text-left">
+
+        <!-- App icon + wordmark — matches AppLogo.tsx exactly -->
+        <AnimatedSection animation="fadeIn" delay={0} client:load>
+          <div class="inline-flex items-center gap-3 mb-8">
+            <!-- Mustard rounded square, #c8920a, 🍽️ emoji -->
+            <div class="flex h-12 w-12 items-center justify-center rounded-2xl text-2xl shadow-lg" style="background-color:#c8920a;box-shadow:0 4px 16px rgba(200,146,10,0.35)">
+              🍽️
+            </div>
+            <span class="text-2xl font-black tracking-tight text-[#1c1714] dark:text-white">NomsAI</span>
+          </div>
+        </AnimatedSection>
+
+        <!-- Headline — exact app tagline -->
+        <AnimatedSection animation="fadeUp" delay={0.1} client:load>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#1c1714] dark:text-white leading-[1.05] mb-4">
+            Type what you ate.
+            <br />
+            <span style="color:#c8920a">AI handles the rest.</span>
+          </h1>
+        </AnimatedSection>
+
+        <!-- Sub -->
+        <AnimatedSection animation="fadeUp" delay={0.2} client:load>
+          <p class="text-lg text-[#6b6560] dark:text-[#9ca3af] leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+            The <strong class="text-[#1c1714] dark:text-white font-semibold">AI calorie tracker</strong> that respects your time and your privacy.
+            Describe any meal in plain language — get calories, protein, carbs & fat instantly.
+            No login. No database. No friction.
+          </p>
+        </AnimatedSection>
+
+        <!-- Feature rows — matches onboarding screen exactly:
+             Ionicons flash-outline / pie-chart-outline / shield-checkmark-outline -->
+        <AnimatedSection animation="fadeUp" delay={0.25} client:load>
+          <div class="flex flex-col gap-3 mb-10 max-w-sm mx-auto lg:mx-0">
+
+            <!-- Instant logging — flash-outline icon -->
+            <div class="flex items-center gap-3 rounded-2xl bg-[#edeae5] dark:bg-[#1a1a1a] border border-[#d4ccc4] dark:border-[#2a2a2a] px-4 py-3">
+              <div class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#1c1714] dark:bg-[#2a2a2a]">
+                <!-- Ionicons flash-outline -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <div class="text-left">
+                <p class="text-sm font-bold text-[#1c1714] dark:text-white">Instant logging</p>
+                <p class="text-xs text-[#6b6560] dark:text-[#9ca3af]">Just type what you ate — no menus</p>
+              </div>
+            </div>
+
+            <!-- Full macros — pie-chart-outline icon -->
+            <div class="flex items-center gap-3 rounded-2xl bg-[#edeae5] dark:bg-[#1a1a1a] border border-[#d4ccc4] dark:border-[#2a2a2a] px-4 py-3">
+              <div class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#1c1714] dark:bg-[#2a2a2a]">
+                <!-- Ionicons pie-chart-outline -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                  <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                </svg>
+              </div>
+              <div class="text-left">
+                <p class="text-sm font-bold text-[#1c1714] dark:text-white">Full macros</p>
+                <p class="text-xs text-[#6b6560] dark:text-[#9ca3af]">Calories, protein, carbs & fat</p>
+              </div>
+            </div>
+
+            <!-- No account needed — shield-checkmark-outline icon -->
+            <div class="flex items-center gap-3 rounded-2xl bg-[#edeae5] dark:bg-[#1a1a1a] border border-[#d4ccc4] dark:border-[#2a2a2a] px-4 py-3">
+              <div class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#1c1714] dark:bg-[#2a2a2a]">
+                <!-- Ionicons shield-checkmark-outline -->
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                  <polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </div>
+              <div class="text-left">
+                <p class="text-sm font-bold text-[#1c1714] dark:text-white">No account needed</p>
+                <p class="text-xs text-[#6b6560] dark:text-[#9ca3af]">Everything stays on your phone</p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
+
+        <!-- CTAs -->
+        <AnimatedSection animation="fadeUp" delay={0.35} client:load>
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a
+              href="#download"
+              class="inline-flex items-center gap-3 rounded-2xl px-7 py-4 text-base font-bold text-[#1c1714] shadow-lg hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+              style="background-color:#c8920a;box-shadow:0 4px 20px rgba(200,146,10,0.3)"
+            >
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+              </svg>
+              App Store
+            </a>
+            <a
+              href="#download"
+              class="inline-flex items-center gap-3 rounded-2xl border-2 bg-white dark:bg-[#1a1a1a] px-7 py-4 text-base font-bold text-[#1c1714] dark:text-white hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
+              style="border-color:#d4ccc4"
+            >
+              <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" style="color:#c8920a" aria-hidden="true">
+                <path d="M3.18 23.76c.3.17.66.19.99.08l12.45-7.2-2.68-2.68-10.76 9.8zm-1.63-20.4C1.21 3.77 1 4.24 1 4.87v14.26c0 .63.21 1.1.55 1.42l.08.07 7.99-7.99v-.19L1.63 4.29l-.08.07zM20.96 10.16l-2.67-1.54-3 2.99 3 2.99 2.69-1.55c.76-.44.76-1.45-.02-1.89zM4.17.24L16.62 7.44 13.94 10.12 3.18.32c.33-.11.7-.09.99.08v-.16z"/>
+              </svg>
+              Google Play
+            </a>
+          </div>
+        </AnimatedSection>
+
+      </div>
+
+      <!-- Right: Phone mockup — matches real app UI exactly -->
+      <AnimatedSection animation="slideLeft" delay={0.2} client:load>
+        <div class="relative mx-auto w-64 sm:w-72">
+          <!-- Glow -->
+          <div class="absolute inset-0 rounded-[3rem] blur-2xl scale-110 pointer-events-none" style="background:radial-gradient(circle,rgba(200,146,10,0.2) 0%,transparent 70%)"></div>
+
+          <!-- Phone frame — dark like screenshots (app defaults dark on most devices) -->
+          <div class="relative rounded-[3rem] p-[3px] shadow-2xl" style="background:#1a1a1a;box-shadow:0 32px 64px rgba(0,0,0,0.4)">
+            <div class="rounded-[2.8rem] overflow-hidden" style="background:#0a0a0a">
+
+              <!-- Status bar -->
+              <div class="flex items-center justify-between px-5 pt-3 pb-1">
+                <span class="text-[11px] font-semibold" style="color:#9ca3af">9:41</span>
+                <div class="flex items-center gap-1.5">
+                  <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true">
+                    <rect x="0" y="3" width="3" height="8" rx="0.5" fill="#9ca3af"/>
+                    <rect x="4" y="2" width="3" height="9" rx="0.5" fill="#9ca3af"/>
+                    <rect x="8" y="0.5" width="3" height="10.5" rx="0.5" fill="#9ca3af"/>
+                    <rect x="12" y="0" width="3" height="11" rx="0.5" fill="#9ca3af" opacity="0.4"/>
+                  </svg>
+                  <div class="flex items-center gap-0.5">
+                    <div class="rounded-sm border p-px" style="width:18px;height:10px;border-color:#9ca3af">
+                      <div class="h-full rounded-sm" style="width:65%;background:#9ca3af"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- App header — "NomsAI" + 4 icons (barbell, history, analytics, settings) -->
+              <div class="flex items-center justify-between px-4 pt-1 pb-2">
+                <span class="text-lg font-black tracking-tight text-white">NomsAI</span>
+                <div class="flex items-center gap-3">
+                  <!-- Ionicons barbell-outline -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="8" y1="12" x2="16" y2="12"/>
+                    <line x1="6" y1="9" x2="6" y2="15" stroke-width="2.5"/>
+                    <line x1="18" y1="9" x2="18" y2="15" stroke-width="2.5"/>
+                    <line x1="3" y1="11" x2="6" y2="11"/><line x1="3" y1="13" x2="6" y2="13"/>
+                    <line x1="18" y1="11" x2="21" y2="11"/><line x1="18" y1="13" x2="21" y2="13"/>
+                  </svg>
+                  <!-- FontAwesome history -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/>
+                    <line x1="12" y1="7" x2="12" y2="12"/><line x1="12" y1="12" x2="15" y2="14"/>
+                  </svg>
+                  <!-- Ionicons analytics-outline -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+                    <line x1="6" y1="20" x2="6" y2="14"/>
+                    <line x1="2" y1="20" x2="22" y2="20"/>
+                  </svg>
+                  <!-- Ionicons settings-outline -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                </div>
+              </div>
+
+              <!-- Day selector — "Today" pill in #c8920a -->
+              <div class="flex gap-2 px-4 pb-3 overflow-hidden">
+                {['Tue 14', 'Wed 15', 'Thu 16', 'Fri 17'].map((d) => (
+                  <div class="flex-shrink-0 rounded-full px-3 py-1" style="background:#1a1a1a;border:1px solid #2a2a2a">
+                    <span class="text-[10px] font-medium" style="color:#9ca3af">{d}</span>
+                  </div>
+                ))}
+                <div class="flex-shrink-0 rounded-full px-3 py-1 font-bold text-[10px]" style="background:#c8920a;color:#1c1714">
+                  Today
+                </div>
+              </div>
+
+              <!-- Greeting -->
+              <div class="px-4 pb-1">
+                <p class="text-[11px]" style="color:#6b7280">🌙 Good evening</p>
+              </div>
+
+              <!-- Main calorie ring — #c8920a stroke -->
+              <div class="flex flex-col items-center py-3">
+                <div class="relative" style="width:100px;height:100px">
+                  <svg class="absolute inset-0 w-full h-full" style="transform:rotate(-90deg)" viewBox="0 0 100 100" aria-hidden="true">
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="#2a2a2a" stroke-width="8"/>
+                    <circle cx="50" cy="50" r="42" fill="none" stroke="#c8920a" stroke-width="8" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="13"/>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="text-xl font-black text-white">1,663</span>
+                    <span class="text-[9px] font-bold tracking-wider" style="color:#c8920a">KCAL</span>
+                    <span class="text-[8px]" style="color:#6b7280">5 left</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Macro mini-rings — exact colors from DayPage.tsx light theme -->
+              <div class="grid grid-cols-3 gap-1 px-4 pb-3">
+                {[
+                  { label:'Protein', val:'66',  goal:'76g',  color:'#d97b5a', offset:'65' },
+                  { label:'Carbs',   val:'179', goal:'194g', color:'#7aaa78', offset:'20' },
+                  { label:'Fat',     val:'69',  goal:'51g',  color:'#b08898', offset:'0'  },
+                ].map(({ label, val, goal, color, offset }) => (
+                  <div class="flex flex-col items-center gap-1">
+                    <div class="relative" style="width:44px;height:44px">
+                      <svg class="absolute inset-0 w-full h-full" style="transform:rotate(-90deg)" viewBox="0 0 44 44" aria-hidden="true">
+                        <circle cx="22" cy="22" r="18" fill="none" stroke="#2a2a2a" stroke-width="4"/>
+                        <circle cx="22" cy="22" r="18" fill="none" stroke={color} stroke-width="4" stroke-linecap="round"
+                          stroke-dasharray="113" stroke-dashoffset={offset}/>
+                      </svg>
+                      <div class="absolute inset-0 flex items-center justify-center">
+                        <span class="text-[10px] font-bold text-white">{val}</span>
+                      </div>
+                    </div>
+                    <p class="text-[8px]" style="color:#9ca3af">{label}</p>
+                    <p class="text-[8px]" style="color:#6b7280">{goal}</p>
+                  </div>
+                ))}
+              </div>
+
+              <!-- Flame + burned -->
+              <div class="flex items-center justify-center gap-1 pb-2">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b9fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 3z"/>
+                </svg>
+                <span class="text-[9px]" style="color:#6b7280">131 kcal burned</span>
+              </div>
+
+              <!-- Log label -->
+              <div class="px-4 pb-1">
+                <p class="text-[9px] font-bold uppercase tracking-widest" style="color:#6b7280">Today's Log</p>
+              </div>
+
+              <!-- Log entry -->
+              <div class="px-4 pb-2 border-t" style="border-color:#1a1a1a">
+                <div class="flex items-start justify-between py-2">
+                  <div class="flex-1 min-w-0">
+                    <p class="text-[10px] font-semibold text-white leading-snug truncate">Grilled chicken, rice, steamed broccoli</p>
+                    <p class="text-[9px] mt-0.5" style="color:#6b7280">19:05 · Protein 66g · Carbs 179g · Fat 69g</p>
+                  </div>
+                  <div class="text-right ml-2 flex-shrink-0">
+                    <p class="text-[10px] font-bold text-white">1663</p>
+                    <p class="text-[8px]" style="color:#6b7280">kcal</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- AI input bar -->
+              <div class="px-4 pb-4">
+                <div class="flex items-center gap-2 rounded-2xl px-3 py-2.5" style="background:#1a1a1a;border:1px solid #2a2a2a">
+                  <p class="flex-1 text-[10px] italic" style="color:#6b7280">2 eggs, toast and butter</p>
+                  <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-xl text-[#6b7280] text-xs font-bold" style="background:#2a2a2a">+</div>
+                </div>
+                <div class="flex items-center justify-between mt-2 px-1">
+                  <span class="text-[9px] font-bold" style="color:#c8920a">+ Add manually</span>
+                  <div class="flex items-center gap-1">
+                    <!-- Ionicons infinite-outline -->
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4z"/><path d="M12 12c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/>
+                    </svg>
+                    <span class="text-[9px]" style="color:#6b7280">Unlimited · Supporter</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Floating badges -->
+          <div class="absolute -left-8 top-16 rounded-2xl shadow-xl p-3 hidden sm:block bg-white dark:bg-[#1a1a1a]" style="border:1px solid #d4ccc4">
+            <div class="flex items-center gap-2">
+              <div class="flex h-8 w-8 items-center justify-center rounded-xl" style="background:#f4f2ef">
+                <!-- shield-checkmark-outline -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold" style="color:#1c1714">100% Private</p>
+                <p class="text-[10px]" style="color:#6b6560">Device-only storage</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="absolute -right-8 bottom-24 rounded-2xl shadow-xl p-3 hidden sm:block bg-white dark:bg-[#1a1a1a]" style="border:1px solid #d4ccc4">
+            <div class="flex items-center gap-2">
+              <div class="flex h-8 w-8 items-center justify-center rounded-xl" style="background:#f4f2ef">
+                <!-- flash-outline -->
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-xs font-bold" style="color:#1c1714">Instant AI</p>
+                <p class="text-[10px]" style="color:#6b6560">&lt; 1 second</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </AnimatedSection>
+
+    </div>
+  </div>
+</section>
