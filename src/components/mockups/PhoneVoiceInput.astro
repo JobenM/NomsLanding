@@ -1,0 +1,234 @@
+---
+---
+<style>
+  /* === 11s loop: partial day already logged → voice types → submits → ring+macros+log update === */
+
+  /* Typing animation */
+  .vi-type {
+    overflow: hidden; white-space: nowrap; max-width: 0;
+    display: inline-block; vertical-align: middle;
+    animation: vi-type 11s ease-out infinite;
+  }
+  @keyframes vi-type {
+    0%, 14%  { max-width: 0; }
+    48%, 58% { max-width: 200px; }
+    90%, 100%{ max-width: 0; }
+  }
+
+  .vi-cursor {
+    display: inline-block; width: 1.5px; height: 11px;
+    background: #c8920a; vertical-align: middle; margin-left: 1px;
+    animation: vi-blink 0.7s step-end infinite;
+  }
+  @keyframes vi-blink { 50% { opacity: 0; } }
+
+  /* Input bar border activates when typing */
+  .vi-bar { animation: vi-border 11s ease-out infinite; }
+  @keyframes vi-border {
+    0%, 14%  { border-color: var(--ph-border); }
+    20%, 58% { border-color: #c8920a; }
+    90%, 100%{ border-color: var(--ph-border); }
+  }
+
+  /* Submit button: always visible, turns gold when user is typing */
+  .vi-send { animation: vi-send-color 11s ease-out infinite; }
+  @keyframes vi-send-color {
+    0%, 52%  { background: var(--ph-surface); }
+    62%, 72% { background: #c8920a; }
+    90%, 100%{ background: var(--ph-surface); }
+  }
+
+  /* Mic always visible — no animation needed */
+
+  /* New log item slides in after submit — collapses when hidden so it doesn't create a gap */
+  .vi-new-item { animation: vi-item-in 11s ease-out infinite; }
+  @keyframes vi-item-in {
+    0%, 64%  { opacity: 0; transform: translateY(-8px); max-height: 0; overflow: hidden; margin-bottom: 0; padding-top: 0; padding-bottom: 0; }
+    70%      { max-height: 60px; overflow: visible; }
+    74%, 86% { opacity: 1; transform: translateY(0); max-height: 60px; }
+    93%, 100%{ opacity: 0; max-height: 60px; }
+  }
+
+  /* Ring fill: 405→605 kcal after logging */
+  .vi-ring { stroke-dasharray: 283; animation: vi-ring-fill 11s ease-out infinite; }
+  @keyframes vi-ring-fill {
+    0%, 64%  { stroke-dashoffset: 226; }
+    78%, 86% { stroke-dashoffset: 197; }
+    93%, 100%{ stroke-dashoffset: 226; }
+  }
+
+  /* Kcal value swaps */
+  .vi-kcal-before { animation: vi-kcal-b 11s ease-out infinite; }
+  @keyframes vi-kcal-b {
+    0%, 64%  { opacity: 1; }
+    72%, 100%{ opacity: 0; }
+  }
+  .vi-kcal-after { animation: vi-kcal-a 11s ease-out infinite; }
+  @keyframes vi-kcal-a {
+    0%, 68%  { opacity: 0; }
+    76%, 86% { opacity: 1; }
+    93%, 100%{ opacity: 0; }
+  }
+
+  /* Macro tube fills animate after logging */
+  .vi-p-fill { animation: vi-p 11s ease-out infinite; }
+  @keyframes vi-p {
+    0%, 64%  { height: 26%; }
+    78%, 86% { height: 35%; }
+    93%, 100%{ height: 26%; }
+  }
+  .vi-c-fill { animation: vi-c 11s ease-out infinite; }
+  @keyframes vi-c {
+    0%, 64%  { height: 21%; }
+    78%, 86% { height: 31%; }
+    93%, 100%{ height: 21%; }
+  }
+  .vi-f-fill { animation: vi-f 11s ease-out infinite; }
+  @keyframes vi-f {
+    0%, 64%  { height: 48%; }
+    78%, 86% { height: 68%; }
+    93%, 100%{ height: 48%; }
+  }
+
+  /* Macro text values swap */
+  .vi-macro-before { animation: vi-kcal-b 11s ease-out infinite; }
+  .vi-macro-after  { animation: vi-kcal-a 11s ease-out infinite; }
+</style>
+
+<!-- Date strip -->
+<div class="flex gap-1.5 px-3 pb-2 overflow-hidden">
+  {['Tue 24','Wed 25','Thu 26','Fri 27'].map(d => (
+    <div class="flex-shrink-0 rounded-full px-2 py-0.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+      <span class="text-[8px] font-medium" style="color:var(--ph-muted)">{d}</span>
+    </div>
+  ))}
+  <div class="flex-shrink-0 rounded-full px-2 py-0.5 font-bold text-[8px]" style="background:#c8920a;color:#1c1714">Today</div>
+</div>
+
+<div class="px-4 pb-2"><p class="text-[9px]" style="color:var(--ph-muted)">☀️ Good afternoon</p></div>
+
+<!-- Ring + Macros -->
+<div class="flex items-center justify-center px-3 pb-3 gap-4">
+  <div class="relative flex-shrink-0" style="width:108px;height:108px">
+    <svg class="absolute inset-0" width="108" height="108" viewBox="0 0 108 108" style="transform:rotate(-90deg)" aria-hidden="true">
+      <circle cx="54" cy="54" r="45" fill="none" stroke="var(--ph-border)" stroke-width="9"/>
+      <circle class="vi-ring" cx="54" cy="54" r="45" fill="none" stroke="#c8920a" stroke-width="9" stroke-linecap="round" stroke-dashoffset="226"/>
+    </svg>
+    <div class="absolute inset-0 flex flex-col items-center justify-center">
+      <span class="vi-kcal-before absolute text-lg font-black" style="color:var(--ph-fg)">405</span>
+      <span class="vi-kcal-after absolute text-lg font-black" style="color:var(--ph-fg);opacity:0">605</span>
+      <span class="text-[8px] font-bold mt-5" style="color:#c8920a">KCAL</span>
+      <span class="text-[7px] mt-0.5" style="color:var(--ph-muted)">1595 left</span>
+    </div>
+  </div>
+
+  <div class="flex flex-col gap-2.5">
+    <!-- Protein -->
+    <div class="flex items-center gap-2">
+      <div class="relative overflow-hidden flex-shrink-0" style="width:12px;height:30px;border-radius:6px;border:1.5px solid #60a5fa40;background:#60a5fa12">
+        <div class="vi-p-fill absolute bottom-0 left-0 right-0" style="background:#60a5facc"></div>
+      </div>
+      <div>
+        <p class="text-[7px]" style="color:var(--ph-muted)">Protein</p>
+        <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">
+          <span class="vi-macro-before">20g</span><span class="vi-macro-after" style="opacity:0;position:absolute">27g</span>
+        </p>
+        <p class="text-[7px]" style="color:var(--ph-muted)">56g left</p>
+      </div>
+    </div>
+    <!-- Carbs -->
+    <div class="flex items-center gap-2">
+      <div class="relative overflow-hidden flex-shrink-0" style="width:12px;height:30px;border-radius:6px;border:1.5px solid #fb923c40;background:#fb923c12">
+        <div class="vi-c-fill absolute bottom-0 left-0 right-0" style="background:#fb923ccc"></div>
+      </div>
+      <div>
+        <p class="text-[7px]" style="color:var(--ph-muted)">Carbs</p>
+        <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">
+          <span class="vi-macro-before">33g</span><span class="vi-macro-after" style="opacity:0;position:absolute">47g</span>
+        </p>
+        <p class="text-[7px]" style="color:var(--ph-muted)">121g left</p>
+      </div>
+    </div>
+    <!-- Fat -->
+    <div class="flex items-center gap-2">
+      <div class="relative overflow-hidden flex-shrink-0" style="width:12px;height:30px;border-radius:6px;border:1.5px solid #cb9ad840;background:#cb9ad812">
+        <div class="vi-f-fill absolute bottom-0 left-0 right-0" style="background:#cb9ad8cc"></div>
+      </div>
+      <div>
+        <p class="text-[7px]" style="color:var(--ph-muted)">Fat</p>
+        <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">
+          <span class="vi-macro-before">21g</span><span class="vi-macro-after" style="opacity:0;position:absolute">30g</span>
+        </p>
+        <p class="text-[7px]" style="color:var(--ph-muted)">23g left</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TODAY'S LOG -->
+<div class="px-3 pb-1">
+  <p class="text-[7px] font-bold uppercase tracking-widest mb-1.5" style="color:var(--ph-muted)">TODAY'S LOG</p>
+
+  <!-- New item (animated in after submit) -->
+  <div class="vi-new-item rounded-xl p-2 mb-1.5" style="background:var(--ph-surface);border-left:2.5px solid #c8920a;border-top:1px solid var(--ph-border);border-right:1px solid var(--ph-border);border-bottom:1px solid var(--ph-border);opacity:0;overflow:hidden;margin-bottom:0">
+    <div class="flex items-start justify-between gap-1.5">
+      <p class="text-[9px] font-semibold flex-1 leading-tight" style="color:var(--ph-fg)">Apple (150g) · Peanut butter (20g)</p>
+      <div class="flex-shrink-0 text-right">
+        <p class="text-[10px] font-bold" style="color:#c8920a">200</p>
+        <p class="text-[7px]" style="color:var(--ph-muted)">kcal</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5 mt-1">
+      <p class="text-[7px]" style="color:var(--ph-muted)">14:15</p>
+      <span class="text-[7px] font-medium" style="color:#60a5fa">●7g</span>
+      <span class="text-[7px] font-medium" style="color:#fb923c">●14g</span>
+      <span class="text-[7px] font-medium" style="color:#cb9ad8">●9g</span>
+    </div>
+  </div>
+
+  <!-- Existing item (static) -->
+  <div class="rounded-xl px-2.5 py-2" style="background:var(--ph-surface);border-left:2.5px solid #c8920a;border-top:1px solid var(--ph-border);border-right:1px solid var(--ph-border);border-bottom:1px solid var(--ph-border)">
+    <div class="flex items-start justify-between gap-1.5">
+      <p class="text-[9px] font-semibold flex-1 leading-tight" style="color:var(--ph-fg)">Eggs (114g) · White toast (64g) · Butter (10g)</p>
+      <div class="flex-shrink-0 text-right">
+        <p class="text-[10px] font-bold" style="color:#c8920a">405</p>
+        <p class="text-[7px]" style="color:var(--ph-muted)">kcal</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5 mt-1">
+      <p class="text-[7px]" style="color:var(--ph-muted)">08:30</p>
+      <span class="text-[7px] font-medium" style="color:#60a5fa">●20g</span>
+      <span class="text-[7px] font-medium" style="color:#fb923c">●33g</span>
+      <span class="text-[7px] font-medium" style="color:#cb9ad8">●21g</span>
+    </div>
+  </div>
+</div>
+
+<!-- Spacer pushes input to bottom of flex-col phone screen -->
+<div class="flex-1"></div>
+
+<!-- Input bar — correct two-part layout with mic inside + separate square submit -->
+<div class="px-3 pt-2 pb-1">
+  <div class="flex items-center gap-2">
+    <!-- Main input area with mic inside -->
+    <div class="vi-bar relative flex-1 rounded-xl px-3 py-3 pr-10" style="background:var(--ph-surface);border:1px solid var(--ph-border);min-height:46px">
+      <div class="flex items-center overflow-hidden min-w-0">
+        <span class="vi-type text-[10px]" style="color:var(--ph-fg)">apple and peanut butter</span>
+        <span class="vi-cursor"></span>
+      </div>
+      <!-- Mic always visible inside input -->
+      <div class="absolute right-2 top-1/2 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:var(--ph-muted)" aria-hidden="true">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        </svg>
+      </div>
+    </div>
+    <!-- Submit button: always visible, animates from inactive→gold when typing -->
+    <div class="vi-send flex h-[38px] w-[38px] flex-shrink-0 items-center justify-center rounded-xl font-black text-base text-[#1c1714]" style="background:var(--ph-surface)">+</div>
+  </div>
+</div>
+<div class="flex items-center justify-between px-4 pb-3">
+  <span class="text-[9px] font-semibold" style="color:#c8920a">⊕ Add manually</span>
+  <span class="text-[9px]" style="color:var(--ph-muted)">⚡ Unlimited</span>
+</div>

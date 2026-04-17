@@ -1,0 +1,195 @@
+---
+---
+<style>
+  /* === 16s loop: Step 1 (name) → Step 2 (amounts) → Step 3 (serving+save) === */
+
+  /* Step 1: 0-5s */
+  .rc-step1 { animation: rc-s1 16s ease-out infinite; }
+  @keyframes rc-s1 {
+    0%, 5%   { opacity: 0; }
+    10%, 28% { opacity: 1; }
+    33%, 100%{ opacity: 0; }
+  }
+
+  /* Step 2: 5-10s */
+  .rc-step2 { animation: rc-s2 16s ease-out infinite; }
+  @keyframes rc-s2 {
+    0%, 30%  { opacity: 0; }
+    36%, 60% { opacity: 1; }
+    66%, 100%{ opacity: 0; }
+  }
+
+  /* Step 3: 10-15s */
+  .rc-step3 { animation: rc-s3 16s ease-out infinite; }
+  @keyframes rc-s3 {
+    0%, 63%  { opacity: 0; }
+    68%, 88% { opacity: 1; }
+    93%, 100%{ opacity: 0; }
+  }
+
+  /* Typing animation (within step 1) */
+  .rc-name-text {
+    overflow: hidden; white-space: nowrap; max-width: 0;
+    display: inline-block; vertical-align: middle;
+    animation: rc-name-type 16s ease-out infinite;
+  }
+  @keyframes rc-name-type {
+    0%, 10%  { max-width: 0; }
+    24%, 30% { max-width: 120px; }
+    33%, 100%{ max-width: 0; }
+  }
+
+  .rc-cursor {
+    display: inline-block; width: 1.5px; height: 11px;
+    background: #c8920a; vertical-align: middle; margin-left: 1px;
+    animation: rc-blink 0.7s step-end infinite;
+  }
+  @keyframes rc-blink { 50% { opacity: 0; } }
+
+  /* Continue button appears after name is typed */
+  .rc-step1-btn { animation: rc-s1btn 16s ease-out infinite; }
+  @keyframes rc-s1btn {
+    0%, 20%  { opacity: 0; transform: translateY(6px); }
+    26%, 28% { opacity: 1; transform: translateY(0); }
+    33%, 100%{ opacity: 0; }
+  }
+
+  /* Step 2 ingredients stagger in */
+  .rc-ing1 { animation: rc-ing1 16s ease-out infinite; }
+  @keyframes rc-ing1 {
+    0%, 32%  { opacity: 0; transform: translateX(-8px); }
+    40%, 60% { opacity: 1; transform: translateX(0); }
+    66%, 100%{ opacity: 0; }
+  }
+  .rc-ing2 { animation: rc-ing2 16s ease-out infinite; }
+  @keyframes rc-ing2 {
+    0%, 38%  { opacity: 0; transform: translateX(-8px); }
+    46%, 60% { opacity: 1; transform: translateX(0); }
+    66%, 100%{ opacity: 0; }
+  }
+  .rc-ing-total { animation: rc-ing-total 16s ease-out infinite; }
+  @keyframes rc-ing-total {
+    0%, 44%  { opacity: 0; }
+    52%, 60% { opacity: 1; }
+    66%, 100%{ opacity: 0; }
+  }
+
+  /* Step 3 save button pulse */
+  .rc-save-btn { animation: rc-save 16s ease-out infinite; }
+  @keyframes rc-save {
+    0%, 63%  { box-shadow: none; }
+    73%      { box-shadow: 0 0 0 5px rgba(200,146,10,0.4); }
+    79%      { box-shadow: none; }
+    84%      { box-shadow: 0 0 0 5px rgba(200,146,10,0.4); }
+    90%, 100%{ box-shadow: none; }
+  }
+</style>
+
+<!-- All 3 steps absolutely overlaid, faded in/out -->
+<div class="relative px-4" style="min-height:400px">
+
+  <!-- ── STEP 1: Name your recipe ── -->
+  <div class="rc-step1 absolute inset-x-4 top-0" style="opacity:0">
+    <!-- Step indicator -->
+    <div class="flex items-center justify-between mb-4">
+      <span class="text-[8px]" style="color:var(--ph-muted)">← Review</span>
+      <span class="text-[8px]" style="color:var(--ph-muted)">Step 1 of 3</span>
+    </div>
+    <h3 class="text-base font-black mb-1" style="color:var(--ph-fg)">Name your recipe</h3>
+    <p class="text-[9px] mb-4" style="color:var(--ph-muted)">Give this recipe a name you'll recognise.</p>
+
+    <!-- Name input -->
+    <div class="rounded-xl px-3 py-3 mb-4" style="background:var(--ph-surface);border:1.5px solid #c8920a">
+      <span class="rc-name-text text-[11px]" style="color:var(--ph-fg)">Morning oats</span>
+      <span class="rc-cursor"></span>
+    </div>
+
+    <!-- Continue button -->
+    <div class="rc-step1-btn flex items-center justify-center rounded-2xl py-3" style="background:#c8920a;opacity:0">
+      <span class="text-[11px] font-bold text-[#1c1714]">Continue →</span>
+    </div>
+  </div>
+
+  <!-- ── STEP 2: Full recipe amounts ── -->
+  <div class="rc-step2 absolute inset-x-4 top-0" style="opacity:0">
+    <div class="flex items-center justify-between mb-4">
+      <span class="text-[8px]" style="color:var(--ph-muted)">← Back</span>
+      <span class="text-[8px]" style="color:var(--ph-muted)">Step 2 of 3</span>
+    </div>
+    <h3 class="text-base font-black mb-1" style="color:var(--ph-fg)">Full recipe amounts</h3>
+    <p class="text-[9px] mb-3" style="color:var(--ph-muted)">Amounts for the whole recipe — not one serving.</p>
+
+    <!-- Ingredient 1 -->
+    <div class="rc-ing1 rounded-xl px-3 py-2.5 mb-2" style="background:var(--ph-surface);border:1px solid var(--ph-border);opacity:0">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">Rolled oats</p>
+          <p class="text-[7px]" style="color:var(--ph-muted)">368 kcal · 13g P</p>
+        </div>
+        <div class="flex items-center gap-1">
+          <div class="rounded-lg px-2 py-1" style="background:var(--ph-bg);border:1.5px solid #c8920a">
+            <span class="text-[10px] font-bold" style="color:var(--ph-fg)">80</span>
+          </div>
+          <span class="text-[9px]" style="color:var(--ph-muted)">g</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ingredient 2 -->
+    <div class="rc-ing2 rounded-xl px-3 py-2.5 mb-3" style="background:var(--ph-surface);border:1px solid var(--ph-border);opacity:0">
+      <div class="flex items-center justify-between">
+        <div>
+          <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">Oat milk</p>
+          <p class="text-[7px]" style="color:var(--ph-muted)">47 kcal · 1g P</p>
+        </div>
+        <div class="flex items-center gap-1">
+          <div class="rounded-lg px-2 py-1" style="background:var(--ph-bg);border:1.5px solid #c8920a">
+            <span class="text-[10px] font-bold" style="color:var(--ph-fg)">200</span>
+          </div>
+          <span class="text-[9px]" style="color:var(--ph-muted)">ml</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Total -->
+    <div class="rc-ing-total rounded-xl px-3 py-2 mb-4" style="background:var(--ph-border);opacity:0">
+      <p class="text-[7px] uppercase tracking-widest mb-0.5" style="color:var(--ph-muted)">Total recipe</p>
+      <p class="text-[10px] font-bold" style="color:var(--ph-fg)">280g · 342 kcal</p>
+    </div>
+
+    <div class="flex items-center justify-center rounded-2xl py-3" style="background:#c8920a">
+      <span class="text-[11px] font-bold text-[#1c1714]">Continue →</span>
+    </div>
+  </div>
+
+  <!-- ── STEP 3: Your usual serving ── -->
+  <div class="rc-step3 absolute inset-x-4 top-0" style="opacity:0">
+    <div class="flex items-center justify-between mb-4">
+      <span class="text-[8px]" style="color:var(--ph-muted)">← Back</span>
+      <span class="text-[8px]" style="color:var(--ph-muted)">Step 3 of 3</span>
+    </div>
+    <h3 class="text-base font-black mb-1" style="color:var(--ph-fg)">Your usual serving</h3>
+    <p class="text-[9px] mb-4" style="color:var(--ph-muted)">How many grams do you normally have?<br/>(Recipe is 280g total)</p>
+
+    <!-- Serving input -->
+    <div class="flex items-center gap-3 mb-4">
+      <div class="rounded-xl px-4 py-3" style="background:var(--ph-surface);border:1.5px solid #c8920a">
+        <span class="text-xl font-black" style="color:var(--ph-fg)">280</span>
+      </div>
+      <span class="text-sm font-semibold" style="color:var(--ph-muted)">grams</span>
+    </div>
+
+    <!-- Macro preview -->
+    <div class="rounded-xl px-3 py-2.5 mb-4" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+      <p class="text-[7px] uppercase tracking-widest mb-1" style="color:var(--ph-muted)">PER 280G SERVING</p>
+      <p class="text-sm font-black" style="color:var(--ph-fg)">342 kcal</p>
+      <p class="text-[8px] mt-0.5" style="color:var(--ph-muted)">14g protein · 56g carbs · 7g fat</p>
+    </div>
+
+    <!-- Save Recipe button -->
+    <div class="rc-save-btn flex items-center justify-center rounded-2xl py-3" style="background:#c8920a">
+      <span class="text-[11px] font-bold text-[#1c1714]">Save Recipe</span>
+    </div>
+  </div>
+
+</div>

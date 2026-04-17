@@ -1,0 +1,131 @@
+---
+---
+<style>
+  /* === 9s loop: review items animate in → total appears → confirm pulses → flash → reset === */
+
+  .rev-item-1 { animation: rev-i1 9s ease-out infinite; }
+  @keyframes rev-i1 {
+    0%, 8%   { opacity: 0; transform: translateX(-10px); }
+    20%, 78% { opacity: 1; transform: translateX(0); }
+    90%, 100%{ opacity: 0; }
+  }
+
+  .rev-item-2 { animation: rev-i2 9s ease-out infinite; }
+  @keyframes rev-i2 {
+    0%, 20%  { opacity: 0; transform: translateX(-10px); }
+    33%, 78% { opacity: 1; transform: translateX(0); }
+    90%, 100%{ opacity: 0; }
+  }
+
+  .rev-total { animation: rev-total 9s ease-out infinite; }
+  @keyframes rev-total {
+    0%, 34%  { opacity: 0; transform: translateY(6px); }
+    46%, 78% { opacity: 1; transform: translateY(0); }
+    90%, 100%{ opacity: 0; }
+  }
+
+  .rev-confirm { animation: rev-confirm 9s ease-out infinite; }
+  @keyframes rev-confirm {
+    0%, 44%  { opacity: 0; transform: translateY(8px); }
+    55%, 78% { opacity: 1; transform: translateY(0); }
+    90%, 100%{ opacity: 0; }
+  }
+
+  .rev-confirm-glow { animation: rev-glow 9s ease-out infinite; }
+  @keyframes rev-glow {
+    0%, 60%  { box-shadow: none; }
+    68%      { box-shadow: 0 0 0 4px rgba(200,146,10,0.5); }
+    75%      { box-shadow: none; }
+    80%      { box-shadow: 0 0 0 4px rgba(200,146,10,0.5); }
+    90%, 100%{ box-shadow: none; }
+  }
+
+  .rev-save { animation: rev-save 9s ease-out infinite; }
+  @keyframes rev-save {
+    0%, 50%  { opacity: 0; }
+    60%, 78% { opacity: 1; }
+    90%, 100%{ opacity: 0; }
+  }
+</style>
+
+<!-- Review screen header -->
+<div class="flex items-center justify-between px-4 pt-1 pb-3">
+  <div>
+    <p class="text-base font-black" style="color:var(--ph-fg)">Review</p>
+    <p class="text-[8px]" style="color:var(--ph-muted)">Adjust anything the AI got wrong.</p>
+  </div>
+  <div class="flex h-7 w-7 items-center justify-center rounded-full" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+    <span class="text-[14px] font-medium" style="color:var(--ph-muted)">×</span>
+  </div>
+</div>
+
+<!-- Food item 1 -->
+<div class="rev-item-1 px-3 mb-2" style="opacity:0">
+  <div class="rounded-xl px-3 py-2.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+    <div class="flex items-center justify-between mb-1.5">
+      <p class="text-[10px] font-bold" style="color:var(--ph-fg)">Scrambled eggs</p>
+      <div class="flex h-5 w-5 items-center justify-center rounded-full" style="background:var(--ph-border)">
+        <span class="text-[10px]" style="color:var(--ph-muted)">×</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <p class="text-[8px]" style="color:var(--ph-muted)">Amount</p>
+      <div class="rounded-lg px-2 py-1 ml-auto" style="background:var(--ph-bg);border:1.5px solid #c8920a;min-width:44px;text-align:center">
+        <span class="text-[10px] font-bold" style="color:var(--ph-fg)">110</span>
+      </div>
+      <span class="text-[9px]" style="color:var(--ph-muted)">g</span>
+    </div>
+    <p class="text-[7px] mt-1 text-right" style="color:var(--ph-muted)">168 kcal / 100g</p>
+    <p class="text-[7px] mt-0.5" style="color:#c8920a">Show macros ▾</p>
+  </div>
+</div>
+
+<!-- Food item 2 -->
+<div class="rev-item-2 px-3 mb-2" style="opacity:0">
+  <div class="rounded-xl px-3 py-2.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+    <div class="flex items-center justify-between mb-1.5">
+      <p class="text-[10px] font-bold" style="color:var(--ph-fg)">Sourdough toast (2 slices)</p>
+      <div class="flex h-5 w-5 items-center justify-center rounded-full" style="background:var(--ph-border)">
+        <span class="text-[10px]" style="color:var(--ph-muted)">×</span>
+      </div>
+    </div>
+    <div class="flex items-center gap-2">
+      <p class="text-[8px]" style="color:var(--ph-muted)">Amount</p>
+      <div class="rounded-lg px-2 py-1 ml-auto" style="background:var(--ph-bg);border:1.5px solid #c8920a;min-width:44px;text-align:center">
+        <span class="text-[10px] font-bold" style="color:var(--ph-fg)">110</span>
+      </div>
+      <span class="text-[9px]" style="color:var(--ph-muted)">g</span>
+    </div>
+    <p class="text-[7px] mt-1 text-right" style="color:var(--ph-muted)">268 kcal / 100g</p>
+    <p class="text-[7px] mt-0.5" style="color:#c8920a">Show macros ▾</p>
+  </div>
+</div>
+
+<!-- Total -->
+<div class="rev-total px-3 mb-3" style="opacity:0">
+  <div class="rounded-xl px-3 py-2.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+    <p class="text-[7px] font-bold uppercase tracking-widest mb-1" style="color:var(--ph-muted)">TOTAL</p>
+    <p class="text-base font-black" style="color:var(--ph-fg)">480 kcal</p>
+    <p class="text-[8px] mt-0.5" style="color:var(--ph-muted)">26g protein · 56g carbs · 18g fat</p>
+  </div>
+</div>
+
+<!-- Buttons -->
+<div class="rev-confirm px-3 space-y-2" style="opacity:0">
+  <div class="flex gap-2">
+    <div class="flex-1 flex items-center justify-center rounded-2xl py-2.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+      <span class="text-[10px] font-semibold" style="color:var(--ph-muted)">Discard</span>
+    </div>
+    <div class="rev-confirm-glow flex-[2] flex items-center justify-center rounded-2xl py-2.5" style="background:#c8920a">
+      <span class="text-[10px] font-bold text-[#1c1714]">Confirm &amp; Log</span>
+    </div>
+  </div>
+
+  <!-- Save as Recipe -->
+  <div class="rev-save flex items-center justify-center gap-2 rounded-2xl py-2.5" style="background:var(--ph-surface);border:1px solid var(--ph-border);opacity:0">
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    </svg>
+    <span class="text-[10px] font-semibold" style="color:#c8920a">Save as Recipe</span>
+  </div>
+</div>

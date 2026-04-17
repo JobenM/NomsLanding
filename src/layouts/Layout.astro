@@ -81,6 +81,24 @@ const site = 'https://jobenmora.com';
     </script>
   </head>
   <style is:global>
+    /* Phone mockup theme — mirrors actual NomsAI app colors */
+    :root {
+      --ph-bg: #f4f2ef;
+      --ph-surface: #edeae5;
+      --ph-border: #d4ccc4;
+      --ph-fg: #1c1714;
+      --ph-muted: #6b6560;
+      --ph-placeholder: #bbb5af;
+    }
+    .dark {
+      --ph-bg: #0a0a0a;
+      --ph-surface: #1a1a1a;
+      --ph-border: #2a2a2a;
+      --ph-fg: #ffffff;
+      --ph-muted: #9ca3af;
+      --ph-placeholder: #6b7280;
+    }
+
     /* prose-legal — dark-mode-aware legal document styles */
     .prose-legal h2 { font-size:1.25rem;font-weight:800;color:#1c1714;margin-top:2.5rem;margin-bottom:.75rem;letter-spacing:-.01em; }
     .prose-legal h3 { font-size:1.05rem;font-weight:700;color:#1c1714;margin-top:1.75rem;margin-bottom:.5rem; }

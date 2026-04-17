@@ -1,0 +1,169 @@
+---
+---
+<style>
+  /* === 6s loop: type "oat" → suggestions pop up → chip taps → reset === */
+
+  .type-input-text {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    display: inline-block;
+    vertical-align: middle;
+    animation: type-text 6s ease-out infinite;
+  }
+  @keyframes type-text {
+    0%, 5%   { max-width: 0; }
+    30%, 68% { max-width: 80px; }
+    84%, 100%{ max-width: 0; }
+  }
+
+  .type-cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 11px;
+    background: #c8920a;
+    vertical-align: middle;
+    margin-left: 1px;
+    animation: blink 0.7s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .type-suggestions {
+    animation: type-sugs 6s ease-out infinite;
+  }
+  @keyframes type-sugs {
+    0%, 24%  { opacity: 0; transform: translateY(6px); }
+    36%, 70% { opacity: 1; transform: translateY(0); }
+    84%, 100%{ opacity: 0; }
+  }
+
+  .type-sug-0 {
+    animation: type-sug0 6s ease-out infinite;
+  }
+  @keyframes type-sug0 {
+    0%, 26%  { opacity: 0; }
+    37%, 55% { opacity: 1; }
+    62%, 70% { opacity: 0.5; background: rgba(200,146,10,0.2); }
+    84%, 100%{ opacity: 0; }
+  }
+
+  .type-sug-1 {
+    animation: type-sug1 6s ease-out infinite;
+  }
+  @keyframes type-sug1 {
+    0%, 30%  { opacity: 0; }
+    41%, 70% { opacity: 1; }
+    84%, 100%{ opacity: 0; }
+  }
+
+  .type-sug-2 {
+    animation: type-sug2 6s ease-out infinite;
+  }
+  @keyframes type-sug2 {
+    0%, 34%  { opacity: 0; }
+    45%, 70% { opacity: 1; }
+    84%, 100%{ opacity: 0; }
+  }
+</style>
+
+<!-- Date strip -->
+<div class="flex gap-1.5 px-3 pb-2 overflow-hidden">
+  {['Tue 24', 'Wed 25', 'Thu 26', 'Fri 27'].map((d) => (
+    <div class="flex-shrink-0 rounded-full px-2 py-0.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+      <span class="text-[8px] font-medium" style="color:var(--ph-muted)">{d}</span>
+    </div>
+  ))}
+  <div class="flex-shrink-0 rounded-full px-2 py-0.5 font-bold text-[8px]" style="background:#c8920a;color:#1c1714">Today</div>
+</div>
+
+<div class="px-4 pb-2"><p class="text-[9px]" style="color:var(--ph-muted)">🌤 Good morning</p></div>
+
+<!-- Ring + Macros — partially logged day (405 kcal) -->
+<div class="flex items-center justify-center px-3 pb-2 gap-4">
+  <div class="relative flex-shrink-0" style="width:108px;height:108px">
+    <svg class="absolute inset-0" width="108" height="108" viewBox="0 0 108 108" style="transform:rotate(-90deg)" aria-hidden="true">
+      <circle cx="54" cy="54" r="45" fill="none" stroke="var(--ph-border)" stroke-width="9"/>
+      <circle cx="54" cy="54" r="45" fill="none" stroke="#c8920a" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="150"/>
+    </svg>
+    <div class="absolute inset-0 flex flex-col items-center justify-center">
+      <span class="text-lg font-black" style="color:var(--ph-fg)">405</span>
+      <span class="text-[8px] font-bold" style="color:#c8920a">KCAL</span>
+      <span class="text-[7px]" style="color:var(--ph-muted)">918 left</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-2.5">
+    {[
+      { label:'Protein', val:'20g', left:'56g left',  color:'#60a5fa', fill:26 },
+      { label:'Carbs',   val:'33g', left:'121g left', color:'#fb923c', fill:21 },
+      { label:'Fat',     val:'21g', left:'23g left',  color:'#cb9ad8', fill:48 },
+    ].map(({ label, val, left, color, fill }) => (
+      <div class="flex items-center gap-2">
+        <div class="relative overflow-hidden flex-shrink-0" style={`width:12px;height:30px;border-radius:6px;border:1.5px solid ${color}40;background:${color}12`}>
+          <div class="absolute bottom-0 left-0 right-0" style={`height:${fill}%;background:${color}cc`}></div>
+        </div>
+        <div>
+          <p class="text-[7px]" style="color:var(--ph-muted)">{label}</p>
+          <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">{val}</p>
+          <p class="text-[7px]" style="color:var(--ph-muted)">{left}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- Today's log -->
+<div class="px-3 pb-2">
+  <p class="text-[7px] font-bold uppercase tracking-widest mb-1" style="color:var(--ph-muted)">TODAY'S LOG</p>
+  <div class="rounded-xl px-2.5 py-2" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+    <div class="flex items-start justify-between gap-1.5">
+      <p class="text-[9px] font-semibold flex-1 leading-tight" style="color:var(--ph-fg)">Eggs (114g) · White toast (64g) · Butter (10g)</p>
+      <div class="flex-shrink-0 text-right">
+        <p class="text-[10px] font-bold" style="color:var(--ph-fg)">405</p>
+        <p class="text-[7px]" style="color:var(--ph-muted)">kcal</p>
+      </div>
+    </div>
+    <div class="flex items-center gap-1.5 mt-1">
+      <p class="text-[7px]" style="color:var(--ph-muted)">08:30</p>
+      <span class="rounded-full px-1.5 py-0.5 text-[7px] font-medium" style="background:var(--ph-border);color:#d97b5a">+20g</span>
+      <span class="rounded-full px-1.5 py-0.5 text-[7px] font-medium" style="background:var(--ph-border);color:#7aaa78">+33g</span>
+      <span class="rounded-full px-1.5 py-0.5 text-[7px] font-medium" style="background:var(--ph-border);color:#b08898">+21g</span>
+    </div>
+  </div>
+</div>
+
+<!-- Suggestion chips -->
+<div class="type-suggestions px-3 pb-1.5">
+  <p class="text-[7px] mb-1" style="color:var(--ph-muted)">Your recent:</p>
+  <div class="flex gap-1.5 flex-wrap">
+    <div class="type-sug-0 rounded-full px-2.5 py-1 text-[8px] font-medium border" style="background:var(--ph-border);border-color:var(--ph-border);color:#c8920a">Oat milk latte</div>
+    <div class="type-sug-1 rounded-full px-2.5 py-1 text-[8px] font-medium border" style="background:var(--ph-surface);border-color:var(--ph-border);color:var(--ph-muted)">Oatmeal, banana</div>
+    <div class="type-sug-2 rounded-full px-2.5 py-1 text-[8px] font-medium border" style="background:var(--ph-surface);border-color:var(--ph-border);color:var(--ph-muted)">Oat biscuits ×3</div>
+  </div>
+</div>
+
+<div class="flex-1"></div>
+<!-- Input bar — active/gold border always on, mic inside, separate submit button -->
+<div class="px-3 pb-1">
+  <div class="flex items-center gap-2">
+    <!-- Main input with mic inside, gold border (user is typing) -->
+    <div class="relative flex-1 rounded-xl px-3 py-3 pr-10" style="background:var(--ph-surface);border:1.5px solid #c8920a;min-height:46px">
+      <div class="flex items-center overflow-hidden min-w-0">
+        <span class="type-input-text text-[10px]" style="color:var(--ph-fg)">oat</span>
+        <span class="type-cursor"></span>
+      </div>
+      <!-- Mic inside input -->
+      <div class="absolute right-2 top-1/2 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:var(--ph-muted)" aria-hidden="true">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        </svg>
+      </div>
+    </div>
+    <!-- Submit button (separate square, mustard) -->
+    <div class="flex h-[38px] w-[38px] flex-shrink-0 items-center justify-center rounded-xl font-black text-base text-[#1c1714]" style="background:#c8920a">+</div>
+  </div>
+</div>
+<div class="flex items-center justify-between px-4 pb-3">
+  <span class="text-[9px] font-semibold" style="color:#c8920a">⊕ Add manually</span>
+  <span class="text-[9px]" style="color:var(--ph-muted)">⚡ Unlimited</span>
+</div>

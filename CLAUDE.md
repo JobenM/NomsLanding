@@ -1,6 +1,10 @@
 ⏺ Build a landing page for NomsAI — a minimalist, privacy-first AI calorie tracking app for iOS and Android. The app lets users type what they ate (e.g. "2 eggs and toast") and
 uses AI to instantly estimate macros. No login required, no ads, device-only food logs.
 
+## Related repositories
+
+- **App source code**: `../NomsAI` (relative to this repo) — React Native + Expo, full client + server. Read this for accurate UI details, feature descriptions, color tokens, and copy.
+
 ## Project setup
 
 - Astro + Tailwind CSS

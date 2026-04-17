@@ -1,0 +1,88 @@
+---
+import AnimatedSection from './AnimatedSection.tsx';
+import PhoneMockupShell from './PhoneMockupShell.astro';
+
+interface Props {
+  featureId: string;
+  eyebrow: string;
+  heading: string;        // use \n for line breaks
+  subheading: string;
+  pills?: string[];
+  flip?: boolean;         // phone on LEFT, text on RIGHT
+  bg?: 'cream' | 'white' | 'alt';
+}
+
+const {
+  featureId,
+  eyebrow,
+  heading,
+  subheading,
+  pills = [],
+  flip = false,
+  bg = 'white',
+} = Astro.props;
+
+const bgClass =
+  bg === 'cream' ? 'bg-[#f4f2ef] dark:bg-[#0a0a0a]' :
+  bg === 'alt'   ? 'bg-[#edeae5] dark:bg-[#111111]' :
+                   'bg-white dark:bg-[#0a0a0a]';
+
+const headingLines = heading.split('\\n');
+
+// Order classes for flip layout
+const textOrder = flip ? 'lg:order-2' : '';
+const phoneOrder = flip ? 'lg:order-1' : '';
+---
+
+<section id={featureId} class:list={["py-20 sm:py-28 overflow-hidden", bgClass]}>
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+      <!-- Text column -->
+      <AnimatedSection animation="fadeUp" className={textOrder} client:visible>
+        <div class="max-w-lg">
+          <p class="text-sm font-bold uppercase tracking-widest mb-3" style="color:#c8920a">
+            {eyebrow}
+          </p>
+          <h2 class="text-3xl sm:text-4xl lg:text-[2.6rem] font-black tracking-tight leading-[1.1] text-[#1c1714] dark:text-white mb-5">
+            {headingLines.map((line, i) => (
+              <>
+                {line}
+                {i < headingLines.length - 1 && <br />}
+              </>
+            ))}
+          </h2>
+          <p class="text-lg leading-relaxed mb-7" style="color:#6b6560">
+            {subheading}
+          </p>
+          {pills.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {pills.map((pill) => (
+                <span
+                  class="inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 text-sm font-semibold dark:[--pill-bg:#1a1a1a] dark:[--pill-text:#e5e0d8] dark:[--pill-border:#2a2a2a]"
+                  style="background:var(--pill-bg,#f4f2ef);color:var(--pill-text,#1c1714);border:1px solid var(--pill-border,#d4ccc4)"
+                >
+                  <svg class="h-3.5 w-3.5 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  {pill}
+                </span>
+              ))}
+            </div>
+          )}
+        </div>
+      </AnimatedSection>
+
+      <!-- Phone column -->
+      <AnimatedSection animation={flip ? 'slideRight' : 'slideLeft'} className={phoneOrder} client:visible>
+        <div class="flex justify-center">
+          <PhoneMockupShell>
+            <slot name="mockup" />
+          </PhoneMockupShell>
+        </div>
+      </AnimatedSection>
+
+    </div>
+  </div>
+
+</section>

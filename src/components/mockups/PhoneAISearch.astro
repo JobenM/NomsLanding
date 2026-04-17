@@ -1,0 +1,130 @@
+---
+---
+<style>
+  /* === 6s loop: loading → results → confirm → reset === */
+
+  .ai-loading {
+    animation: ai-load 6s ease-out infinite;
+  }
+  @keyframes ai-load {
+    0%, 4%   { opacity: 0; }
+    10%, 38% { opacity: 1; }
+    45%, 100%{ opacity: 0; }
+  }
+
+  .ai-progress {
+    animation: ai-prog 6s ease-in-out infinite;
+  }
+  @keyframes ai-prog {
+    0%, 8%   { width: 0%; }
+    34%, 100%{ width: 100%; }
+  }
+
+  .ai-src-1 { animation: ai-src1 6s ease-out infinite; }
+  @keyframes ai-src1 {
+    0%, 14%  { opacity: 0; }
+    20%, 38% { opacity: 1; }
+    45%, 100%{ opacity: 0; }
+  }
+  .ai-src-2 { animation: ai-src2 6s ease-out infinite; }
+  @keyframes ai-src2 {
+    0%, 18%  { opacity: 0; }
+    24%, 38% { opacity: 1; }
+    45%, 100%{ opacity: 0; }
+  }
+  .ai-src-3 { animation: ai-src3 6s ease-out infinite; }
+  @keyframes ai-src3 {
+    0%, 22%  { opacity: 0; }
+    28%, 38% { opacity: 1; }
+    45%, 100%{ opacity: 0; }
+  }
+
+  .ai-result {
+    animation: ai-result 6s ease-out infinite;
+  }
+  @keyframes ai-result {
+    0%, 42%  { opacity: 0; transform: translateY(6px); }
+    52%, 85% { opacity: 1; transform: translateY(0); }
+    93%, 100%{ opacity: 0; }
+  }
+
+  .ai-confirm {
+    animation: ai-confirm 6s ease-out infinite;
+  }
+  @keyframes ai-confirm {
+    0%, 52%  { opacity: 0; transform: translateY(4px); }
+    62%, 85% { opacity: 1; transform: translateY(0); }
+    93%, 100%{ opacity: 0; }
+  }
+</style>
+
+<!-- Review header -->
+<div class="flex items-center justify-between px-4 pt-1 pb-2">
+  <div>
+    <p class="text-[13px] font-bold" style="color:var(--ph-fg)">Review</p>
+    <p class="text-[9px]" style="color:var(--ph-muted)">Adjust anything the AI got wrong.</p>
+  </div>
+  <div class="flex h-6 w-6 items-center justify-center rounded-full text-[11px]" style="background:var(--ph-border);color:var(--ph-muted)">✕</div>
+</div>
+
+<!-- Loading card -->
+<div class="ai-loading mx-4 mb-2 rounded-xl px-3 py-2.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+  <div class="flex items-center gap-2 mb-2">
+    <div class="flex h-4 w-4 items-center justify-center rounded-full" style="background:#c8920a">
+      <svg width="8" height="8" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+      </svg>
+    </div>
+    <p class="text-[9px] font-medium" style="color:var(--ph-fg)">Searching nutrition data…</p>
+  </div>
+  <div class="h-1 rounded-full overflow-hidden" style="background:var(--ph-border)">
+    <div class="ai-progress h-full rounded-full" style="background:#c8920a;width:0%"></div>
+  </div>
+  <div class="flex gap-1.5 mt-1.5">
+    <span class="ai-src-1 rounded-full px-2 py-0.5 text-[7px]" style="background:var(--ph-border);color:var(--ph-muted)">usda.gov</span>
+    <span class="ai-src-2 rounded-full px-2 py-0.5 text-[7px]" style="background:var(--ph-border);color:var(--ph-muted)">mcdonalds.com</span>
+    <span class="ai-src-3 rounded-full px-2 py-0.5 text-[7px]" style="background:var(--ph-border);color:var(--ph-muted)">nutritionix.com</span>
+  </div>
+</div>
+
+<!-- Review items -->
+<div class="ai-result px-4 space-y-2 pb-2">
+  {[
+    { name: 'Eggs',        note: '143 kcal / 100g', grams: '114' },
+    { name: 'White toast', note: '266 kcal / 100g', grams: '64'  },
+    { name: 'Butter',      note: '720 kcal / 100g', grams: '10'  },
+  ].map(({ name, note, grams }) => (
+    <div class="rounded-xl px-3 py-2.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+      <div class="flex items-center justify-between mb-2">
+        <p class="text-[11px] font-semibold" style="color:var(--ph-fg)">{name}</p>
+        <div class="flex h-5 w-5 items-center justify-center rounded-full text-[9px]" style="background:var(--ph-border);color:var(--ph-muted)">✕</div>
+      </div>
+      <div class="flex items-center gap-2">
+        <p class="text-[9px]" style="color:var(--ph-muted)">Amount</p>
+        <div class="rounded-lg px-2 py-1" style="background:var(--ph-bg);border:1px solid var(--ph-border)">
+          <span class="text-[10px] font-bold" style="color:var(--ph-fg)">{grams}</span>
+          <span class="text-[9px] ml-0.5" style="color:var(--ph-muted)">g</span>
+        </div>
+        <p class="text-[8px] ml-auto" style="color:var(--ph-muted)">{note}</p>
+      </div>
+      <p class="text-[8px] mt-1" style="color:#c8920a">Show macros ▾</p>
+    </div>
+  ))}
+
+  <!-- Total -->
+  <div class="rounded-xl px-3 py-2" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+    <p class="text-[7px] font-bold uppercase tracking-widest mb-0.5" style="color:var(--ph-muted)">TOTAL</p>
+    <p class="text-[15px] font-black" style="color:var(--ph-fg)">405 kcal</p>
+    <p class="text-[8px]" style="color:var(--ph-muted)">20g protein · 33g carbs · 21g fat</p>
+  </div>
+</div>
+
+<!-- Confirm buttons -->
+<div class="ai-confirm px-4 pb-3 space-y-2">
+  <div class="flex gap-2">
+    <button class="flex-1 rounded-2xl py-2.5 text-[10px] font-semibold border" style="border-color:var(--ph-border);color:var(--ph-muted);background:transparent">Discard</button>
+    <button class="rounded-2xl py-2.5 text-[10px] font-bold text-[#1c1714] px-4" style="background:#c8920a;flex:2">Confirm &amp; Log</button>
+  </div>
+  <p class="text-center text-[9px]" style="color:var(--ph-muted)">🔒 Save as Recipe</p>
+</div>

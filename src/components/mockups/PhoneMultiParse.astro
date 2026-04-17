@@ -1,0 +1,193 @@
+---
+---
+<style>
+  /* === 7s loop: type sentence → items split out → total → reset === */
+
+  .multi-input-text {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 0;
+    display: inline-block;
+    vertical-align: middle;
+    animation: multi-type 7s ease-out infinite;
+  }
+  @keyframes multi-type {
+    0%, 6%   { max-width: 0; }
+    50%, 68% { max-width: 220px; }
+    85%, 100%{ max-width: 0; }
+  }
+
+  .multi-cursor {
+    display: inline-block;
+    width: 1.5px;
+    height: 11px;
+    background: #c8920a;
+    vertical-align: middle;
+    margin-left: 1px;
+    animation: blink 0.7s step-end infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .multi-input-bar {
+    animation: multi-border 7s ease-out infinite;
+  }
+  @keyframes multi-border {
+    0%, 6%   { border-color: var(--ph-border); }
+    12%, 68% { border-color: #c8920a; }
+    85%, 100%{ border-color: var(--ph-border); }
+  }
+
+  .multi-send {
+    animation: multi-send 7s ease-out infinite;
+  }
+  @keyframes multi-send {
+    0%, 45%  { opacity: 0; transform: scale(0.8); }
+    55%, 70% { opacity: 1; transform: scale(1); }
+    85%, 100%{ opacity: 0; transform: scale(0.8); }
+  }
+
+  .multi-label {
+    animation: multi-item1 7s ease-out infinite;
+  }
+
+  .multi-item-1 {
+    animation: multi-item1 7s ease-out infinite;
+  }
+  @keyframes multi-item1 {
+    0%, 50%  { opacity: 0; transform: translateX(-8px); }
+    60%, 80% { opacity: 1; transform: translateX(0); }
+    88%, 100%{ opacity: 0; }
+  }
+
+  .multi-item-2 {
+    animation: multi-item2 7s ease-out infinite;
+  }
+  @keyframes multi-item2 {
+    0%, 55%  { opacity: 0; transform: translateX(-8px); }
+    65%, 80% { opacity: 1; transform: translateX(0); }
+    88%, 100%{ opacity: 0; }
+  }
+
+  .multi-item-3 {
+    animation: multi-item3 7s ease-out infinite;
+  }
+  @keyframes multi-item3 {
+    0%, 60%  { opacity: 0; transform: translateX(-8px); }
+    70%, 80% { opacity: 1; transform: translateX(0); }
+    88%, 100%{ opacity: 0; }
+  }
+
+  .multi-total {
+    animation: multi-total 7s ease-out infinite;
+  }
+  @keyframes multi-total {
+    0%, 66%  { opacity: 0; transform: scale(0.96); }
+    76%, 80% { opacity: 1; transform: scale(1); }
+    88%, 100%{ opacity: 0; }
+  }
+</style>
+
+<!-- Date strip -->
+<div class="flex gap-1.5 px-3 pb-2 overflow-hidden">
+  {['Mon 23', 'Tue 24', 'Wed 25', 'Thu 26'].map((d) => (
+    <div class="flex-shrink-0 rounded-full px-2 py-0.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+      <span class="text-[8px] font-medium" style="color:var(--ph-muted)">{d}</span>
+    </div>
+  ))}
+  <div class="flex-shrink-0 rounded-full px-2 py-0.5 font-bold text-[8px]" style="background:#c8920a;color:#1c1714">Today</div>
+</div>
+
+<div class="px-4 pb-2"><p class="text-[9px]" style="color:var(--ph-muted)">☀️ Good afternoon</p></div>
+
+<!-- Ring + Macros -->
+<div class="flex items-center px-3 pb-2 gap-2">
+  <div class="relative flex-shrink-0" style="width:108px;height:108px">
+    <svg class="absolute inset-0" width="108" height="108" viewBox="0 0 108 108" style="transform:rotate(-90deg)" aria-hidden="true">
+      <circle cx="54" cy="54" r="45" fill="none" stroke="var(--ph-border)" stroke-width="9"/>
+      <circle cx="54" cy="54" r="45" fill="none" stroke="#c8920a" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="283"/>
+    </svg>
+    <div class="absolute inset-0 flex flex-col items-center justify-center">
+      <span class="text-lg font-black" style="color:var(--ph-fg)">0</span>
+      <span class="text-[8px] font-bold" style="color:#c8920a">KCAL</span>
+      <span class="text-[7px]" style="color:var(--ph-muted)">1800 left</span>
+    </div>
+  </div>
+  <div class="flex flex-col gap-2.5">
+    {[
+      { label:'Protein', val:'0g', left:'120g left', color:'#60a5fa', fill:0 },
+      { label:'Carbs',   val:'0g', left:'200g left', color:'#fb923c', fill:0 },
+      { label:'Fat',     val:'0g', left:'60g left',  color:'#cb9ad8', fill:0 },
+    ].map(({ label, val, left, color, fill }) => (
+      <div class="flex items-center gap-2">
+        <div class="relative overflow-hidden flex-shrink-0" style={`width:12px;height:30px;border-radius:6px;border:1.5px solid ${color}40;background:${color}12`}>
+          <div class="absolute bottom-0 left-0 right-0" style={`height:${fill}%;background:${color}cc`}></div>
+        </div>
+        <div>
+          <p class="text-[7px]" style="color:var(--ph-muted)">{label}</p>
+          <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">{val}</p>
+          <p class="text-[7px]" style="color:var(--ph-muted)">{left}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<!-- Split items -->
+<div class="px-3 pb-1 space-y-1">
+  <p class="multi-label text-[7px] font-bold uppercase tracking-widest mb-1" style="color:var(--ph-muted);opacity:0">AI split your meal into:</p>
+
+  <div class="multi-item-1 flex items-center justify-between rounded-xl px-2.5 py-2" style="background:var(--ph-surface);border-left:2px solid #c8920a;border-top:1px solid var(--ph-border);border-right:1px solid var(--ph-border);border-bottom:1px solid var(--ph-border);opacity:0">
+    <div class="flex-1 min-w-0">
+      <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">Chicken Caesar Salad</p>
+      <p class="text-[7px]" style="color:var(--ph-muted)">260g · P 28g · C 14g · F 18g</p>
+    </div>
+    <p class="text-[10px] font-bold flex-shrink-0 ml-2" style="color:#c8920a">380</p>
+  </div>
+
+  <div class="multi-item-2 flex items-center justify-between rounded-xl px-2.5 py-2" style="background:var(--ph-surface);border-left:2px solid #c8920a;border-top:1px solid var(--ph-border);border-right:1px solid var(--ph-border);border-bottom:1px solid var(--ph-border);opacity:0">
+    <div class="flex-1 min-w-0">
+      <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">Bread Roll</p>
+      <p class="text-[7px]" style="color:var(--ph-muted)">50g · P 4g · C 25g · F 2g</p>
+    </div>
+    <p class="text-[10px] font-bold flex-shrink-0 ml-2" style="color:#c8920a">130</p>
+  </div>
+
+  <div class="multi-item-3 flex items-center justify-between rounded-xl px-2.5 py-2" style="background:var(--ph-surface);border-left:2px solid #c8920a;border-top:1px solid var(--ph-border);border-right:1px solid var(--ph-border);border-bottom:1px solid var(--ph-border);opacity:0">
+    <div class="flex-1 min-w-0">
+      <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">Sparkling Water</p>
+      <p class="text-[7px]" style="color:var(--ph-muted)">330ml · 0 kcal</p>
+    </div>
+    <p class="text-[10px] font-bold flex-shrink-0 ml-2" style="color:var(--ph-muted)">0</p>
+  </div>
+
+  <div class="multi-total flex items-center justify-between rounded-xl px-2.5 py-1.5" style="background:#c8920a;opacity:0">
+    <p class="text-[9px] font-bold text-[#1c1714]">Total</p>
+    <p class="text-[11px] font-black text-[#1c1714]">510 kcal</p>
+  </div>
+</div>
+
+<!-- Input bar — correct two-part layout with mic inside + separate square submit -->
+<div class="px-3 pt-1 pb-1">
+  <div class="flex items-center gap-2">
+    <!-- Main input area with mic inside -->
+    <div class="multi-input-bar relative flex-1 rounded-xl px-3 py-3 pr-10" style="background:var(--ph-surface);border:1px solid var(--ph-border);min-height:46px">
+      <div class="flex items-center overflow-hidden min-w-0">
+        <span class="multi-input-text text-[10px]" style="color:var(--ph-fg)">chicken caesar, bread roll, sparkling water</span>
+        <span class="multi-cursor"></span>
+      </div>
+      <!-- Mic inside input -->
+      <div class="absolute right-2 top-1/2 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:var(--ph-muted)" aria-hidden="true">
+          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+        </svg>
+      </div>
+    </div>
+    <!-- Submit button (separate square, mustard, animated) -->
+    <div class="multi-send flex h-[38px] w-[38px] flex-shrink-0 items-center justify-center rounded-xl font-black text-base text-[#1c1714]" style="background:#c8920a;opacity:0">+</div>
+  </div>
+</div>
+<div class="flex items-center justify-between px-4 pb-3">
+  <span class="text-[9px] font-semibold" style="color:#c8920a">⊕ Add manually</span>
+  <span class="text-[9px]" style="color:var(--ph-muted)">⚡ Unlimited</span>
+</div>

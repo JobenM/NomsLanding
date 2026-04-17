@@ -1,17 +1,23 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import HowItWorks from '../components/HowItWorks.astro';
-import AppScreensSection from '../components/AppScreensSection.astro';
-import Features from '../components/Features.astro';
+import FeatureSpotlight from '../components/FeatureSpotlight.astro';
 import AppStoreBadges from '../components/AppStoreBadges.astro';
 import FAQPreview from '../components/FAQPreview.astro';
 import AnimatedSection from '../components/AnimatedSection.tsx';
+
+// Mockup screens
+import PhoneVoiceInput from '../components/mockups/PhoneVoiceInput.astro';
+import PhoneReview     from '../components/mockups/PhoneReview.astro';
+import PhoneRecipe     from '../components/mockups/PhoneRecipe.astro';
+import PhoneTypeahead  from '../components/mockups/PhoneTypeahead.astro';
+import PhonePrivacy    from '../components/mockups/PhonePrivacy.astro';
+import PhoneWorkouts   from '../components/mockups/PhoneWorkouts.astro';
 ---
 
 <Layout
   title="NomsAI — AI Calorie Tracker. No Login. No BS."
-  description="The privacy-first AI calorie tracker for iOS and Android. Type what you ate, get macro estimates instantly. No login required, no data collection, device-only storage."
+  description="The privacy-first AI calorie tracker for iOS and Android. Type or speak what you ate, get macro estimates instantly. No login required, no data collection, device-only storage."
   ogTitle="NomsAI — Track Calories with AI. No Login. No BS."
   ogDescription="Type what you ate, get macros instantly. The AI food diary that keeps your data on your device. Free, no account needed."
 >
@@ -22,8 +28,8 @@ import AnimatedSection from '../components/AnimatedSection.tsx';
   <!-- Social Proof Strip -->
   <section class="py-12 border-y bg-white dark:bg-[#0a0a0a]" style="border-color:#d4ccc4" aria-label="Social proof">
     <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <AnimatedSection animation="staggerUp" client:load>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 text-center" style="--divider:#d4ccc4">
+      <AnimatedSection animation="staggerUp" client:visible>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 text-center">
           <div class="flex flex-col items-center gap-1 px-6 sm:border-r" style="border-color:#d4ccc4">
             <span class="text-3xl sm:text-4xl font-black text-[#1c1714] dark:text-white tabular-nums">10,000+</span>
             <span class="text-sm font-medium" style="color:#6b6560">Meals tracked</span>
@@ -46,16 +52,84 @@ import AnimatedSection from '../components/AnimatedSection.tsx';
     </div>
   </section>
 
-  <!-- How It Works -->
-  <HowItWorks />
+  <!-- 1. Type or Speak -->
+  <FeatureSpotlight
+    featureId="fss-voice"
+    eyebrow="Log your way"
+    heading="Type it.\nSay it.\nEither works."
+    subheading="Open the app and start typing — or tap the mic and speak your meal out loud. NomsAI transcribes your voice live and parses it just like text. Log in seconds, not minutes."
+    pills={['Live voice transcript', 'Hands-free logging']}
+    flip={false}
+    bg="alt"
+  >
+    <PhoneVoiceInput slot="mockup" />
+  </FeatureSpotlight>
 
-  <!-- App Screens -->
-  <AppScreensSection />
+  <!-- 2. Review & Confirm -->
+  <FeatureSpotlight
+    featureId="fss-review"
+    eyebrow="AI does the thinking"
+    heading="Check it.\nAdjust it.\nLog it."
+    subheading="After you type, the AI splits your entry into individual items with estimated amounts. Amounts are editable before anything is saved — you stay in control of every gram."
+    pills={['Auto-splits multi-item meals', 'Editable before saving', 'Accurate to the gram']}
+    flip={true}
+    bg="white"
+  >
+    <PhoneReview slot="mockup" />
+  </FeatureSpotlight>
 
-  <!-- Features -->
-  <Features />
+  <!-- 3. Save as Recipe -->
+  <FeatureSpotlight
+    featureId="fss-recipe"
+    eyebrow="Meals you love"
+    heading="Log once.\nSave forever."
+    subheading="After reviewing any meal, tap 'Save as Recipe' to store it permanently. Name it, set your usual portion, and next time just type the name — the whole meal logs in one tap."
+    pills={['3-step setup', 'One-tap future logging']}
+    flip={false}
+    bg="alt"
+  >
+    <PhoneRecipe slot="mockup" />
+  </FeatureSpotlight>
 
-  <!-- App Store Download -->
+  <!-- 4. Typeahead + Smart Memory -->
+  <FeatureSpotlight
+    featureId="fss-typeahead"
+    eyebrow="Gets smarter over time"
+    heading="It remembers\nwhat you eat."
+    subheading="As you build your log, NomsAI learns your habits. Start typing 'oat' and your usual oat milk latte appears before you finish the word. Your personal history — always local, never uploaded."
+    pills={['Learns your patterns', 'Suggests from first keystroke', 'Always on-device']}
+    flip={true}
+    bg="white"
+  >
+    <PhoneTypeahead slot="mockup" />
+  </FeatureSpotlight>
+
+  <!-- 5. Privacy -->
+  <FeatureSpotlight
+    featureId="fss-privacy"
+    eyebrow="Your data. Full stop."
+    heading="No account.\nNo server.\nNo compromise."
+    subheading="Every meal, every macro, every log lives exclusively on your phone. We have no server to hack, no account to breach, no data to sell. Uninstall and it's as if it never existed."
+    pills={['No login required', 'No cloud sync', 'Zero data collection', 'Uninstall = gone']}
+    flip={false}
+    bg="alt"
+  >
+    <PhonePrivacy slot="mockup" />
+  </FeatureSpotlight>
+
+  <!-- 6. Workouts + Net Calories -->
+  <FeatureSpotlight
+    featureId="fss-workouts"
+    eyebrow="The full picture"
+    heading="Log food.\nLog workouts.\nSee net calories."
+    subheading="Track your runs, lifts, and walks alongside your meals. See exactly how many calories you've burned against how many you've eaten — one honest number that tells the whole story."
+    flip={true}
+    bg="white"
+  >
+    <PhoneWorkouts slot="mockup" />
+  </FeatureSpotlight>
+
+  <!-- Download CTA -->
   <AppStoreBadges variant="section" />
 
   <!-- FAQ Preview -->

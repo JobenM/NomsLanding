@@ -53,6 +53,7 @@ export default function AnimatedSection({
 
       if (animation === 'staggerUp') {
         const children = el.children;
+        gsap.set(el, { opacity: 1 });
         gsap.fromTo(
           children,
           { opacity: 0, y: 40 },

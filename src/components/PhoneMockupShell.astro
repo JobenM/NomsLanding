@@ -1,0 +1,72 @@
+---
+interface Props {
+  glowColor?: string;
+  class?: string;
+}
+
+const { glowColor = 'rgba(200,146,10,0.18)', class: className = '' } = Astro.props;
+---
+
+<div class:list={["relative mx-auto w-[280px] sm:w-[320px]", className]}>
+  <!-- Glow -->
+  <div
+    class="absolute inset-0 rounded-[3rem] blur-2xl scale-110 pointer-events-none"
+    style={`background:radial-gradient(circle,${glowColor} 0%,transparent 70%)`}
+    aria-hidden="true"
+  ></div>
+
+  <!-- Bezel — dark charcoal in light mode, bright silver-white in dark mode -->
+  <div
+    class="relative rounded-[3rem] p-[4px] shadow-2xl bg-[#1a1a1a] dark:bg-[#ddd8d0]"
+    style="box-shadow:0 32px 64px rgba(0,0,0,0.45)"
+  >
+    <div class="rounded-[2.8rem] overflow-hidden flex flex-col" style="background:var(--ph-bg);height:560px">
+
+      <!-- Status bar -->
+      <div class="flex items-center justify-between px-5 pt-3 pb-1">
+        <span class="text-[11px] font-semibold" style="color:var(--ph-muted)">9:41</span>
+        <div class="flex items-center gap-1.5">
+          <svg width="15" height="11" viewBox="0 0 15 11" fill="none" style="color:var(--ph-muted)" aria-hidden="true">
+            <rect x="0" y="3" width="3" height="8" rx="0.5" fill="currentColor"/>
+            <rect x="4" y="2" width="3" height="9" rx="0.5" fill="currentColor"/>
+            <rect x="8" y="0.5" width="3" height="10.5" rx="0.5" fill="currentColor"/>
+            <rect x="12" y="0" width="3" height="11" rx="0.5" fill="currentColor" opacity="0.4"/>
+          </svg>
+          <div class="rounded-sm border p-px" style="width:18px;height:10px;border-color:var(--ph-muted)">
+            <div class="h-full rounded-sm" style="width:65%;background:var(--ph-muted)"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- App header -->
+      <div class="flex items-center justify-between px-4 pt-1 pb-2">
+        <span class="text-lg font-black tracking-tight" style="color:var(--ph-fg)">NomsAI</span>
+        <div class="flex items-center gap-2.5" style="color:var(--ph-muted)">
+          <!-- barbell-outline: add workout -->
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 5v14M18 5v14M2 9h4M18 9h4M2 15h4M18 15h4M6 9h12M6 15h12"/>
+          </svg>
+          <!-- time-outline: history -->
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+          </svg>
+          <!-- analytics-outline: bar chart -->
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
+          </svg>
+          <!-- book-outline: recipes -->
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          </svg>
+          <!-- settings-outline -->
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </div>
+      </div>
+
+      <slot />
+
+    </div>
+  </div>
+</div>

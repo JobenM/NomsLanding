@@ -27,10 +27,10 @@ import AnimatedSection from './AnimatedSection.tsx';
           </div>
         </AnimatedSection>
 
-        <!-- Headline — exact app tagline -->
+        <!-- Headline -->
         <AnimatedSection animation="fadeUp" delay={0.1} client:load>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#1c1714] dark:text-white leading-[1.05] mb-4">
-            Type what you ate.
+            Type it. Say it.
             <br />
             <span style="color:#c8920a">AI handles the rest.</span>
           </h1>
@@ -40,8 +40,8 @@ import AnimatedSection from './AnimatedSection.tsx';
         <AnimatedSection animation="fadeUp" delay={0.2} client:load>
           <p class="text-lg text-[#6b6560] dark:text-[#9ca3af] leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
             The <strong class="text-[#1c1714] dark:text-white font-semibold">AI calorie tracker</strong> that respects your time and your privacy.
-            Describe any meal in plain language — get calories, protein, carbs & fat instantly.
-            No login. No database. No friction.
+            Type or speak any meal — AI looks up real nutrition data, splits multi-item entries, and keeps everything on your device.
+            No login. No account. No nonsense.
           </p>
         </AnimatedSection>
 
@@ -50,17 +50,20 @@ import AnimatedSection from './AnimatedSection.tsx';
         <AnimatedSection animation="fadeUp" delay={0.25} client:load>
           <div class="flex flex-col gap-3 mb-10 max-w-sm mx-auto lg:mx-0">
 
-            <!-- Instant logging — flash-outline icon -->
+            <!-- Type or speak -->
             <div class="flex items-center gap-3 rounded-2xl bg-[#edeae5] dark:bg-[#1a1a1a] border border-[#d4ccc4] dark:border-[#2a2a2a] px-4 py-3">
               <div class="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl bg-[#1c1714] dark:bg-[#2a2a2a]">
-                <!-- Ionicons flash-outline -->
+                <!-- mic icon -->
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                  <line x1="12" y1="19" x2="12" y2="23"/>
+                  <line x1="8" y1="23" x2="16" y2="23"/>
                 </svg>
               </div>
               <div class="text-left">
-                <p class="text-sm font-bold text-[#1c1714] dark:text-white">Instant logging</p>
-                <p class="text-xs text-[#6b6560] dark:text-[#9ca3af]">Just type what you ate — no menus</p>
+                <p class="text-sm font-bold text-[#1c1714] dark:text-white">Type it or say it</p>
+                <p class="text-xs text-[#6b6560] dark:text-[#9ca3af]">Voice or text — your choice</p>
               </div>
             </div>
 
@@ -126,161 +129,165 @@ import AnimatedSection from './AnimatedSection.tsx';
 
       <!-- Right: Phone mockup — matches real app UI exactly -->
       <AnimatedSection animation="slideLeft" delay={0.2} client:load>
-        <div class="relative mx-auto w-64 sm:w-72">
+        <div class="relative mx-auto w-[280px] sm:w-[320px]">
           <!-- Glow -->
           <div class="absolute inset-0 rounded-[3rem] blur-2xl scale-110 pointer-events-none" style="background:radial-gradient(circle,rgba(200,146,10,0.2) 0%,transparent 70%)"></div>
 
-          <!-- Phone frame — dark like screenshots (app defaults dark on most devices) -->
-          <div class="relative rounded-[3rem] p-[3px] shadow-2xl" style="background:#1a1a1a;box-shadow:0 32px 64px rgba(0,0,0,0.4)">
-            <div class="rounded-[2.8rem] overflow-hidden" style="background:#0a0a0a">
+          <!-- Phone frame — dark bezel in light mode, bright silver in dark mode -->
+          <div class="relative rounded-[3rem] p-[4px] shadow-2xl bg-[#1a1a1a] dark:bg-[#ddd8d0]" style="box-shadow:0 32px 64px rgba(0,0,0,0.4)">
+            <div class="rounded-[2.8rem] overflow-hidden flex flex-col" style="background:var(--ph-bg);height:600px">
 
               <!-- Status bar -->
               <div class="flex items-center justify-between px-5 pt-3 pb-1">
-                <span class="text-[11px] font-semibold" style="color:#9ca3af">9:41</span>
+                <span class="text-[11px] font-semibold" style="color:var(--ph-muted)">9:41</span>
                 <div class="flex items-center gap-1.5">
-                  <svg width="15" height="11" viewBox="0 0 15 11" fill="none" aria-hidden="true">
-                    <rect x="0" y="3" width="3" height="8" rx="0.5" fill="#9ca3af"/>
-                    <rect x="4" y="2" width="3" height="9" rx="0.5" fill="#9ca3af"/>
-                    <rect x="8" y="0.5" width="3" height="10.5" rx="0.5" fill="#9ca3af"/>
-                    <rect x="12" y="0" width="3" height="11" rx="0.5" fill="#9ca3af" opacity="0.4"/>
+                  <svg width="15" height="11" viewBox="0 0 15 11" fill="none" style="color:var(--ph-muted)" aria-hidden="true">
+                    <rect x="0" y="3" width="3" height="8" rx="0.5" fill="currentColor"/>
+                    <rect x="4" y="2" width="3" height="9" rx="0.5" fill="currentColor"/>
+                    <rect x="8" y="0.5" width="3" height="10.5" rx="0.5" fill="currentColor"/>
+                    <rect x="12" y="0" width="3" height="11" rx="0.5" fill="currentColor" opacity="0.4"/>
                   </svg>
                   <div class="flex items-center gap-0.5">
-                    <div class="rounded-sm border p-px" style="width:18px;height:10px;border-color:#9ca3af">
-                      <div class="h-full rounded-sm" style="width:65%;background:#9ca3af"></div>
+                    <div class="rounded-sm border p-px" style="width:18px;height:10px;border-color:var(--ph-muted)">
+                      <div class="h-full rounded-sm" style="width:65%;background:var(--ph-muted)"></div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- App header — "NomsAI" + 4 icons (barbell, history, analytics, settings) -->
+              <!-- App header -->
               <div class="flex items-center justify-between px-4 pt-1 pb-2">
-                <span class="text-lg font-black tracking-tight text-white">NomsAI</span>
-                <div class="flex items-center gap-3">
-                  <!-- Ionicons barbell-outline -->
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="8" y1="12" x2="16" y2="12"/>
-                    <line x1="6" y1="9" x2="6" y2="15" stroke-width="2.5"/>
-                    <line x1="18" y1="9" x2="18" y2="15" stroke-width="2.5"/>
-                    <line x1="3" y1="11" x2="6" y2="11"/><line x1="3" y1="13" x2="6" y2="13"/>
-                    <line x1="18" y1="11" x2="21" y2="11"/><line x1="18" y1="13" x2="21" y2="13"/>
+                <span class="text-lg font-black tracking-tight" style="color:var(--ph-fg)">NomsAI</span>
+                <div class="flex items-center gap-2.5" style="color:var(--ph-muted)">
+                  <!-- barbell-outline -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M6 5v14M18 5v14M2 9h4M18 9h4M2 15h4M18 15h4M6 9h12M6 15h12"/>
                   </svg>
-                  <!-- FontAwesome history -->
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.5"/>
-                    <line x1="12" y1="7" x2="12" y2="12"/><line x1="12" y1="12" x2="15" y2="14"/>
+                  <!-- time-outline -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
                   </svg>
-                  <!-- Ionicons analytics-outline -->
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
-                    <line x1="6" y1="20" x2="6" y2="14"/>
-                    <line x1="2" y1="20" x2="22" y2="20"/>
+                  <!-- analytics-outline: bar chart -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/>
                   </svg>
-                  <!-- Ionicons settings-outline -->
-                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <!-- book-outline -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                  </svg>
+                  <!-- settings-outline -->
+                  <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
                   </svg>
                 </div>
               </div>
 
-              <!-- Day selector — "Today" pill in #c8920a -->
-              <div class="flex gap-2 px-4 pb-3 overflow-hidden">
-                {['Tue 14', 'Wed 15', 'Thu 16', 'Fri 17'].map((d) => (
-                  <div class="flex-shrink-0 rounded-full px-3 py-1" style="background:#1a1a1a;border:1px solid #2a2a2a">
-                    <span class="text-[10px] font-medium" style="color:#9ca3af">{d}</span>
+              <!-- Date strip -->
+              <div class="flex gap-1.5 px-3 pb-2 overflow-hidden">
+                {['Wed 15', 'Thu 16', 'Fri 17', 'Sat 18'].map((d) => (
+                  <div class="flex-shrink-0 rounded-full px-2.5 py-1" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+                    <span class="text-[9px] font-medium" style="color:var(--ph-muted)">{d}</span>
                   </div>
                 ))}
-                <div class="flex-shrink-0 rounded-full px-3 py-1 font-bold text-[10px]" style="background:#c8920a;color:#1c1714">
-                  Today
-                </div>
+                <div class="flex-shrink-0 rounded-full px-2.5 py-1 font-bold text-[9px]" style="background:#c8920a;color:#1c1714">Today</div>
               </div>
 
               <!-- Greeting -->
-              <div class="px-4 pb-1">
-                <p class="text-[11px]" style="color:#6b7280">🌙 Good evening</p>
+              <div class="px-4 pb-2">
+                <p class="text-[10px]" style="color:var(--ph-muted)">🌙 Good evening</p>
               </div>
 
-              <!-- Main calorie ring — #c8920a stroke -->
-              <div class="flex flex-col items-center py-3">
-                <div class="relative" style="width:100px;height:100px">
-                  <svg class="absolute inset-0 w-full h-full" style="transform:rotate(-90deg)" viewBox="0 0 100 100" aria-hidden="true">
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="#2a2a2a" stroke-width="8"/>
-                    <circle cx="50" cy="50" r="42" fill="none" stroke="#c8920a" stroke-width="8" stroke-linecap="round" stroke-dasharray="264" stroke-dashoffset="13"/>
+              <!-- Ring + Macros — real app layout -->
+              <div class="flex items-center justify-center px-3 pb-2 gap-4">
+                <div class="relative flex-shrink-0" style="width:108px;height:108px">
+                  <svg class="absolute inset-0" width="108" height="108" viewBox="0 0 108 108" style="transform:rotate(-90deg)" aria-hidden="true">
+                    <circle cx="54" cy="54" r="45" fill="none" stroke="var(--ph-border)" stroke-width="9"/>
+                    <circle cx="54" cy="54" r="45" fill="none" stroke="#c8920a" stroke-width="9" stroke-linecap="round" stroke-dasharray="283" stroke-dashoffset="14"/>
                   </svg>
                   <div class="absolute inset-0 flex flex-col items-center justify-center">
-                    <span class="text-xl font-black text-white">1,663</span>
-                    <span class="text-[9px] font-bold tracking-wider" style="color:#c8920a">KCAL</span>
-                    <span class="text-[8px]" style="color:#6b7280">5 left</span>
+                    <span class="text-xl font-black" style="color:var(--ph-fg)">1,663</span>
+                    <span class="text-[8px] font-bold" style="color:#c8920a">KCAL</span>
+                    <span class="text-[7px]" style="color:var(--ph-muted)">5 left</span>
                   </div>
                 </div>
-              </div>
-
-              <!-- Macro mini-rings — exact colors from DayPage.tsx light theme -->
-              <div class="grid grid-cols-3 gap-1 px-4 pb-3">
-                {[
-                  { label:'Protein', val:'66',  goal:'76g',  color:'#d97b5a', offset:'65' },
-                  { label:'Carbs',   val:'179', goal:'194g', color:'#7aaa78', offset:'20' },
-                  { label:'Fat',     val:'69',  goal:'51g',  color:'#b08898', offset:'0'  },
-                ].map(({ label, val, goal, color, offset }) => (
-                  <div class="flex flex-col items-center gap-1">
-                    <div class="relative" style="width:44px;height:44px">
-                      <svg class="absolute inset-0 w-full h-full" style="transform:rotate(-90deg)" viewBox="0 0 44 44" aria-hidden="true">
-                        <circle cx="22" cy="22" r="18" fill="none" stroke="#2a2a2a" stroke-width="4"/>
-                        <circle cx="22" cy="22" r="18" fill="none" stroke={color} stroke-width="4" stroke-linecap="round"
-                          stroke-dasharray="113" stroke-dashoffset={offset}/>
-                      </svg>
-                      <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-[10px] font-bold text-white">{val}</span>
+                <div class="flex flex-col gap-2.5">
+                  {[
+                    { label:'Protein', val:'71g', left:'5g left',  color:'#60a5fa', fill:93 },
+                    { label:'Carbs',   val:'145g',left:'10g left', color:'#fb923c', fill:94 },
+                    { label:'Fat',     val:'46g', left:'2g left',  color:'#cb9ad8', fill:96 },
+                  ].map(({ label, val, left, color, fill }) => (
+                    <div class="flex items-center gap-2">
+                      <div class="relative overflow-hidden flex-shrink-0" style={`width:12px;height:30px;border-radius:6px;border:1.5px solid ${color}40;background:${color}12`}>
+                        <div class="absolute bottom-0 left-0 right-0" style={`height:${fill}%;background:${color}cc`}></div>
+                      </div>
+                      <div>
+                        <p class="text-[7px]" style="color:var(--ph-muted)">{label}</p>
+                        <p class="text-[9px] font-semibold" style="color:var(--ph-fg)">{val}</p>
+                        <p class="text-[7px]" style="color:var(--ph-muted)">{left}</p>
                       </div>
                     </div>
-                    <p class="text-[8px]" style="color:#9ca3af">{label}</p>
-                    <p class="text-[8px]" style="color:#6b7280">{goal}</p>
+                  ))}
+                </div>
+              </div>
+
+              <!-- Today's Log -->
+              <div class="px-3 pb-2 flex-1 overflow-hidden">
+                <p class="text-[7px] font-bold uppercase tracking-widest mb-1.5" style="color:var(--ph-muted)">TODAY'S LOG</p>
+                <!-- Item 1 -->
+                <div class="rounded-xl p-2 mb-1.5" style="background:var(--ph-surface);border-left:2.5px solid #c8920a;border-top:1px solid var(--ph-border);border-right:1px solid var(--ph-border);border-bottom:1px solid var(--ph-border)">
+                  <div class="flex items-start justify-between gap-1.5">
+                    <p class="text-[9px] font-semibold flex-1 leading-tight" style="color:var(--ph-fg)">Grilled chicken (200g) · Rice (150g)<span class="ml-1 rounded-full px-1.5 py-0.5 text-[7px]" style="background:var(--ph-border);color:#c8920a">+1 more</span></p>
+                    <div class="flex-shrink-0 text-right">
+                      <p class="text-[10px] font-bold" style="color:#c8920a">892</p>
+                      <p class="text-[7px]" style="color:var(--ph-muted)">kcal</p>
+                    </div>
                   </div>
-                ))}
-              </div>
-
-              <!-- Flame + burned -->
-              <div class="flex items-center justify-center gap-1 pb-2">
-                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b9fd4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M8.5 14.5A2.5 2.5 0 0011 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 11-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 002.5 3z"/>
-                </svg>
-                <span class="text-[9px]" style="color:#6b7280">131 kcal burned</span>
-              </div>
-
-              <!-- Log label -->
-              <div class="px-4 pb-1">
-                <p class="text-[9px] font-bold uppercase tracking-widest" style="color:#6b7280">Today's Log</p>
-              </div>
-
-              <!-- Log entry -->
-              <div class="px-4 pb-2 border-t" style="border-color:#1a1a1a">
-                <div class="flex items-start justify-between py-2">
-                  <div class="flex-1 min-w-0">
-                    <p class="text-[10px] font-semibold text-white leading-snug truncate">Grilled chicken, rice, steamed broccoli</p>
-                    <p class="text-[9px] mt-0.5" style="color:#6b7280">19:05 · Protein 66g · Carbs 179g · Fat 69g</p>
+                  <div class="flex items-center gap-1.5 mt-1">
+                    <p class="text-[7px]" style="color:var(--ph-muted)">12:30</p>
+                    <span class="text-[7px] font-medium" style="color:#60a5fa">●45g</span>
+                    <span class="text-[7px] font-medium" style="color:#fb923c">●89g</span>
+                    <span class="text-[7px] font-medium" style="color:#cb9ad8">●28g</span>
                   </div>
-                  <div class="text-right ml-2 flex-shrink-0">
-                    <p class="text-[10px] font-bold text-white">1663</p>
-                    <p class="text-[8px]" style="color:#6b7280">kcal</p>
+                </div>
+                <!-- Item 2 -->
+                <div class="rounded-xl px-2.5 py-2" style="background:var(--ph-surface);border-left:2.5px solid #c8920a;border-top:1px solid var(--ph-border);border-right:1px solid var(--ph-border);border-bottom:1px solid var(--ph-border)">
+                  <div class="flex items-start justify-between gap-1.5">
+                    <p class="text-[9px] font-semibold flex-1 leading-tight" style="color:var(--ph-fg)">Scrambled eggs (110g) · Sourdough (110g)</p>
+                    <div class="flex-shrink-0 text-right">
+                      <p class="text-[10px] font-bold" style="color:#c8920a">480</p>
+                      <p class="text-[7px]" style="color:var(--ph-muted)">kcal</p>
+                    </div>
+                  </div>
+                  <div class="flex items-center gap-1.5 mt-1">
+                    <p class="text-[7px]" style="color:var(--ph-muted)">08:30</p>
+                    <span class="text-[7px] font-medium" style="color:#60a5fa">●26g</span>
+                    <span class="text-[7px] font-medium" style="color:#fb923c">●56g</span>
+                    <span class="text-[7px] font-medium" style="color:#cb9ad8">●18g</span>
                   </div>
                 </div>
               </div>
 
-              <!-- AI input bar -->
-              <div class="px-4 pb-4">
-                <div class="flex items-center gap-2 rounded-2xl px-3 py-2.5" style="background:#1a1a1a;border:1px solid #2a2a2a">
-                  <p class="flex-1 text-[10px] italic" style="color:#6b7280">2 eggs, toast and butter</p>
-                  <div class="flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-xl text-[#6b7280] text-xs font-bold" style="background:#2a2a2a">+</div>
-                </div>
-                <div class="flex items-center justify-between mt-2 px-1">
-                  <span class="text-[9px] font-bold" style="color:#c8920a">+ Add manually</span>
-                  <div class="flex items-center gap-1">
-                    <!-- Ionicons infinite-outline -->
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" stroke-linecap="round" aria-hidden="true">
-                      <path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4z"/><path d="M12 12c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/>
-                    </svg>
-                    <span class="text-[9px]" style="color:#6b7280">Unlimited · Supporter</span>
+              <!-- Input bar — mt-auto pins it to bottom in flex-col -->
+              <div class="mt-auto px-3 pb-1">
+                <div class="flex items-center gap-2">
+                  <!-- Main input area with mic inside -->
+                  <div class="relative flex-1 rounded-xl px-3 py-3 pr-10" style="background:var(--ph-surface);border:1px solid var(--ph-border);min-height:46px">
+                    <p class="text-[10px] italic" style="color:var(--ph-placeholder)">2 eggs, toast and butter</p>
+                    <!-- Mic inside input -->
+                    <div class="absolute right-2 top-1/2 -translate-y-1/2 flex h-7 w-7 items-center justify-center rounded-full">
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:var(--ph-muted)" aria-hidden="true">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                      </svg>
+                    </div>
                   </div>
+                  <!-- Submit button (separate square, mustard) -->
+                  <div class="flex h-[38px] w-[38px] flex-shrink-0 items-center justify-center rounded-xl font-black text-base text-[#1c1714]" style="background:#c8920a">+</div>
                 </div>
+              </div>
+              <div class="flex items-center justify-between px-4 pb-4">
+                <span class="text-[9px] font-semibold" style="color:#c8920a">⊕ Add manually</span>
+                <span class="text-[9px]" style="color:var(--ph-muted)">⚡ Unlimited · Supporter</span>
               </div>
 
             </div>
