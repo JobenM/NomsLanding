@@ -16,23 +16,13 @@ import AnimatedSection from './AnimatedSection.tsx';
       <!-- Left: Text -->
       <div class="text-center lg:text-left">
 
-        <!-- App icon + wordmark — matches AppLogo.tsx exactly -->
-        <AnimatedSection animation="fadeIn" delay={0} client:load>
-          <div class="inline-flex items-center gap-3 mb-8">
-            <!-- Mustard rounded square, #c8920a, 🍽️ emoji -->
-            <div class="flex h-12 w-12 items-center justify-center rounded-2xl text-2xl shadow-lg" style="background-color:#c8920a;box-shadow:0 4px 16px rgba(200,146,10,0.35)">
-              🍽️
-            </div>
-            <span class="text-2xl font-black tracking-tight text-[#1c1714] dark:text-white">NomsAI</span>
-          </div>
-        </AnimatedSection>
 
         <!-- Headline -->
         <AnimatedSection animation="fadeUp" delay={0.1} client:load>
           <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-[#1c1714] dark:text-white leading-[1.05] mb-4">
             Type it. Say it.
             <br />
-            <span style="color:#c8920a">AI handles the rest.</span>
+            <span style="color:#c8920a">NomsAI handles the rest.</span>
           </h1>
         </AnimatedSection>
 
@@ -40,7 +30,7 @@ import AnimatedSection from './AnimatedSection.tsx';
         <AnimatedSection animation="fadeUp" delay={0.2} client:load>
           <p class="text-lg text-[#6b6560] dark:text-[#9ca3af] leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
             The <strong class="text-[#1c1714] dark:text-white font-semibold">AI calorie tracker</strong> that respects your time and your privacy.
-            Type or speak any meal — AI looks up real nutrition data, splits multi-item entries, and keeps everything on your device.
+            Type or speak any meal — NomsAI looks up real nutrition data, splits multi-item entries, and keeps everything on your device.
             No login. No account. No nonsense.
           </p>
         </AnimatedSection>
@@ -114,8 +104,7 @@ import AnimatedSection from './AnimatedSection.tsx';
             </a>
             <a
               href="#download"
-              class="inline-flex items-center gap-3 rounded-2xl border-2 bg-white dark:bg-[#1a1a1a] px-7 py-4 text-base font-bold text-[#1c1714] dark:text-white hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
-              style="border-color:#d4ccc4"
+              class="inline-flex items-center gap-3 rounded-2xl border-2 border-[#d4ccc4] dark:border-[#2a2a2a] bg-white dark:bg-[#1a1a1a] px-7 py-4 text-base font-bold text-[#1c1714] dark:text-white hover:scale-[1.03] active:scale-[0.98] transition-all duration-200"
             >
               <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" style="color:#c8920a" aria-hidden="true">
                 <path d="M3.18 23.76c.3.17.66.19.99.08l12.45-7.2-2.68-2.68-10.76 9.8zm-1.63-20.4C1.21 3.77 1 4.24 1 4.87v14.26c0 .63.21 1.1.55 1.42l.08.07 7.99-7.99v-.19L1.63 4.29l-.08.07zM20.96 10.16l-2.67-1.54-3 2.99 3 2.99 2.69-1.55c.76-.44.76-1.45-.02-1.89zM4.17.24L16.62 7.44 13.94 10.12 3.18.32c.33-.11.7-.09.99.08v-.16z"/>
@@ -159,9 +148,9 @@ import AnimatedSection from './AnimatedSection.tsx';
               <div class="flex items-center justify-between px-4 pt-1 pb-2">
                 <span class="text-lg font-black tracking-tight" style="color:var(--ph-fg)">NomsAI</span>
                 <div class="flex items-center gap-2.5" style="color:var(--ph-muted)">
-                  <!-- barbell-outline -->
+                  <!-- add-circle-outline -->
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M6 5v14M18 5v14M2 9h4M18 9h4M2 15h4M18 15h4M6 9h12M6 15h12"/>
+                    <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/>
                   </svg>
                   <!-- time-outline -->
                   <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -185,11 +174,11 @@ import AnimatedSection from './AnimatedSection.tsx';
               <!-- Date strip -->
               <div class="flex gap-1.5 px-3 pb-2 overflow-hidden">
                 {['Wed 15', 'Thu 16', 'Fri 17', 'Sat 18'].map((d) => (
-                  <div class="flex-shrink-0 rounded-full px-2.5 py-1" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
+                  <div class="flex-shrink-0 flex items-center rounded-full px-2.5 py-0.5" style="background:var(--ph-surface);border:1px solid var(--ph-border)">
                     <span class="text-[9px] font-medium" style="color:var(--ph-muted)">{d}</span>
                   </div>
                 ))}
-                <div class="flex-shrink-0 rounded-full px-2.5 py-1 font-bold text-[9px]" style="background:#c8920a;color:#1c1714">Today</div>
+                <div class="flex-shrink-0 flex items-center rounded-full px-2.5 py-0.5 font-bold text-[9px]" style="background:#c8920a;color:#1c1714">Today</div>
               </div>
 
               <!-- Greeting -->
@@ -287,39 +276,39 @@ import AnimatedSection from './AnimatedSection.tsx';
               </div>
               <div class="flex items-center justify-between px-4 pb-4">
                 <span class="text-[9px] font-semibold" style="color:#c8920a">⊕ Add manually</span>
-                <span class="text-[9px]" style="color:var(--ph-muted)">⚡ Unlimited · Supporter</span>
+                <span class="text-[9px]" style="color:var(--ph-muted)">⚡ Unlimited · Pro</span>
               </div>
 
             </div>
           </div>
 
           <!-- Floating badges -->
-          <div class="absolute -left-8 top-16 rounded-2xl shadow-xl p-3 hidden sm:block bg-white dark:bg-[#1a1a1a]" style="border:1px solid #d4ccc4">
+          <div class="absolute -left-8 top-16 rounded-2xl shadow-xl p-3 hidden sm:block bg-white dark:bg-[#1a1a1a] border border-[#d4ccc4] dark:border-[#2a2a2a]">
             <div class="flex items-center gap-2">
-              <div class="flex h-8 w-8 items-center justify-center rounded-xl" style="background:#f4f2ef">
+              <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-[#f4f2ef] dark:bg-[#2a2a2a]">
                 <!-- shield-checkmark-outline -->
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/>
                 </svg>
               </div>
               <div>
-                <p class="text-xs font-bold" style="color:#1c1714">100% Private</p>
-                <p class="text-[10px]" style="color:#6b6560">Device-only storage</p>
+                <p class="text-xs font-bold text-[#1c1714] dark:text-white">100% Private</p>
+                <p class="text-[10px] text-[#6b6560] dark:text-[#9ca3af]">Device-only storage</p>
               </div>
             </div>
           </div>
 
-          <div class="absolute -right-8 bottom-24 rounded-2xl shadow-xl p-3 hidden sm:block bg-white dark:bg-[#1a1a1a]" style="border:1px solid #d4ccc4">
+          <div class="absolute -right-8 bottom-24 rounded-2xl shadow-xl p-3 hidden sm:block bg-white dark:bg-[#1a1a1a] border border-[#d4ccc4] dark:border-[#2a2a2a]">
             <div class="flex items-center gap-2">
-              <div class="flex h-8 w-8 items-center justify-center rounded-xl" style="background:#f4f2ef">
+              <div class="flex h-8 w-8 items-center justify-center rounded-xl bg-[#f4f2ef] dark:bg-[#2a2a2a]">
                 <!-- flash-outline -->
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
                 </svg>
               </div>
               <div>
-                <p class="text-xs font-bold" style="color:#1c1714">Instant AI</p>
-                <p class="text-[10px]" style="color:#6b6560">&lt; 1 second</p>
+                <p class="text-xs font-bold text-[#1c1714] dark:text-white">Instant logging</p>
+                <p class="text-[10px] text-[#6b6560] dark:text-[#9ca3af]">&lt; 2 second</p>
               </div>
             </div>
           </div>

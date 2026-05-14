@@ -38,7 +38,7 @@ const steps = [
         <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#1c1714] dark:text-white tracking-tight">
           Three steps. That's it.
         </h2>
-        <p class="mt-4 text-lg max-w-2xl mx-auto" style="color:#6b6560">
+        <p class="mt-4 text-lg max-w-2xl mx-auto text-[#6b6560] dark:text-[#9ca3af]">
           No barcode scanning. No database searching. No account setup. The fastest AI food diary you'll ever use.
         </p>
       </div>
@@ -47,8 +47,7 @@ const steps = [
     <AnimatedSection animation="staggerUp" client:load>
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {steps.map(({ number, iconPath, iconPaths, title, description, example }) => (
-          <div class="relative flex flex-col rounded-2xl border p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 bg-white dark:bg-[#1a1a1a]"
-            style="border-color:#d4ccc4">
+          <div class="relative flex flex-col rounded-2xl border border-[#d4ccc4] dark:border-[#2a2a2a] p-8 shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 bg-white dark:bg-[#1a1a1a]">
 
             <div class="flex items-center gap-4 mb-6">
               <!-- Mustard icon background -->
@@ -63,13 +62,13 @@ const steps = [
                   {number.replace('0', '')}
                 </span>
               </div>
-              <span class="text-5xl font-black select-none" style="color:#d4ccc4">{number}</span>
+              <span class="text-5xl font-black select-none text-[#d4ccc4] dark:text-[#3a3a3a]">{number}</span>
             </div>
 
-            <h3 class="text-xl font-bold text-[#1c1714] mb-3">{title}</h3>
-            <p class="leading-relaxed mb-6 flex-1 text-sm" style="color:#6b6560">{description}</p>
+            <h3 class="text-xl font-bold text-[#1c1714] dark:text-white mb-3">{title}</h3>
+            <p class="leading-relaxed mb-6 flex-1 text-sm text-[#6b6560] dark:text-[#9ca3af]">{description}</p>
 
-            <div class="rounded-xl px-4 py-3 border bg-[#f4f2ef] dark:bg-[#0a0a0a]" style="border-color:#d4ccc4">
+            <div class="rounded-xl px-4 py-3 border border-[#d4ccc4] dark:border-[#2a2a2a] bg-[#f4f2ef] dark:bg-[#0a0a0a]">
               <p class="text-sm font-mono" style="color:#c8920a">{example}</p>
             </div>
           </div>

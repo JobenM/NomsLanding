@@ -12,12 +12,20 @@ const faqCategories = [
         answer: 'Your entire food diary is stored locally on your device — your iPhone or Android phone. Nothing is ever uploaded to our servers. We have no cloud database containing your meals. We cannot see your food log, and neither can anyone else. If you uninstall the app, your data is completely gone with no lingering records anywhere.',
       },
       {
+        question: 'Does NomsAI see what I type into the app?',
+        answer: 'No. The text you type is processed to estimate your macros and then immediately discarded — it is never stored on our servers, in any database, or in your food log. We made this a deliberate design decision: your food diary is yours and nobody else\'s business.',
+      },
+      {
         question: 'Do you sell my data to advertisers?',
-        answer: 'No. We do not sell, share, rent, or monetize your data in any way. We do not have a user database of meals or nutrition logs. There is nothing to sell. Our business model is the app itself — not your personal information.',
+        answer: 'No. We do not sell, share, rent, or monetise your data in any way. We do not have a user database of meals or nutrition logs. There is nothing to sell. Our business model is the app itself — not your personal information.',
       },
       {
         question: 'Do you require any account or login?',
-        answer: 'No account, email, or login is required to use NomsAI. You download the app and start logging immediately. We do not collect personally identifiable information. The only identifier used is an anonymous device UUID — no name, email, or personal data is ever collected.',
+        answer: 'No account, email, or login is ever required to use NomsAI. Download the app and start logging immediately. The only identifier used is an anonymous device ID — no name, email, or personal data is collected.',
+      },
+      {
+        question: 'What happens to my data if I delete the app?',
+        answer: 'Because your food logs live on your device, deleting the app removes them permanently. There is no cloud backup to recover from and no account to log back into — which is exactly how a privacy-first app should work. If you want to keep a copy before uninstalling, use Settings > Export to save your data first.',
       },
     ],
   },
@@ -26,15 +34,19 @@ const faqCategories = [
     faqs: [
       {
         question: 'Is NomsAI free?',
-        answer: 'Yes — you can start logging immediately with no payment required. When you first open the app you receive 20 Welcome Credits (a one-time fuel tank to get you started). After those are used, you get 5 free daily logs every day, automatically refilled at midnight. If you need more, you can top up with Emergency Credits (a small one-time purchase) or unlock unlimited logging with the Supporter Pass — a monthly or annual subscription.',
+        answer: 'Yes — you can start logging immediately with no payment required. When you first open the app you receive 20 Welcome Credits to get started. After those are used, you get 5 free AI logs every day, automatically refilled at midnight. If you need more, top up with Emergency Credits (a small one-time purchase) or unlock unlimited logging with Pro — available monthly or annually.',
       },
       {
-        question: 'What is the Supporter Pass?',
-        answer: 'The Supporter Pass is an optional subscription that gives you unlimited food logs with no daily cap. It\'s the best option if you log more than 5 meals a day or want to track snacks and drinks freely. Subscriptions are managed through Apple or Google and can be cancelled at any time.',
+        question: 'What is Pro?',
+        answer: 'Pro is an optional subscription that removes the daily log limit entirely. It\'s the best option if you log more than 5 meals a day or want to track every snack and drink without thinking about credits. Subscriptions are managed through Apple or Google and can be cancelled at any time.',
       },
       {
         question: 'What are Emergency Credits?',
-        answer: 'Emergency Credits are a one-time top-up you can purchase if you run out of daily free logs and don\'t want a subscription. They\'re consumed one per AI log entry and never expire. Useful for occasional heavy-logging days without committing to a subscription.',
+        answer: 'Emergency Credits are a one-time top-up you can purchase if you run out of daily free logs and don\'t want a subscription. They\'re consumed one per AI log entry, never expire, and are useful for occasional heavy-logging days without committing to a monthly plan.',
+      },
+      {
+        question: 'What happens to my logs if I stop paying?',
+        answer: 'Nothing. Your food logs are stored on your device and stay there regardless of your subscription status. Cancelling Pro means you return to the 5 free daily logs — your history is completely untouched.',
       },
     ],
   },
@@ -43,19 +55,60 @@ const faqCategories = [
     faqs: [
       {
         question: 'How accurate is the AI calorie estimation?',
-        answer: 'For common foods and meals, NomsAI estimates are typically within 15–20% of actual calorie and macro values — similar to how most people estimate their own intake from memory. The app uses Google Gemini with a UK food database for lookup. For nutritional awareness and trend tracking, this level of accuracy is more than sufficient. Consistency matters more than perfection.',
+        answer: 'For everyday foods and meals, estimates are close to what you\'d get estimating yourself — good enough to build meaningful nutritional awareness and track trends over time. Complex homemade dishes with lots of ingredients are harder to nail precisely, but that\'s true of any method short of weighing every component. Consistency matters far more than perfection: logging something approximate every day beats logging nothing because it feels too imprecise.',
+      },
+      {
+        question: 'Can I correct the AI if it gets something wrong?',
+        answer: 'Yes — and this is by design. Before anything is saved, a Review screen shows every item NomsAI identified with its estimated calories, protein, carbs, and fat. You can edit any number, adjust portion amounts, rename items, or remove something entirely. Nothing is logged until you tap Confirm. You stay in control of every entry.',
+      },
+      {
+        question: 'How does it handle homemade meals?',
+        answer: 'Describe it the way you\'d explain it to someone: what\'s in it, roughly how much of each thing, and how it was cooked. "Homemade chicken curry with rice, coconut milk, and vegetables — medium portion" will give a sensible estimate. It won\'t be perfectly precise, but it\'ll be in the right ballpark. You can always tweak the numbers on the Review screen before confirming.',
       },
       {
         question: 'What types of food descriptions work best?',
-        answer: 'Natural, descriptive language works best. Include the food name, cooking method if relevant (grilled, fried, raw), and an approximate quantity (bowl of, two slices, handful, large plate). Restaurant meals work well if you name the restaurant and dish. The more context you provide, the better the estimate.',
+        answer: 'Natural, descriptive language works best. Include the food name, cooking method if relevant (grilled, fried, raw), and an approximate quantity (bowl of, two slices, handful, large plate). Restaurant meals work well if you name the restaurant and dish. The more context you give, the better the estimate.',
       },
       {
         question: 'Can it handle mixed dishes and restaurant meals?',
-        answer: 'Yes. NomsAI is designed for real-world eating, not just packaged foods with barcodes. It handles mixed dishes like "chicken stir fry with vegetables and rice", restaurant orders like "large burger and chips meal", and foods from around the world. It won\'t always be perfect, but it provides a useful estimate you can adjust before saving.',
+        answer: 'Yes. NomsAI is built for real-world eating, not just packaged foods with barcodes. It handles mixed dishes like "chicken stir fry with vegetables and rice", restaurant orders like "large burger and chips", and foods from cuisines around the world. It won\'t always be perfect, but you can adjust anything before saving.',
       },
       {
         question: 'Why are estimates sometimes different for the same food?',
-        answer: 'Small variations in your description, portion size wording, or cooking method can yield slightly different estimates — just as they would for any human estimating food. For consistent tracking, describe similar meals in similar ways.',
+        answer: 'Small variations in how you describe a meal — portion size wording, cooking method, or added ingredients — can yield slightly different estimates, just as they would for any human estimating food. For consistent tracking, describe similar meals in similar ways.',
+      },
+    ],
+  },
+  {
+    category: 'Features & Logging',
+    faqs: [
+      {
+        question: 'Can I log workouts too?',
+        answer: 'Yes. Tap the + button and switch to the Workout tab to log activities like running, walking, cycling, strength training, and more. NomsAI estimates calories burned based on the activity type, duration, and your bodyweight. Burned calories appear alongside your food log so you can see your net intake for the day.',
+      },
+      {
+        question: 'Does it track water intake?',
+        answer: 'Yes. Water tracking is optional and off by default — turn it on in Settings if you want it. Once enabled, you can set a daily goal and log in preset amounts (150 ml, 250 ml, 500 ml, 750 ml) from the dashboard. Your progress shows as a simple bar throughout the day.',
+      },
+      {
+        question: 'How does it handle water, black tea, diet soda, and other zero-calorie drinks?',
+        answer: 'NomsAI recognises common zero-calorie drinks and logs them instantly without using a credit. Just type "black coffee", "water", "diet Coke", or similar and they\'re added to your log immediately — no AI processing, no credit deducted.',
+      },
+      {
+        question: 'Can I add a meal from a previous day?',
+        answer: 'Yes. Swipe or tap back through the date strip at the top of the dashboard to navigate to any previous day, then log normally. Entries are saved to whichever date you\'re currently viewing.',
+      },
+      {
+        question: 'Can I save meals I eat regularly?',
+        answer: 'Yes. After reviewing any meal, tap "Save as Recipe" to store it permanently under a name you choose. Next time, just type the recipe name and the whole meal logs in one tap — no re-entering ingredients.',
+      },
+      {
+        question: 'Can I export my data?',
+        answer: 'Yes. Go to Settings > Export Data to download your food logs as a CSV file — useful for sharing with a nutritionist or importing elsewhere. There\'s also a full JSON backup option under Settings > Backup & Restore that covers logs, workouts, weight entries, recipes, and goals.',
+      },
+      {
+        question: 'Does NomsAI work outside the UK?',
+        answer: 'Yes, NomsAI works worldwide. The app detects your region automatically and uses locally relevant food references. Whether you\'re in the US, Europe, Asia, or anywhere else, you can log in plain English (or describe foods in your own language) and get a useful estimate.',
       },
     ],
   },
@@ -64,15 +117,15 @@ const faqCategories = [
     faqs: [
       {
         question: 'Does the app work offline?',
-        answer: 'Your food log and all your data are always available offline — the app reads from local storage on your device. AI-powered parsing for new food entries requires a brief internet connection, but your existing log, daily totals, and history are fully functional without WiFi.',
+        answer: 'Your food log and all your data are always available offline — the app reads from local storage on your device. AI-powered logging for new entries requires a brief internet connection, but your existing log, daily totals, and history are fully accessible without WiFi.',
       },
       {
         question: 'Is NomsAI available on both iOS and Android?',
-        answer: 'Yes. NomsAI is available on the Apple App Store for iPhone and on Google Play for Android. The core experience is the same on both platforms.',
+        answer: 'Yes. NomsAI is available on the Apple App Store for iPhone and on Google Play for Android. The core experience is identical on both platforms.',
       },
       {
         question: 'What macros does NomsAI track?',
-        answer: 'NomsAI tracks calories (kcal), protein (g), carbohydrates (g), and fat (g) for each logged meal. Daily totals are shown with a calorie ring and three macro rings — all on one screen. You can also log workouts and bodyweight separately.',
+        answer: 'NomsAI tracks calories (kcal), protein (g), carbohydrates (g), and fat (g) for every logged meal. Daily totals are shown with a calorie ring and three macro rings — all visible on one screen. You can also log workouts and bodyweight separately for a complete daily picture.',
       },
     ],
   },
@@ -80,19 +133,19 @@ const faqCategories = [
 ---
 
 <Layout
-  title="FAQ — NomsAI AI Calorie Tracker Questions Answered"
-  description="Common questions about NomsAI answered: privacy, AI accuracy, offline use, no login required, supported foods, macro tracking, iOS and Android support, and data storage."
+  title="FAQ — NomsAI | AI Calorie Tracker, No Account Required"
+  description="Common questions about NomsAI: no account needed, AI accuracy, privacy-first data storage, free vs Pro, exporting data, workout logging, water tracking, and more."
 >
 
   <!-- Page Hero -->
-  <section class="py-20 sm:py-28 border-b bg-white dark:bg-[#0a0a0a]" style="border-color:#d4ccc4">
+  <section class="py-20 sm:py-28 border-b border-[#d4ccc4] dark:border-[#2a2a2a] bg-white dark:bg-[#0a0a0a]">
     <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
       <AnimatedSection animation="fadeUp" client:load>
         <p class="text-sm font-bold uppercase tracking-widest mb-4" style="color:#c8920a">FAQ</p>
-        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6" style="color:#1c1714">
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 text-[#1c1714] dark:text-white">
           Frequently asked questions
         </h1>
-        <p class="text-xl leading-relaxed" style="color:#6b6560">
+        <p class="text-xl leading-relaxed text-[#6b6560] dark:text-[#9ca3af]">
           Everything you want to know about NomsAI — privacy, credits, AI accuracy, and more.
         </p>
       </AnimatedSection>
@@ -106,19 +159,17 @@ const faqCategories = [
       {faqCategories.map(({ category, faqs }) => (
         <AnimatedSection animation="fadeUp" client:load>
           <div class="mb-14">
-            <h2 class="text-xl font-bold mb-6 flex items-center gap-3" style="color:#1c1714">
-              <span class="block h-px flex-1" style="background:#d4ccc4"></span>
+            <h2 class="text-xl font-bold mb-6 flex items-center gap-3 text-[#1c1714] dark:text-white">
+              <span class="block h-px flex-1 bg-[#d4ccc4] dark:bg-[#2a2a2a]"></span>
               <span class="flex-shrink-0">{category}</span>
-              <span class="block h-px flex-1" style="background:#d4ccc4"></span>
+              <span class="block h-px flex-1 bg-[#d4ccc4] dark:bg-[#2a2a2a]"></span>
             </h2>
             <div class="space-y-3">
               {faqs.map(({ question, answer }) => (
-                <details class="group rounded-2xl border overflow-hidden transition-colors duration-200 bg-white dark:bg-[#1a1a1a]"
-                  style="border-color:#d4ccc4">
+                <details class="group rounded-2xl border border-[#d4ccc4] dark:border-[#2a2a2a] overflow-hidden transition-colors duration-200 bg-white dark:bg-[#1a1a1a]">
                   <summary class="flex items-center justify-between gap-4 px-6 py-5 cursor-pointer list-none">
-                    <h3 class="text-base font-semibold pr-4" style="color:#1c1714">{question}</h3>
-                    <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200"
-                      style="background:#edeae5">
+                    <h3 class="text-base font-semibold pr-4 text-[#1c1714] dark:text-white">{question}</h3>
+                    <div class="flex-shrink-0 flex h-8 w-8 items-center justify-center rounded-full transition-all duration-200 bg-[#edeae5] dark:bg-[#2a2a2a]">
                       <svg class="h-4 w-4 transition-transform duration-200 group-open:rotate-45" fill="none" viewBox="0 0 24 24"
                         stroke="#c8920a" stroke-width="2.5" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
@@ -126,7 +177,7 @@ const faqCategories = [
                     </div>
                   </summary>
                   <div class="px-6 pb-6">
-                    <p class="leading-relaxed text-sm" style="color:#6b6560">{answer}</p>
+                    <p class="leading-relaxed text-sm text-[#6b6560] dark:text-[#9ca3af]">{answer}</p>
                   </div>
                 </details>
               ))}

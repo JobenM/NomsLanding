@@ -4,7 +4,7 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 
 export default defineConfig({
-  site: 'https://jobenmora.com',
+  site: 'https://nomsai.app',
   integrations: [tailwind(), sitemap(), react()],
   output: 'static',
 });

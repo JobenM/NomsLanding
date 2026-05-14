@@ -2,144 +2,69 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t" style="border-color:#d4ccc4;background:#edeae5">
-  <div class="dark:hidden">
-    <!-- Light footer -->
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+<footer class="border-t border-[#d4ccc4] dark:border-[#2a2a2a] bg-[#edeae5] dark:bg-[#0a0a0a]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 
-        <div class="md:col-span-2">
-          <a href="/" class="inline-flex items-center gap-2.5 mb-4">
-            <div class="flex h-9 w-9 items-center justify-center rounded-xl text-xl shadow-sm" style="background-color:#c8920a">🍽️</div>
-            <span class="text-lg font-black tracking-tight" style="color:#1c1714">NomsAI</span>
+      <div class="md:col-span-2">
+        <a href="/" class="inline-flex items-center gap-2.5 mb-4">
+          <div class="flex h-9 w-9 items-center justify-center rounded-xl text-xl shadow-sm" style="background-color:#c8920a">🍽️</div>
+          <span class="text-lg font-black tracking-tight text-[#1c1714] dark:text-white">NomsAI</span>
+        </a>
+        <p class="text-sm leading-relaxed max-w-xs text-[#6b6560] dark:text-[#9ca3af]">
+          The privacy-first AI calorie tracker. Type what you ate, get macros instantly. No login, no ads, no nonsense.
+        </p>
+        <div class="flex items-center gap-3 mt-6">
+          <a href="#" aria-label="NomsAI on X / Twitter"
+            class="flex h-9 w-9 items-center justify-center rounded-lg border border-[#d4ccc4] dark:border-[#2a2a2a] text-[#6b6560] dark:text-[#9ca3af] transition-all duration-200 hover:border-[#c8920a] dark:hover:border-[#c8920a]">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.743l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
           </a>
-          <p class="text-sm leading-relaxed max-w-xs" style="color:#6b6560">
-            The privacy-first AI calorie tracker. Type what you ate, get macros instantly. No login, no ads, no nonsense.
-          </p>
-          <div class="flex items-center gap-3 mt-6">
-            <a href="#" aria-label="NomsAI on X / Twitter"
-              class="flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-200"
-              style="border-color:#d4ccc4;color:#6b6560">
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.743l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-            <a href="#" aria-label="NomsAI on Instagram"
-              class="flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-200"
-              style="border-color:#d4ccc4;color:#6b6560">
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wider mb-4" style="color:#1c1714">App</h3>
-          <ul class="space-y-3">
-            {[
-              { href: '/how-it-works', label: 'How It Works' },
-              { href: '/faq', label: 'FAQ' },
-              { href: '/articles', label: 'Articles' },
-              { href: '#download', label: 'Download' },
-            ].map(({ href, label }) => (
-              <li><a href={href} class="text-sm transition-colors duration-200 hover:underline" style="color:#6b6560">{label}</a></li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wider mb-4" style="color:#1c1714">Legal</h3>
-          <ul class="space-y-3">
-            {[
-              { href: '/privacy', label: 'Privacy Policy' },
-              { href: '/terms', label: 'Terms of Service' },
-            ].map(({ href, label }) => (
-              <li><a href={href} class="text-sm transition-colors duration-200 hover:underline" style="color:#6b6560">{label}</a></li>
-            ))}
-          </ul>
-          <div class="mt-6">
-            <p class="text-xs leading-relaxed" style="color:#bbb5af">
-              NomsAI is an informational tool, not a medical device. Macro estimates are AI approximations.
-            </p>
-          </div>
+          <a href="#" aria-label="NomsAI on Instagram"
+            class="flex h-9 w-9 items-center justify-center rounded-lg border border-[#d4ccc4] dark:border-[#2a2a2a] text-[#6b6560] dark:text-[#9ca3af] transition-all duration-200 hover:border-[#c8920a] dark:hover:border-[#c8920a]">
+            <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
         </div>
       </div>
 
-      <div class="mt-10 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4" style="border-color:#d4ccc4">
-        <p class="text-sm" style="color:#bbb5af">&copy; {currentYear} NomsAI. All rights reserved.</p>
-        <p class="text-sm" style="color:#bbb5af">Built by a solo developer &nbsp;·&nbsp; <a href="mailto:hello@nomsai.app" class="hover:underline" style="color:#c8920a">hello@nomsai.app</a></p>
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-[#1c1714] dark:text-white">App</h3>
+        <ul class="space-y-3">
+          {[
+            { href: '/how-it-works', label: 'How It Works' },
+            { href: '/faq', label: 'FAQ' },
+            { href: '/articles', label: 'Articles' },
+            { href: '#download', label: 'Download' },
+          ].map(({ href, label }) => (
+            <li><a href={href} class="text-sm text-[#6b6560] dark:text-[#9ca3af] transition-colors duration-200 hover:text-[#1c1714] dark:hover:text-white hover:underline">{label}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-[#1c1714] dark:text-white">Legal</h3>
+        <ul class="space-y-3">
+          {[
+            { href: '/privacy', label: 'Privacy Policy' },
+            { href: '/terms', label: 'Terms of Service' },
+          ].map(({ href, label }) => (
+            <li><a href={href} class="text-sm text-[#6b6560] dark:text-[#9ca3af] transition-colors duration-200 hover:text-[#1c1714] dark:hover:text-white hover:underline">{label}</a></li>
+          ))}
+        </ul>
+        <div class="mt-6">
+          <p class="text-xs leading-relaxed text-[#bbb5af] dark:text-[#6b7280]">
+            NomsAI is an informational tool, not a medical device. Macro estimates are AI approximations.
+          </p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Dark footer -->
-  <div class="hidden dark:block" style="background:#0a0a0a;border-color:#2a2a2a">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-12">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-
-        <div class="md:col-span-2">
-          <a href="/" class="inline-flex items-center gap-2.5 mb-4">
-            <div class="flex h-9 w-9 items-center justify-center rounded-xl text-xl shadow-sm" style="background-color:#c8920a">🍽️</div>
-            <span class="text-lg font-black tracking-tight text-white">NomsAI</span>
-          </a>
-          <p class="text-sm leading-relaxed max-w-xs" style="color:#9ca3af">
-            The privacy-first AI calorie tracker. Type what you ate, get macros instantly. No login, no ads, no nonsense.
-          </p>
-          <div class="flex items-center gap-3 mt-6">
-            <a href="#" aria-label="NomsAI on X / Twitter"
-              class="flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-200"
-              style="border-color:#2a2a2a;color:#9ca3af">
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.743l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-            <a href="#" aria-label="NomsAI on Instagram"
-              class="flex h-9 w-9 items-center justify-center rounded-lg border transition-all duration-200"
-              style="border-color:#2a2a2a;color:#9ca3af">
-              <svg class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-
-        <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-white">App</h3>
-          <ul class="space-y-3">
-            {[
-              { href: '/how-it-works', label: 'How It Works' },
-              { href: '/faq', label: 'FAQ' },
-              { href: '/articles', label: 'Articles' },
-              { href: '#download', label: 'Download' },
-            ].map(({ href, label }) => (
-              <li><a href={href} class="text-sm transition-colors duration-200 hover:text-white" style="color:#9ca3af">{label}</a></li>
-            ))}
-          </ul>
-        </div>
-
-        <div>
-          <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-white">Legal</h3>
-          <ul class="space-y-3">
-            {[
-              { href: '/privacy', label: 'Privacy Policy' },
-              { href: '/terms', label: 'Terms of Service' },
-            ].map(({ href, label }) => (
-              <li><a href={href} class="text-sm transition-colors duration-200 hover:text-white" style="color:#9ca3af">{label}</a></li>
-            ))}
-          </ul>
-          <div class="mt-6">
-            <p class="text-xs leading-relaxed" style="color:#6b7280">
-              NomsAI is an informational tool, not a medical device. Macro estimates are AI approximations.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="mt-10 pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4" style="border-color:#2a2a2a">
-        <p class="text-sm" style="color:#6b7280">&copy; {currentYear} NomsAI. All rights reserved.</p>
-        <p class="text-sm" style="color:#6b7280">Built by a solo developer &nbsp;·&nbsp; <a href="mailto:hello@nomsai.app" class="hover:underline" style="color:#c8920a">hello@nomsai.app</a></p>
-      </div>
+    <div class="mt-10 pt-8 border-t border-[#d4ccc4] dark:border-[#2a2a2a] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-[#bbb5af] dark:text-[#6b7280]">&copy; {currentYear} NomsAI. All rights reserved.</p>
+      <p class="text-sm text-[#bbb5af] dark:text-[#6b7280]">Built by a solo developer &nbsp;·&nbsp; <a href="mailto:hello@nomsai.app" class="hover:underline" style="color:#c8920a">hello@nomsai.app</a></p>
     </div>
   </div>
 </footer>

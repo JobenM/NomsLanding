@@ -10,14 +10,14 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
 >
 
   <!-- Hero -->
-  <section class="py-20 sm:py-24 border-b bg-[#f4f2ef] dark:bg-[#0a0a0a]" style="border-color:#d4ccc4">
+  <section class="py-20 sm:py-24 border-b border-[#d4ccc4] dark:border-[#2a2a2a] bg-[#f4f2ef] dark:bg-[#0a0a0a]">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
       <AnimatedSection animation="fadeUp" client:load>
         <p class="text-sm font-bold uppercase tracking-widest mb-4" style="color:#c8920a">How it works</p>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#1c1714] dark:text-white mb-6">
           Calorie tracking that actually sticks
         </h1>
-        <p class="text-xl leading-relaxed max-w-2xl mx-auto" style="color:#6b6560">
+        <p class="text-xl leading-relaxed max-w-2xl mx-auto text-[#6b6560] dark:text-[#9ca3af]">
           Traditional calorie apps fail because the friction is too high. NomsAI removes every barrier between you and your food diary.
         </p>
       </AnimatedSection>
@@ -37,35 +37,47 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
               <span class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Step one</span>
             </div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
-              Type what you ate — in plain English
+              Type it, say it, or scan it
             </h2>
-            <p class="text-lg leading-relaxed mb-6" style="color:#6b6560">
-              Forget barcode scanners and database searches. Tap the input bar at the bottom of the screen and describe your meal exactly how you'd say it to a friend. Multiple items in one go.
+            <p class="text-lg leading-relaxed mb-6 text-[#6b6560] dark:text-[#9ca3af]">
+              Three ways to log — pick whichever is fastest. Type your meal in plain English, tap the mic and speak hands-free, or point the barcode scanner at any packaged food. No database browsing, no endless searching. Multiple items in one go.
             </p>
             <ul class="space-y-3">
               {[
-                '"2 eggs, toast and butter"',
-                '"bowl of ramen with pork belly and a soft-boiled egg"',
-                '"chicken burrito bowl, extra guacamole"',
-                '"handful of almonds and an apple"',
-                '"oat milk latte 300ml"',
-              ].map((example) => (
+                { text: '"2 eggs, toast and butter"', icon: 'type' },
+                { text: '"bowl of ramen with pork belly and a soft-boiled egg"', icon: 'type' },
+                { text: '"chicken burrito bowl, extra guacamole"', icon: 'type' },
+                { text: 'Speak it aloud — voice transcribes live', icon: 'mic' },
+                { text: 'Scan a barcode — packed food macros instantly', icon: 'scan' },
+              ].map(({ text, icon }) => (
                 <li class="flex items-start gap-3">
-                  <svg class="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="#c8920a" stroke-width="2" aria-hidden="true">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                  </svg>
-                  <span class="text-sm font-mono" style="color:#6b6560">{example}</span>
+                  {icon === 'type' && (
+                    <svg class="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="#c8920a" stroke-width="2" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  )}
+                  {icon === 'mic' && (
+                    <svg class="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="#c8920a" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                      <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                    </svg>
+                  )}
+                  {icon === 'scan' && (
+                    <svg class="h-5 w-5 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="#c8920a" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                      <path d="M3 9V5a2 2 0 0 1 2-2h4M3 15v4a2 2 0 0 0 2 2h4M21 9V5a2 2 0 0 0-2-2h-4M21 15v4a2 2 0 0 1-2 2h-4"/><line x1="8" y1="12" x2="16" y2="12"/>
+                    </svg>
+                  )}
+                  <span class={`text-sm ${icon === 'type' ? 'font-mono' : 'font-medium'} text-[#6b6560] dark:text-[#9ca3af]`}>{text}</span>
                 </li>
               ))}
             </ul>
-            <p class="text-sm mt-5 italic" style="color:#bbb5af">
+            <p class="text-sm mt-5 italic text-[#bbb5af] dark:text-[#6b7280]">
               You can even type in any language — French, Spanish, Japanese, whatever works for you.
             </p>
           </div>
 
           <!-- Input bar mockup -->
-          <div class="rounded-3xl border p-8 shadow-lg bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
-            <p class="text-xs font-bold uppercase tracking-widest mb-4" style="color:#6b6560">The input bar</p>
+          <div class="rounded-3xl border border-[#d4ccc4] dark:border-[#2a2a2a] p-8 shadow-lg bg-white dark:bg-[#1a1a1a]">
+            <p class="text-xs font-bold uppercase tracking-widest mb-4 text-[#6b6560] dark:text-[#9ca3af]">The input bar</p>
             <!-- Simulated app input bar -->
             <div class="rounded-2xl border flex items-center gap-3 px-4 py-3 mb-3" style="background:#1a1a1a;border-color:#2a2a2a">
               <p class="flex-1 text-sm italic" style="color:#6b7280">2 eggs, toast and butter</p>
@@ -81,7 +93,7 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
               </div>
             </div>
             <p class="text-xs mt-6 leading-relaxed" style="color:#bbb5af">
-              Max 100 characters. You can log multiple items in one entry — commas tell the AI where to split.
+              Max 100 characters. You can log multiple items in one entry — commas tell NomsAI where to split.
             </p>
           </div>
         </div>
@@ -89,48 +101,40 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
 
       <!-- Step 2: AI estimates macros -->
       <AnimatedSection animation="fadeUp" client:load>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-16 sm:pt-20">
           <div class="order-last lg:order-first">
 
-            <!-- AI pipeline mockup -->
-            <div class="rounded-3xl border p-8 shadow-lg bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
-              <p class="text-xs font-bold uppercase tracking-widest mb-5" style="color:#6b6560">Under the hood</p>
-              <div class="space-y-4">
-
-                <!-- Stage 1 -->
-                <div class="flex items-start gap-3 rounded-xl p-4" style="background:#f4f2ef;border:1px solid #d4ccc4">
-                  <div class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg text-[#1c1714] text-xs font-black" style="background:#c8920a">1</div>
-                  <div>
-                    <p class="text-sm font-bold text-[#1c1714] mb-0.5">Parse input</p>
-                    <p class="text-xs" style="color:#6b6560">Gemini identifies each item, brand, amount and unit from your text</p>
-                  </div>
+            <!-- Input → result visual -->
+            <div class="rounded-3xl border border-[#d4ccc4] dark:border-[#2a2a2a] p-8 shadow-lg bg-white dark:bg-[#1a1a1a]">
+              <!-- Input -->
+              <div class="rounded-xl px-4 py-3 mb-4 border border-[#d4ccc4] dark:border-[#2a2a2a] bg-[#f4f2ef] dark:bg-[#2a2a2a]">
+                <p class="text-xs font-bold uppercase tracking-widest mb-1.5 text-[#6b6560] dark:text-[#9ca3af]">You typed</p>
+                <p class="text-sm font-mono text-[#1c1714] dark:text-white">"2 scrambled eggs on sourdough toast"</p>
+              </div>
+              <!-- Arrow -->
+              <div class="flex items-center justify-center mb-4">
+                <div class="flex flex-col items-center gap-1">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/>
+                  </svg>
+                  <span class="text-[10px] font-bold uppercase tracking-widest" style="color:#c8920a">under a second</span>
                 </div>
-
-                <!-- Stage 2a -->
-                <div class="flex items-start gap-3 rounded-xl p-4" style="background:#f4f2ef;border:1px solid #d4ccc4">
-                  <div class="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-lg text-[#1c1714] text-xs font-black" style="background:#c8920a">2</div>
-                  <div>
-                    <p class="text-sm font-bold text-[#1c1714] mb-0.5">Lookup macros</p>
-                    <p class="text-xs" style="color:#6b6560">Checks cache → UK food database (50k products) → Google Search grounding</p>
-                  </div>
-                </div>
-
-                <!-- Result -->
-                <div class="rounded-xl p-4 border-2" style="border-color:#c8920a;background:#f4f2ef">
-                  <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#c8920a">Result (per item)</p>
-                  <div class="grid grid-cols-2 gap-2">
-                    {[
-                      { label: 'Calories', value: '380', unit: 'kcal' },
-                      { label: 'Protein',  value: '22',  unit: 'g' },
-                      { label: 'Carbs',    value: '35',  unit: 'g' },
-                      { label: 'Fat',      value: '18',  unit: 'g' },
-                    ].map(({ label, value, unit }) => (
-                      <div class="rounded-lg p-2.5" style="background:white;border:1px solid #d4ccc4">
-                        <p class="text-[10px]" style="color:#6b6560">{label}</p>
-                        <p class="text-lg font-black text-[#1c1714]">{value}<span class="text-xs font-medium ml-0.5" style="color:#6b6560">{unit}</span></p>
-                      </div>
-                    ))}
-                  </div>
+              </div>
+              <!-- Result -->
+              <div class="rounded-xl p-4 border-2 border-[#c8920a] bg-[#f4f2ef] dark:bg-[#2a2a2a]">
+                <p class="text-xs font-bold uppercase tracking-widest mb-3" style="color:#c8920a">NomsAI estimated</p>
+                <div class="grid grid-cols-2 gap-2">
+                  {[
+                    { label: 'Calories', value: '380', unit: 'kcal' },
+                    { label: 'Protein',  value: '22',  unit: 'g' },
+                    { label: 'Carbs',    value: '35',  unit: 'g' },
+                    { label: 'Fat',      value: '18',  unit: 'g' },
+                  ].map(({ label, value, unit }) => (
+                    <div class="rounded-lg p-2.5 bg-white dark:bg-[#1a1a1a] border border-[#d4ccc4] dark:border-[#3a3a3a]">
+                      <p class="text-[10px] text-[#6b6560] dark:text-[#9ca3af]">{label}</p>
+                      <p class="text-lg font-black text-[#1c1714] dark:text-white">{value}<span class="text-xs font-medium ml-0.5 text-[#6b6560] dark:text-[#9ca3af]">{unit}</span></p>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -142,18 +146,15 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
               <span class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Step two</span>
             </div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
-              AI estimates your macros instantly
+              NomsAI works out your macros instantly
             </h2>
-            <p class="text-lg leading-relaxed mb-4" style="color:#6b6560">
-              NomsAI sends your text to <strong class="text-[#1c1714]">Google Gemini</strong>, which parses each item and looks up macros via a three-tier pipeline: a cache of previously looked-up foods, a 50,000-product UK food database, and Google Search grounding for anything unusual.
+            <p class="text-lg leading-relaxed mb-6 text-[#6b6560] dark:text-[#9ca3af]">
+              The moment you submit, NomsAI analyses what you typed and returns calories, protein, carbs, and fat — broken down per item. No manual lookup, no database browsing. Just results in under a second.
             </p>
-            <p class="text-lg leading-relaxed mb-6" style="color:#6b6560">
-              The result comes back in under a second — calories, protein, carbs, and fat for each item you described.
-            </p>
-            <div class="rounded-2xl p-5 border bg-[#f4f2ef] dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
-              <h3 class="font-bold text-[#1c1714] mb-2">About AI accuracy</h3>
-              <p class="text-sm leading-relaxed" style="color:#6b6560">
-                Estimates are within 15–20% of actual values for most foods — similar to how you'd estimate yourself. That's more than enough for building nutritional awareness. Consistency beats perfection every time.
+            <div class="rounded-2xl p-5 border border-[#d4ccc4] dark:border-[#2a2a2a] bg-[#f4f2ef] dark:bg-[#1a1a1a]">
+              <h3 class="font-bold text-[#1c1714] dark:text-white mb-2">Good enough to be useful</h3>
+              <p class="text-sm leading-relaxed text-[#6b6560] dark:text-[#9ca3af]">
+                Estimates are close — similar to how you'd estimate yourself. That's more than enough for building nutritional awareness. Consistency beats perfection every time.
               </p>
             </div>
           </div>
@@ -162,17 +163,17 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
 
       <!-- Step 3: Review screen -->
       <AnimatedSection animation="fadeUp" client:load>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-16 sm:pt-20">
           <div>
             <div class="inline-flex items-center gap-3 mb-6">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl font-black text-xl text-[#1c1714]" style="background:#c8920a">3</div>
               <span class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Step three</span>
             </div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
-              Review — adjust anything the AI got wrong
+              Review — adjust anything NomsAI got wrong
             </h2>
-            <p class="text-lg leading-relaxed mb-6" style="color:#6b6560">
-              Before anything is logged, the <strong class="text-[#1c1714]">Review screen</strong> shows you each parsed item with its calories, protein, carbs, and fat. Edit any number you disagree with, remove items, or adjust amounts. Then hit <strong class="text-[#1c1714]">Confirm & Log</strong>.
+            <p class="text-lg leading-relaxed mb-6 text-[#6b6560] dark:text-[#9ca3af]">
+              Before anything is logged, the <strong class="text-[#1c1714] dark:text-white">Review screen</strong> shows you each parsed item with its calories, protein, carbs, and fat. Edit any number you disagree with, remove items, or adjust amounts. Then hit <strong class="text-[#1c1714] dark:text-white">Confirm & Log</strong>.
             </p>
             <ul class="space-y-4">
               {[
@@ -188,8 +189,8 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
                     </svg>
                   </div>
                   <div>
-                    <p class="font-semibold text-sm text-[#1c1714]">{title}</p>
-                    <p class="text-sm" style="color:#6b6560">{desc}</p>
+                    <p class="font-semibold text-sm text-[#1c1714] dark:text-white">{title}</p>
+                    <p class="text-sm text-[#6b6560] dark:text-[#9ca3af]">{desc}</p>
                   </div>
                 </li>
               ))}
@@ -202,7 +203,7 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
             <div class="flex items-center justify-between px-5 pt-5 pb-3">
               <div>
                 <p class="text-lg font-bold text-white">Review</p>
-                <p class="text-sm" style="color:#9ca3af">Adjust anything the AI got wrong.</p>
+                <p class="text-sm" style="color:#9ca3af">Adjust anything NomsAI got wrong.</p>
               </div>
               <div class="flex h-8 w-8 items-center justify-center rounded-full text-lg" style="color:#9ca3af;background:#2a2a2a">✕</div>
             </div>
@@ -267,7 +268,7 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
 
       <!-- Step 4: Dashboard -->
       <AnimatedSection animation="fadeUp" client:load>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center pt-16 sm:pt-20">
           <div>
             <div class="inline-flex items-center gap-3 mb-6">
               <div class="flex h-12 w-12 items-center justify-center rounded-2xl font-black text-xl text-[#1c1714]" style="background:#c8920a">4</div>
@@ -276,8 +277,8 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
             <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
               See your daily nutrition at a glance
             </h2>
-            <p class="text-lg leading-relaxed mb-6" style="color:#6b6560">
-              Your dashboard updates instantly after each log. The main <strong class="text-[#1c1714]">calorie ring</strong> fills in gold as you approach your daily target. Three smaller rings show protein, carbs, and fat progress. Your full log sits below.
+            <p class="text-lg leading-relaxed mb-6 text-[#6b6560] dark:text-[#9ca3af]">
+              Your dashboard updates instantly after each log. The main <strong class="text-[#1c1714] dark:text-white">calorie ring</strong> fills in gold as you approach your daily target. Three smaller rings show protein, carbs, and fat progress. Your full log sits below.
             </p>
             <ul class="space-y-4">
               {[
@@ -294,8 +295,8 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
                     </svg>
                   </div>
                   <div>
-                    <p class="font-semibold text-sm text-[#1c1714]">{title}</p>
-                    <p class="text-sm" style="color:#6b6560">{desc}</p>
+                    <p class="font-semibold text-sm text-[#1c1714] dark:text-white">{title}</p>
+                    <p class="text-sm text-[#6b6560] dark:text-[#9ca3af]">{desc}</p>
                   </div>
                 </li>
               ))}
@@ -395,7 +396,7 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
           <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight mb-4">
             Why this approach works
           </h2>
-          <p class="text-lg max-w-2xl mx-auto" style="color:#6b6560">
+          <p class="text-lg max-w-2xl mx-auto text-[#6b6560] dark:text-[#9ca3af]">
             Most calorie apps fail because they optimise for engagement metrics, not your success.
           </p>
         </div>
@@ -426,12 +427,12 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
             },
             {
               headline: 'Built by a solo developer',
-              body: 'No venture capital, no growth targets, no need to monetise your data. The business model is simple: a fair Supporter Pass for people who want unlimited logs.',
+              body: 'No venture capital, no growth targets, no need to monetise your data. The business model is simple: a fair Pro for people who want unlimited logs.',
             },
           ].map(({ headline, body }) => (
-            <div class="rounded-2xl border p-7 bg-[#f4f2ef] dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
-              <h3 class="font-bold text-[#1c1714] mb-2">{headline}</h3>
-              <p class="text-sm leading-relaxed" style="color:#6b6560">{body}</p>
+            <div class="rounded-2xl border border-[#d4ccc4] dark:border-[#2a2a2a] p-7 bg-[#f4f2ef] dark:bg-[#1a1a1a]">
+              <h3 class="font-bold text-[#1c1714] dark:text-white mb-2">{headline}</h3>
+              <p class="text-sm leading-relaxed text-[#6b6560] dark:text-[#9ca3af]">{body}</p>
             </div>
           ))}
         </div>
@@ -440,42 +441,42 @@ import AppStoreBadges from '../components/AppStoreBadges.astro';
   </section>
 
   <!-- Fuel tank explainer -->
-  <section class="py-16 sm:py-20 border-y bg-[#edeae5] dark:bg-[#0a0a0a]" style="border-color:#d4ccc4">
+  <section class="py-16 sm:py-20 border-y border-[#d4ccc4] dark:border-[#2a2a2a] bg-[#edeae5] dark:bg-[#0a0a0a]">
     <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
       <AnimatedSection animation="fadeUp" client:load>
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div class="rounded-2xl border p-6 bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+          <div class="rounded-2xl border border-[#d4ccc4] dark:border-[#2a2a2a] p-6 bg-white dark:bg-[#1a1a1a]">
             <div class="flex items-center gap-2 mb-3">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
               <p class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Welcome Tank</p>
             </div>
-            <p class="text-2xl font-black text-[#1c1714] mb-1">20 logs</p>
-            <p class="text-sm" style="color:#6b6560">On first launch, you get 20 AI logs to try everything out.</p>
+            <p class="text-2xl font-black text-[#1c1714] dark:text-white mb-1">20 logs</p>
+            <p class="text-sm text-[#6b6560] dark:text-[#9ca3af]">On first launch, you get 20 AI logs to try everything out.</p>
           </div>
-          <div class="rounded-2xl border p-6 bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+          <div class="rounded-2xl border border-[#d4ccc4] dark:border-[#2a2a2a] p-6 bg-white dark:bg-[#1a1a1a]">
             <div class="flex items-center gap-2 mb-3">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
               </svg>
               <p class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Daily Free</p>
             </div>
-            <p class="text-2xl font-black text-[#1c1714] mb-1">5 / day</p>
-            <p class="text-sm" style="color:#6b6560">5 free AI logs reset every day at midnight, forever.</p>
+            <p class="text-2xl font-black text-[#1c1714] dark:text-white mb-1">5 / day</p>
+            <p class="text-sm text-[#6b6560] dark:text-[#9ca3af]">5 free AI logs reset every day at midnight, forever.</p>
           </div>
-          <div class="rounded-2xl border p-6 bg-white dark:bg-[#1a1a1a]" style="border-color:#d4ccc4">
+          <div class="rounded-2xl border border-[#d4ccc4] dark:border-[#2a2a2a] p-6 bg-white dark:bg-[#1a1a1a]">
             <div class="flex items-center gap-2 mb-3">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#c8920a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M12 12c-2-2.5-4-4-6-4a4 4 0 0 0 0 8c2 0 4-1.5 6-4z"/><path d="M12 12c2 2.5 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.5-6 4z"/>
               </svg>
-              <p class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Supporter Pass</p>
+              <p class="text-sm font-bold uppercase tracking-widest" style="color:#c8920a">Pro</p>
             </div>
-            <p class="text-2xl font-black text-[#1c1714] mb-1">Unlimited</p>
-            <p class="text-sm" style="color:#6b6560">Monthly or annual subscription. Supports a solo developer.</p>
+            <p class="text-2xl font-black text-[#1c1714] dark:text-white mb-1">Unlimited</p>
+            <p class="text-sm text-[#6b6560] dark:text-[#9ca3af]">Monthly or annual subscription. Supports a solo developer.</p>
           </div>
         </div>
-        <p class="text-center text-sm mt-6" style="color:#bbb5af">Manual logs (no AI) are always free and don't use credits.</p>
+        <p class="text-center text-sm mt-6 text-[#bbb5af] dark:text-[#6b7280]">Manual logs (no AI) are always free and don't use credits.</p>
       </AnimatedSection>
     </div>
   </section>

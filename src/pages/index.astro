@@ -11,8 +11,9 @@ import PhoneVoiceInput from '../components/mockups/PhoneVoiceInput.astro';
 import PhoneReview     from '../components/mockups/PhoneReview.astro';
 import PhoneRecipe     from '../components/mockups/PhoneRecipe.astro';
 import PhoneTypeahead  from '../components/mockups/PhoneTypeahead.astro';
-import PhonePrivacy    from '../components/mockups/PhonePrivacy.astro';
-import PhoneWorkouts   from '../components/mockups/PhoneWorkouts.astro';
+import PhonePrivacy        from '../components/mockups/PhonePrivacy.astro';
+import PhoneWorkouts       from '../components/mockups/PhoneWorkouts.astro';
+import PhoneBarcodeScanner from '../components/mockups/PhoneBarcodeScanner.astro';
 ---
 
 <Layout
@@ -25,32 +26,6 @@ import PhoneWorkouts   from '../components/mockups/PhoneWorkouts.astro';
   <!-- Hero -->
   <Hero />
 
-  <!-- Social Proof Strip -->
-  <section class="py-12 border-y bg-white dark:bg-[#0a0a0a]" style="border-color:#d4ccc4" aria-label="Social proof">
-    <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-      <AnimatedSection animation="staggerUp" client:visible>
-        <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-0 text-center">
-          <div class="flex flex-col items-center gap-1 px-6 sm:border-r" style="border-color:#d4ccc4">
-            <span class="text-3xl sm:text-4xl font-black text-[#1c1714] dark:text-white tabular-nums">10,000+</span>
-            <span class="text-sm font-medium" style="color:#6b6560">Meals tracked</span>
-          </div>
-          <div class="flex flex-col items-center gap-1 px-6 sm:border-r" style="border-color:#d4ccc4">
-            <span class="text-3xl sm:text-4xl font-black text-[#1c1714] dark:text-white flex items-center gap-1.5">
-              4.8
-              <svg class="h-7 w-7 mt-0.5" fill="#c8920a" viewBox="0 0 24 24" aria-hidden="true">
-                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-              </svg>
-            </span>
-            <span class="text-sm font-medium" style="color:#6b6560">App Store rating</span>
-          </div>
-          <div class="flex flex-col items-center gap-1 px-6">
-            <span class="text-3xl sm:text-4xl font-black" style="color:#c8920a">100%</span>
-            <span class="text-sm font-medium" style="color:#6b6560">Private — device only</span>
-          </div>
-        </div>
-      </AnimatedSection>
-    </div>
-  </section>
 
   <!-- 1. Type or Speak -->
   <FeatureSpotlight
@@ -70,7 +45,7 @@ import PhoneWorkouts   from '../components/mockups/PhoneWorkouts.astro';
     featureId="fss-review"
     eyebrow="AI does the thinking"
     heading="Check it.\nAdjust it.\nLog it."
-    subheading="After you type, the AI splits your entry into individual items with estimated amounts. Amounts are editable before anything is saved — you stay in control of every gram."
+    subheading="After you type, NomsAI splits your entry into individual items with estimated amounts. Amounts are editable before anything is saved — you stay in control of every gram."
     pills={['Auto-splits multi-item meals', 'Editable before saving', 'Accurate to the gram']}
     flip={true}
     bg="white"

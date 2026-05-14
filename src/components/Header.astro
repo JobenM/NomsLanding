@@ -9,7 +9,6 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header class="sticky top-0 z-50 w-full border-b backdrop-blur-xl backdrop-saturate-150 transition-colors duration-300"
-  style="border-color:rgba(212,204,196,0.5);background:rgba(244,242,239,0.85)"
   id="site-header">
   <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 items-center justify-between">
@@ -48,8 +47,7 @@ const currentPath = Astro.url.pathname;
         <button
           id="theme-toggle"
           aria-label="Toggle dark mode"
-          class="rounded-lg p-2 transition-all duration-200 hover:bg-[#edeae5] dark:hover:bg-[#1a1a1a]"
-          style="color:#6b6560"
+          class="rounded-lg p-2 text-[#6b6560] dark:text-[#9ca3af] transition-all duration-200 hover:bg-[#edeae5] dark:hover:bg-[#1a1a1a]"
         >
           <!-- Moon (shows in light mode) -->
           <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
@@ -75,8 +73,7 @@ const currentPath = Astro.url.pathname;
         <button
           id="theme-toggle-mobile"
           aria-label="Toggle dark mode"
-          class="rounded-lg p-2 transition-colors duration-200 hover:bg-[#edeae5] dark:hover:bg-[#1a1a1a]"
-          style="color:#6b6560"
+          class="rounded-lg p-2 text-[#6b6560] dark:text-[#9ca3af] transition-colors duration-200 hover:bg-[#edeae5] dark:hover:bg-[#1a1a1a]"
         >
           <svg class="h-5 w-5 dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
@@ -86,8 +83,8 @@ const currentPath = Astro.url.pathname;
           </svg>
         </button>
 
-        <label for="mobile-menu-toggle" class="cursor-pointer rounded-lg p-2 hover:bg-[#edeae5] dark:hover:bg-[#1a1a1a] transition-colors duration-200" aria-label="Toggle menu">
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:#6b6560" aria-hidden="true">
+        <label for="mobile-menu-toggle" class="cursor-pointer rounded-lg p-2 text-[#6b6560] dark:text-[#9ca3af] hover:bg-[#edeae5] dark:hover:bg-[#1a1a1a] transition-colors duration-200" aria-label="Toggle menu">
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>
         </label>
@@ -97,7 +94,7 @@ const currentPath = Astro.url.pathname;
 
   <!-- Mobile Menu -->
   <input type="checkbox" id="mobile-menu-toggle" class="peer hidden" aria-hidden="true" />
-  <div class="hidden peer-checked:block md:hidden border-t bg-[#f4f2ef] dark:bg-[#0a0a0a]" style="border-color:#d4ccc4">
+  <div class="hidden peer-checked:block md:hidden border-t border-[#d4ccc4] dark:border-[#2a2a2a] bg-[#f4f2ef] dark:bg-[#0a0a0a]">
     <nav class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-1" aria-label="Mobile navigation">
       {navLinks.map(({ href, label }) => (
         <a
@@ -113,7 +110,7 @@ const currentPath = Astro.url.pathname;
           {label}
         </a>
       ))}
-      <div class="mt-2 pt-2 border-t" style="border-color:#d4ccc4">
+      <div class="mt-2 pt-2 border-t border-[#d4ccc4] dark:border-[#2a2a2a]">
         <a
           href="#download"
           class="block w-full text-center rounded-xl px-4 py-3 text-sm font-bold text-[#1c1714] transition-colors duration-200"
@@ -126,22 +123,19 @@ const currentPath = Astro.url.pathname;
   </div>
 </header>
 
-<script>
-  function applyDarkHeader() {
-    const header = document.getElementById('site-header');
-    if (!header) return;
-    const isDark = document.documentElement.classList.contains('dark');
-    if (isDark) {
-      header.style.borderColor = 'rgba(42,42,42,0.5)';
-      header.style.background = 'rgba(10,10,10,0.85)';
-    } else {
-      header.style.borderColor = 'rgba(212,204,196,0.5)';
-      header.style.background = 'rgba(244,242,239,0.85)';
-    }
+<style is:global>
+  #site-header {
+    border-color: rgba(212,204,196,0.5);
+    background: rgba(244,242,239,0.85);
   }
+  html.dark #site-header {
+    border-color: rgba(42,42,42,0.5);
+    background: rgba(10,10,10,0.85);
+  }
+</style>
 
+<script>
   function initThemeToggle() {
-    applyDarkHeader();
     const toggles = [
       document.getElementById('theme-toggle'),
       document.getElementById('theme-toggle-mobile'),
@@ -150,7 +144,6 @@ const currentPath = Astro.url.pathname;
       toggle?.addEventListener('click', () => {
         const isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        applyDarkHeader();
       });
     });
   }
