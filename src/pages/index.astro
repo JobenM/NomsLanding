@@ -14,6 +14,35 @@ import PhoneTypeahead  from '../components/mockups/PhoneTypeahead.astro';
 import PhonePrivacy        from '../components/mockups/PhonePrivacy.astro';
 import PhoneWorkouts       from '../components/mockups/PhoneWorkouts.astro';
 import PhoneBarcodeScanner from '../components/mockups/PhoneBarcodeScanner.astro';
+
+const appSchema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'NomsAI',
+    applicationCategory: 'HealthApplication',
+    operatingSystem: 'iOS, Android',
+    url: 'https://nomsai.app',
+    description: 'Privacy-first AI calorie tracker. Type or speak what you ate and get instant macro estimates. No login, no account, no cloud storage — all data stays on your device.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'GBP',
+    },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'NomsAI',
+    url: 'https://nomsai.app',
+    logo: 'https://nomsai.app/icon-192.png',
+    contactPoint: {
+      '@type': 'ContactPoint',
+      email: 'hello@nomsai.app',
+      contactType: 'customer support',
+    },
+  },
+];
 ---
 
 <Layout
@@ -22,6 +51,7 @@ import PhoneBarcodeScanner from '../components/mockups/PhoneBarcodeScanner.astro
   ogTitle="NomsAI — Track Calories with AI. No Login. No BS."
   ogDescription="Type what you ate, get macros instantly. The AI food diary that keeps your data on your device. Free, no account needed."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(appSchema)} />
 
   <!-- Hero -->
   <Hero />

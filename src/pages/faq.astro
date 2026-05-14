@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import AnimatedSection from '../components/AnimatedSection.tsx';
 import AppStoreBadges from '../components/AppStoreBadges.astro';
 
-const faqCategories = [
+const faqCategories: { category: string; faqs: { question: string; answer: string }[] }[] = [
   {
     category: 'Privacy & Data',
     faqs: [
@@ -130,12 +130,25 @@ const faqCategories = [
     ],
   },
 ];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqCategories.flatMap(({ faqs }) =>
+    faqs.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: { '@type': 'Answer', text: answer },
+    }))
+  ),
+};
 ---
 
 <Layout
   title="FAQ — NomsAI | AI Calorie Tracker, No Account Required"
   description="Common questions about NomsAI: no account needed, AI accuracy, privacy-first data storage, free vs Pro, exporting data, workout logging, water tracking, and more."
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- Page Hero -->
   <section class="py-20 sm:py-28 border-b border-[#d4ccc4] dark:border-[#2a2a2a] bg-white dark:bg-[#0a0a0a]">

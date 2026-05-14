@@ -1,0 +1,41 @@
+# NomsAI
+
+> Privacy-first AI calorie tracker for iOS and Android. No login required. No cloud storage. Free to start.
+
+NomsAI is a mobile app that lets users track food intake by typing or speaking a meal description in plain language — "2 scrambled eggs on sourdough toast with butter" — and receiving instant macro estimates (calories, protein, carbs, fat). No barcode scanning required, no food database to navigate. All food logs are stored locally on the user's device and never uploaded to any server.
+
+## Key facts
+
+- **Platform**: iOS (App Store) and Android (Google Play)
+- **Price**: Free. 5 AI logs/day included. Pro subscription for unlimited logging.
+- **Privacy**: No account, no email, no login. An anonymous device ID is the only identifier. Food input text is discarded after processing — never stored.
+- **AI**: Estimates macros from free-form text or voice input. Handles single foods, mixed meals, restaurant orders, homemade dishes, and foods from any cuisine.
+- **Barcode scanner**: Scan packaged food barcodes for instant macro lookup.
+- **Workouts**: Log activities (running, cycling, strength training, etc.) with calorie burn estimates.
+- **Recipes**: Save any meal as a named recipe; re-log it in one tap.
+- **Water tracking**: Optional daily water goal with quick-add preset amounts.
+- **Weight tracking**: Log bodyweight over time; view trend graphs.
+- **Export**: CSV export and full JSON backup/restore available in Settings.
+- **Offline**: Existing logs always accessible offline. AI logging requires a brief internet connection.
+
+## How it works
+
+1. User types or speaks what they ate (e.g. "large bowl of porridge with honey and banana")
+2. AI splits the entry into individual items with estimated portion sizes
+3. User reviews and edits any macro or quantity before confirming
+4. Log is saved to device storage only
+
+## Pricing
+
+- **Free tier**: 20 welcome credits on first launch, then 5 AI logs per day (resets at midnight)
+- **Emergency Credits**: One-time purchase top-up, never expire
+- **Pro**: Monthly or annual subscription, unlimited AI logging
+
+## Pages
+
+- Homepage: https://nomsai.app/
+- How It Works: https://nomsai.app/how-it-works
+- FAQ: https://nomsai.app/faq
+- Privacy Policy: https://nomsai.app/privacy
+- Articles / Blog: https://nomsai.app/articles/
+- Contact: hello@nomsai.app

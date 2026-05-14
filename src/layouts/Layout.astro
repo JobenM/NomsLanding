@@ -23,7 +23,7 @@ const {
 const resolvedOgTitle = ogTitle ?? title;
 const resolvedOgDescription = ogDescription ?? description;
 const resolvedCanonical = canonicalURL ?? Astro.url.href;
-const site = 'https://jobenmora.com';
+const site = 'https://nomsai.app';
 ---
 
 <!doctype html>
@@ -63,6 +63,9 @@ const site = 'https://jobenmora.com';
 
     <!-- Sitemap -->
     <link rel="sitemap" href="/sitemap-index.xml" />
+
+    <!-- Per-page structured data / JSON-LD -->
+    <slot name="head" />
 
 
     <!-- Theme: default light, respect stored preference -->

@@ -18,7 +18,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "build:copy": "astro build && cp -r dist/. ../NomsAI/server/public/"
+    "build:copy": "astro build && cp -r dist/. ../NomsAI/server/public/ && node ../NomsAI/server/scripts/update-csp-hashes.mjs"
   },
   "dependencies": {
     "@astrojs/react": "^5.0.1",
