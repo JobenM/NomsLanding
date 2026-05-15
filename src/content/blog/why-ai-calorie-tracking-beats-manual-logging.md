@@ -23,7 +23,7 @@ This is the core insight behind NomsAI: **the best food log is the one you actua
 
 There's a common concern about AI-estimated macros: are they accurate enough?
 
-Here's the thing — perfect accuracy is the enemy of useful tracking. Research consistently shows that even professional dietitians underestimate portion sizes by 20–30%. The goal of food tracking isn't perfection; it's awareness.
+Here's the thing — perfect accuracy is the enemy of useful tracking. Even trained nutrition professionals routinely underestimate portion sizes when eyeballing food. The goal of food tracking isn't perfection; it's awareness.
 
 AI estimation gets you 90% of the way there with 10% of the effort. Over weeks and months, that consistency compounds into real insight about your eating patterns.
 

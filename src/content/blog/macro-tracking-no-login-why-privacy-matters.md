@@ -23,7 +23,7 @@ When a health app requires you to create an account, a few things happen:
 
 ## Device-First Design
 
-NomsAI stores everything locally on your iPhone or Android. There is no account to create, no password to forget, no server to breach.
+NomsAI stores your food logs locally on your iPhone or Android. There is no account to create, no password to forget, no personal data sitting on a server waiting to be breached.
 
 This means:
 - **No sign-up friction.** Open the app and start tracking immediately.
@@ -33,9 +33,9 @@ This means:
 
 ## AI Without the Surveillance
 
-You might wonder: how does AI work without sending data to a server?
+You might wonder: if AI requires a server, how is this private?
 
-NomsAI uses a lightweight AI model that runs inference locally for common foods and meal patterns. For the rare cases where server inference is needed, only the food description text is sent — never associated with any user identity or account.
+When you log a meal, the description you type is sent to our servers to estimate your macros. That's it. The text is processed and immediately discarded — it's never stored in a database, never linked to your device ID, and never associated with any user profile. We have no record of what you ate.
 
 ## The Right Trade-off for Health Data
 

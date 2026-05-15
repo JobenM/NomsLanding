@@ -15,14 +15,14 @@ Food data is personal. What you eat reveals health conditions, religious practic
 
 ## What Account-Based Apps Actually Do With Your Data
 
-Most popular calorie tracking apps — MyFitnessPal, Cronometer, Lose It — are primarily data businesses. Your food log is the product. Here's the lifecycle of your data in a typical account-based app:
+Many popular calorie tracking apps are built around an account-based model where your food log becomes part of a profile on their servers. Here's the typical lifecycle of your data:
 
 1. You create an account (name, email, age, weight, goals)
 2. You log meals daily, building a detailed profile of your eating habits
-3. That profile is used to serve targeted advertising or sold to third parties
+3. That profile may be used to serve targeted advertising or inform product decisions
 4. When the company is acquired — as MyFitnessPal was by Under Armour, then Francisco Partners — your data transfers with it
 
-This isn't theoretical. MyFitnessPal suffered a data breach in 2018 affecting 150 million accounts. Health data breaches have real consequences.
+This isn't theoretical. MyFitnessPal suffered a data breach in 2018 affecting around 150 million accounts. Health data breaches have real consequences.
 
 ## What to Look For in a No-Account Calorie Tracker
 

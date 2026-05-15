@@ -51,7 +51,7 @@ This works because the AI understands context. "Large portion of pasta" and "sma
 
 The biggest mistake people make is tracking only when they can be exact. They log their prepped meals carefully and then skip logging the handful of crisps, the coffee with oat milk, or the post-work biscuit.
 
-Those omissions add up faster than slightly imprecise estimates. Research consistently shows that inconsistent tracking produces worse outcomes than consistent-but-approximate tracking.
+Those omissions add up faster than slightly imprecise estimates. Inconsistent tracking — logging carefully some days and skipping others — produces worse outcomes than consistent-but-approximate tracking.
 
 An imperfect log of everything beats a perfect log of half your day.
 

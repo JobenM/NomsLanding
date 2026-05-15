@@ -47,7 +47,7 @@ The best AI food diary apps offer both — scan a barcode when it's there, descr
 
 AI macro estimates are not as precise as weighing ingredients on a food scale. A scale can get you to ±20 kcal. AI estimation is typically ±100–150 kcal.
 
-For almost everyone, that's accurate enough. Studies consistently show that even dietitians underestimate portion sizes by 20–30% when estimating visually. The limiting factor in calorie tracking was never the tool — it was consistency.
+For almost everyone, that's accurate enough. Even trained nutrition professionals routinely underestimate portion sizes when eyeballing food — precision in estimation is hard for anyone. The limiting factor in calorie tracking was never the tool — it was consistency.
 
 An AI food diary that gets logged every day beats a perfect database that gets abandoned by week two.
 
