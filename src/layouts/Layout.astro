@@ -120,5 +120,87 @@ const site = 'https://nomsai.app';
       <slot />
     </main>
     <Footer />
+
+    <!-- Coming Soon Modal — shared across all pages -->
+    <div id="coming-soon-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4" style="display:none!important">
+      <div id="modal-backdrop" class="absolute inset-0" style="background:rgba(0,0,0,0.7);backdrop-filter:blur(4px)"></div>
+      <div class="relative w-full max-w-sm rounded-3xl p-8 text-center shadow-2xl" style="background:#1a1a1a;border:1px solid rgba(255,255,255,0.1)">
+        <button id="modal-close" class="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full transition-colors" style="background:rgba(255,255,255,0.08);color:#9ca3af">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="h-4 w-4">
+            <path d="M18 6L6 18M6 6l12 12"/>
+          </svg>
+        </button>
+
+        <div class="mb-5 flex justify-center">
+          <div class="flex h-16 w-16 items-center justify-center rounded-2xl text-4xl" style="background:rgba(200,146,10,0.15);box-shadow:0 0 0 1px rgba(200,146,10,0.3)">
+            <span id="modal-icon">🍎</span>
+          </div>
+        </div>
+
+        <p class="mb-1 text-xs font-bold uppercase tracking-widest" style="color:#c8920a">Coming Soon</p>
+        <h3 id="modal-title" class="mb-3 text-2xl font-extrabold text-white">App Store</h3>
+        <p id="modal-body" class="text-base leading-relaxed" style="color:#9ca3af">
+          We're putting the finishing touches on the build. It'll be worth the wait.
+        </p>
+
+        <button id="modal-dismiss" class="mt-7 w-full rounded-2xl py-3.5 text-base font-bold transition-opacity hover:opacity-90" style="background:#c8920a;color:#1c1714">
+          Got it
+        </button>
+      </div>
+    </div>
+
+    <script>
+      const PLATFORMS: Record<string, { icon: string; title: string; body: string }> = {
+        ios: {
+          icon: '🍎',
+          title: 'App Store',
+          body: "We're putting the finishing touches on the iOS build. It'll be worth the wait.",
+        },
+        android: {
+          icon: '🤖',
+          title: 'Google Play',
+          body: "We're putting the finishing touches on the Android build. It'll be worth the wait.",
+        },
+        both: {
+          icon: '📱',
+          title: 'iOS & Android',
+          body: "We're putting the finishing touches on both builds. It'll be worth the wait.",
+        },
+      };
+
+      const modal = document.getElementById('coming-soon-modal') as HTMLElement;
+      const backdrop = document.getElementById('modal-backdrop') as HTMLElement;
+      const closeBtn = document.getElementById('modal-close') as HTMLElement;
+      const dismissBtn = document.getElementById('modal-dismiss') as HTMLElement;
+      const modalIcon = document.getElementById('modal-icon') as HTMLElement;
+      const modalTitle = document.getElementById('modal-title') as HTMLElement;
+      const modalBody = document.getElementById('modal-body') as HTMLElement;
+
+      function openModal(platform: string) {
+        const config = PLATFORMS[platform] ?? PLATFORMS.both;
+        modalIcon.textContent = config.icon;
+        modalTitle.textContent = config.title;
+        modalBody.textContent = config.body;
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('[data-platform]').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          openModal((btn as HTMLElement).dataset.platform ?? 'both');
+        });
+      });
+
+      backdrop.addEventListener('click', closeModal);
+      closeBtn.addEventListener('click', closeModal);
+      dismissBtn.addEventListener('click', closeModal);
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+    </script>
   </body>
 </html>
