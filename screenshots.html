@@ -1,812 +1,2838 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NomsAI — App Store Screenshots</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap" rel="stylesheet">
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NomsAI — App Store Screenshots</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-body {
-  background: #1a1a1a;
-  font-family: 'Bricolage Grotesque', sans-serif;
-  padding: 48px 28px 72px;
-}
+      body {
+        background: #1a1a1a;
+        font-family: "Bricolage Grotesque", sans-serif;
+        padding: 48px 28px 72px;
+      }
 
-.page-header {
-  text-align: center;
-  margin-bottom: 44px;
-}
-.page-header h1 { font-size: 20px; font-weight: 800; color: #fff; margin-bottom: 6px; }
-.page-header p { font-size: 11px; color: #444; }
+      .page-header {
+        text-align: center;
+        margin-bottom: 44px;
+      }
+      .page-header h1 {
+        font-size: 20px;
+        font-weight: 800;
+        color: #fff;
+        margin-bottom: 6px;
+      }
+      .page-header p {
+        font-size: 11px;
+        color: #444;
+      }
 
-/* ─── Row of cards ─── */
-.row {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: flex-start;
-  overflow-x: auto;
-  padding-bottom: 8px;
-}
+      /* ─── Row of cards ─── */
+      .row {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        align-items: flex-start;
+        overflow-x: auto;
+        padding-bottom: 8px;
+      }
 
-/* ─────────────────────────────────────────
+      /* ─────────────────────────────────────────
    CARD
    The card IS the App Store screenshot.
    Ratio 1242:2688 = 0.462
    Display size: 262 × 567px
    ───────────────────────────────────────── */
-.card {
-  flex: 0 0 auto;
-  width: 262px;
-  height: 567px;
-  border-radius: 18px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 30px 70px rgba(0,0,0,0.6), 0 8px 20px rgba(0,0,0,0.4);
-  display: flex;
-  flex-direction: column;
-}
+      .card {
+        flex: 0 0 auto;
+        width: 262px;
+        height: 567px;
+        border-radius: 0;
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 30px 70px rgba(0, 0, 0, 0.6),
+          0 8px 20px rgba(0, 0, 0, 0.4);
+        display: flex;
+        flex-direction: column;
+      }
 
-/* Text block — sits on the card background, fully readable */
-.card-text {
-  flex-shrink: 0;
-  padding: 28px 22px 0;
-  position: relative;
-  z-index: 2;
-}
+      /* Text block — sits on the card background, fully readable */
+      .card-text {
+        flex-shrink: 0;
+        padding: 28px 22px 0;
+        position: relative;
+        z-index: 2;
+      }
 
-.eyebrow {
-  display: block;
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-  font-family: -apple-system, sans-serif;
-  margin-bottom: 8px;
-}
+      .eyebrow {
+        display: block;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        font-family: -apple-system, sans-serif;
+        margin-bottom: 8px;
+      }
 
-.headline {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.6px;
-  margin-bottom: 8px;
-}
+      .headline {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.6px;
+        margin-bottom: 8px;
+      }
 
-.sub {
-  font-size: 11px;
-  line-height: 1.5;
-  font-family: -apple-system, sans-serif;
-  max-width: 200px;
-}
+      .sub {
+        font-size: 11px;
+        line-height: 1.5;
+        font-family: -apple-system, sans-serif;
+        max-width: 200px;
+      }
 
-.gold { color: #c8920a; }
+      .gold {
+        color: #c8920a;
+      }
 
-/* Light text (on dark bg) */
-.lt .eyebrow { color: #c8920a; }
-.lt .headline { color: #ffffff; }
-.lt .sub { color: rgba(255,255,255,0.45); }
+      /* Light text (on dark bg) */
+      .lt .eyebrow {
+        color: #c8920a;
+      }
+      .lt .headline {
+        color: #ffffff;
+      }
+      .lt .sub {
+        color: rgba(255, 255, 255, 0.45);
+      }
 
-/* Dark text (on cream bg) */
-.dk .eyebrow { color: #a87208; }
-.dk .headline { color: #1c1714; }
-.dk .sub { color: rgba(28,23,20,0.5); }
+      /* Dark text (on cream bg) */
+      .dk .eyebrow {
+        color: #a87208;
+      }
+      .dk .headline {
+        color: #1c1714;
+      }
+      .dk .sub {
+        color: rgba(28, 23, 20, 0.5);
+      }
 
-/* Phone wrapper — sits below the text, card clips it at the bottom */
-.phone-wrap {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end; /* phone sits at bottom of remaining space */
-  padding-top: 18px;
-  position: relative;
-  z-index: 2;
-}
+      /* Phone wrapper — sits below the text, card clips it at the bottom */
+      .phone-wrap {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; /* phone sits at bottom of remaining space */
+        padding-top: 18px;
+        position: relative;
+        z-index: 2;
+      }
 
-/* The phone frame */
-.phone {
-  width: 210px;
-  /* Intentionally taller than remaining space — card clips the bottom */
-  height: 455px;
-  background: linear-gradient(145deg, #303030 0%, #141414 100%);
-  border-radius: 40px;
-  padding: 5px;
-  flex-shrink: 0;
-  position: relative;
-  box-shadow:
-    0 0 0 1px #444,
-    0 0 0 2px rgba(0,0,0,0.5),
-    0 20px 50px rgba(0,0,0,0.5);
-}
+      /* The phone frame */
+      .phone {
+        width: 210px;
+        /* Intentionally taller than remaining space — card clips the bottom */
+        height: 455px;
+        background: linear-gradient(145deg, #303030 0%, #141414 100%);
+        border-radius: 40px;
+        padding: 5px;
+        flex-shrink: 0;
+        position: relative;
+        box-shadow:
+          0 0 0 1px #444,
+          0 0 0 2px rgba(0, 0, 0, 0.5),
+          0 20px 50px rgba(0, 0, 0, 0.5);
+      }
 
-/* Dynamic island */
-.di {
-  position: absolute;
-  top: 12px; left: 50%;
-  transform: translateX(-50%);
-  width: 62px; height: 18px;
-  background: #0a0a0a;
-  border-radius: 9px;
-  z-index: 10;
-  pointer-events: none;
-}
+      /* Dynamic island */
+      .di {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 62px;
+        height: 18px;
+        background: #0a0a0a;
+        border-radius: 9px;
+        z-index: 10;
+        pointer-events: none;
+      }
 
-/* Side hardware buttons */
-.phone-btns { position: absolute; inset: 0; pointer-events: none; z-index: 5; }
-.phone-btns span {
-  position: absolute;
-  background: linear-gradient(90deg, #555 0%, #333 100%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
-}
+      /* Side hardware buttons */
+      .phone-btns {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 5;
+      }
+      .phone-btns span {
+        position: absolute;
+        background: linear-gradient(90deg, #555 0%, #333 100%);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      }
 
-/* Charcoal bezel — for dark background cards */
-.silver {
-  background: linear-gradient(145deg, #565656 0%, #383838 50%, #222 100%);
-  box-shadow:
-    0 0 0 1px #606060,
-    0 0 0 2px rgba(0,0,0,0.4),
-    0 24px 60px rgba(0,0,0,0.65);
-}
-.silver .phone-btns span {
-  background: linear-gradient(90deg, #686868 0%, #484848 100%);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.12);
-}
-/* Left side: mute switch + vol up + vol down */
-.btn-mute  { left: -3px; top: 52px;  width: 3px; height: 7px;  border-radius: 1.5px 0 0 1.5px; }
-.btn-vol-u { left: -3px; top: 70px;  width: 3px; height: 18px; border-radius: 1.5px 0 0 1.5px; }
-.btn-vol-d { left: -3px; top: 95px;  width: 3px; height: 18px; border-radius: 1.5px 0 0 1.5px; }
-/* Right side: power/sleep */
-.btn-power { right: -3px; top: 88px; width: 3px; height: 26px; border-radius: 0 1.5px 1.5px 0; }
+      /* Charcoal bezel — for dark background cards */
+      .silver {
+        background: linear-gradient(145deg, #565656 0%, #383838 50%, #222 100%);
+        box-shadow:
+          0 0 0 1px #606060,
+          0 0 0 2px rgba(0, 0, 0, 0.4),
+          0 24px 60px rgba(0, 0, 0, 0.65);
+      }
+      .silver .phone-btns span {
+        background: linear-gradient(90deg, #686868 0%, #484848 100%);
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
+      }
+      /* On dark backgrounds the drop shadow is invisible — use a soft light glow instead */
+      .lt .phone.silver,
+      .ps-phone.silver {
+        box-shadow:
+          0 0 0 1px #686868,
+          0 0 0 2px rgba(255, 255, 255, 0.04),
+          0 20px 60px rgba(255, 255, 255, 0.09),
+          0 6px 20px rgba(255, 255, 255, 0.06);
+      }
+      /* Inverted card — phone descends from top, text sits at bottom */
+      .card-inv {
+        flex-direction: column-reverse;
+      }
+      .card-inv .phone-wrap {
+        flex: none;
+        height: 385px; /* phone height (530) - clip (145) = zero gap */
+        padding: 0;
+        align-items: flex-start;
+      }
+      .card-inv .card-text {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 0 22px 26px;
+      }
+      .card-inv .phone {
+        height: 530px;
+        position: relative;
+        top: -145px;
+      }
+      /* Push screenshot lower so bottom app content is in the visible area */
+      .card-inv .phone-img {
+        margin-top: 140px;
+      }
+      .card-inv .phone-img img {
+        margin-top: -28px; /* still crop Android status bar */
+      }
 
-/* Screen — clips the screenshot */
-.phone-screen {
-  width: 100%; height: 100%;
-  border-radius: 35px;
-  overflow: hidden;
-  position: relative;
-}
+      /* Left side: mute switch + vol up + vol down */
+      .btn-mute {
+        left: -3px;
+        top: 52px;
+        width: 3px;
+        height: 7px;
+        border-radius: 1.5px 0 0 1.5px;
+      }
+      .btn-vol-u {
+        left: -3px;
+        top: 70px;
+        width: 3px;
+        height: 18px;
+        border-radius: 1.5px 0 0 1.5px;
+      }
+      .btn-vol-d {
+        left: -3px;
+        top: 95px;
+        width: 3px;
+        height: 18px;
+        border-radius: 1.5px 0 0 1.5px;
+      }
+      /* Right side: power/sleep */
+      .btn-power {
+        right: -3px;
+        top: 88px;
+        width: 3px;
+        height: 26px;
+        border-radius: 0 1.5px 1.5px 0;
+      }
 
-/* Status bar — absolute overlay flanking the Dynamic Island */
-.phone-sb {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 12px;
-  z-index: 20;
-  pointer-events: none;
-}
-.phone-sb-time {
-  font-family: -apple-system, sans-serif;
-  font-size: 8.5px;
-  font-weight: 600;
-  letter-spacing: -0.1px;
-}
-.phone-sb-icons { display: flex; gap: 3px; align-items: center; }
+      /* Screen — clips the screenshot */
+      .phone-screen {
+        width: 100%;
+        height: 100%;
+        border-radius: 35px;
+        overflow: hidden;
+        position: relative;
+      }
 
-/* Dark status bar (screenshots 1 & 4) */
-.phone-screen.dark { background: #0a0a0a; }
-.phone-screen.dark .phone-sb-time { color: #fff; }
+      /* Status bar — absolute overlay flanking the Dynamic Island */
+      .phone-sb {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 12px;
+        z-index: 20;
+        pointer-events: none;
+      }
+      .phone-sb-time {
+        font-family: -apple-system, sans-serif;
+        font-size: 8.5px;
+        font-weight: 600;
+        letter-spacing: -0.1px;
+      }
+      .phone-sb-icons {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+      }
 
-/* Light status bar (screenshots 2 & 5) */
-.phone-screen.light { background: #f4f2ef; }
-.phone-screen.light .phone-sb-time { color: #1c1714; }
+      /* Dark status bar (screenshots 1 & 4) */
+      .phone-screen.dark {
+        background: #0a0a0a;
+      }
+      .phone-screen.dark .phone-sb-time {
+        color: #fff;
+      }
 
-/* Image area — starts below DI safe area, clips Android status bar */
-.phone-img {
-  width: 100%;
-  margin-top: 28px;
-  overflow: hidden;
-}
+      /* Light status bar (screenshots 2 & 5) */
+      .phone-screen.light {
+        background: #f4f2ef;
+      }
+      .phone-screen.light .phone-sb-time {
+        color: #1c1714;
+      }
 
-/* Full width, natural aspect ratio — no side cropping ever */
-.phone-img img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-top: -28px;
-}
+      /* Image area — starts below DI safe area, clips Android status bar */
+      .phone-img {
+        width: 100%;
+        margin-top: 28px;
+        overflow: hidden;
+      }
 
-/* Section divider between main set and alternatives */
-.row-header {
-  text-align: center;
-  margin: 52px 0 24px;
-}
-.row-header h2 {
-  font-size: 11px;
-  font-weight: 700;
-  color: #444;
-  letter-spacing: 1.4px;
-  text-transform: uppercase;
-}
+      /* Full width, natural aspect ratio — no side cropping ever */
+      .phone-img img {
+        width: 100%;
+        height: auto;
+        display: block;
+        margin-top: -28px;
+      }
 
-/* Label below each card */
-.label {
-  text-align: center;
-  margin-top: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  color: #555;
-}
+      /* Section divider between main set and alternatives */
+      .row-header {
+        text-align: center;
+        margin: 52px 0 24px;
+      }
+      .row-header h2 {
+        font-size: 11px;
+        font-weight: 700;
+        color: #444;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+      }
 
-/* ─────────────────────────────────────────
+      /* Label below each card */
+      .label {
+        text-align: center;
+        margin-top: 12px;
+        font-size: 11px;
+        font-weight: 600;
+        color: #555;
+      }
+
+      /* ─────────────────────────────────────────
    PRIVACY SCREEN (card 3)
    Full custom UI — no image, no phone frame
    ───────────────────────────────────────── */
-.priv-screen {
-  position: absolute;
-  inset: 0;
-  background: #0a0a0a;
-  display: flex;
-  flex-direction: column;
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
-  z-index: 5;
-  padding: 0;
-}
+      .priv-screen {
+        position: absolute;
+        inset: 0;
+        background: #0a0a0a;
+        display: flex;
+        flex-direction: column;
+        font-family: -apple-system, "Helvetica Neue", sans-serif;
+        z-index: 5;
+        padding: 0;
+      }
 
-.ps-top {
-  padding: 24px 24px 0;
-  flex-shrink: 0;
-}
+      .ps-top {
+        padding: 24px 24px 0;
+        flex-shrink: 0;
+      }
 
-.ps-eyebrow {
-  font-size: 9px; font-weight: 700; letter-spacing: 1.4px;
-  text-transform: uppercase; color: #c8920a;
-  font-family: -apple-system, sans-serif;
-  display: block; margin-bottom: 8px;
-}
+      .ps-eyebrow {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: #c8920a;
+        font-family: -apple-system, sans-serif;
+        display: block;
+        margin-bottom: 8px;
+      }
 
-.ps-headline {
-  font-family: 'Bricolage Grotesque', sans-serif;
-  font-size: 26px; font-weight: 800;
-  line-height: 1.1; letter-spacing: -0.6px;
-  color: #fff; margin-bottom: 8px;
-}
+      .ps-headline {
+        font-family: "Bricolage Grotesque", sans-serif;
+        font-size: 26px;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.6px;
+        color: #fff;
+        margin-bottom: 8px;
+      }
 
-.ps-sub {
-  font-size: 11px; line-height: 1.5;
-  font-family: -apple-system, sans-serif;
-  color: rgba(255,255,255,0.4);
-}
+      .ps-sub {
+        font-size: 11px;
+        line-height: 1.5;
+        font-family: -apple-system, sans-serif;
+        color: rgba(255, 255, 255, 0.4);
+      }
 
-/* Divider line */
-.ps-divider {
-  height: 1px; background: #1e1e1e;
-  margin: 18px 0 0;
-  flex-shrink: 0;
-}
+      /* Divider line */
+      .ps-divider {
+        height: 1px;
+        background: #1e1e1e;
+        margin: 18px 0 0;
+        flex-shrink: 0;
+      }
 
-/* Phone mockup inside the privacy card */
-.ps-phone-wrap {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-top: 16px;
-  overflow: hidden;
-}
+      /* Phone mockup inside the privacy card */
+      .ps-phone-wrap {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 8px;
+        overflow: hidden;
+      }
 
-.ps-phone {
-  width: 210px;
-  height: 340px; /* tall enough to show the privacy UI, card clips bottom */
-  background: linear-gradient(145deg, #303030 0%, #141414 100%);
-  border-radius: 40px;
-  padding: 5px;
-  flex-shrink: 0;
-  position: relative;
-  box-shadow: 0 0 0 1px #444, 0 0 0 2px rgba(0,0,0,0.5), 0 20px 50px rgba(0,0,0,0.5);
-}
+      .ps-phone {
+        width: 210px;
+        height: 460px; /* overflows wrap bottom → card clips it, hiding CTA */
+        background: linear-gradient(145deg, #303030 0%, #141414 100%);
+        border-radius: 40px;
+        padding: 5px;
+        flex-shrink: 0;
+        position: relative;
+        box-shadow:
+          0 0 0 1px #444,
+          0 0 0 2px rgba(0, 0, 0, 0.5),
+          0 20px 50px rgba(0, 0, 0, 0.5);
+      }
 
-.ps-di {
-  position: absolute;
-  top: 12px; left: 50%;
-  transform: translateX(-50%);
-  width: 62px; height: 18px;
-  background: #0a0a0a;
-  border-radius: 9px;
-  z-index: 10;
-}
+      .ps-di {
+        position: absolute;
+        top: 12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 62px;
+        height: 18px;
+        background: #0a0a0a;
+        border-radius: 9px;
+        z-index: 10;
+      }
 
-.ps-inner {
-  width: 100%; height: 100%;
-  border-radius: 35px;
-  overflow: hidden;
-  background: #0a0a0a;
-  display: flex;
-  flex-direction: column;
-  font-family: -apple-system, 'Helvetica Neue', sans-serif;
-}
+      .ps-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 35px;
+        overflow: hidden;
+        background: #0a0a0a;
+        display: flex;
+        flex-direction: column;
+        font-family: -apple-system, "Helvetica Neue", sans-serif;
+      }
 
-.pi-sb { display: flex; justify-content: space-between; align-items: center; padding: 11px 14px 0; flex-shrink: 0; }
-.pi-sb-t { font-size: 8.5px; font-weight: 600; color: #fff; }
-.pi-sb-i { display: flex; gap: 4px; align-items: center; }
-.pi-hdr { display: flex; justify-content: space-between; align-items: center; padding: 7px 15px 0; flex-shrink: 0; }
-.pi-name { font-size: 17px; font-weight: 800; color: #fff; letter-spacing: -0.2px; }
-.pi-icons { display: flex; gap: 12px; }
-.pi-body { flex: 1; padding: 8px 14px 10px; display: flex; flex-direction: column; overflow: hidden; }
-.pi-feats { display: flex; flex-direction: column; gap: 5px; flex: 1; margin-bottom: 8px; }
-.pi-feat { background: #161616; border-radius: 10px; border: 1px solid #222; padding: 8px 10px; display: flex; align-items: center; gap: 9px; }
-.pi-fi { width: 26px; height: 26px; border-radius: 7px; background: #1e1e1e; border: 1px solid #2a2a2a; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.pi-ft { font-size: 10px; font-weight: 700; color: #fff; margin-bottom: 1px; }
-.pi-fd { font-size: 8.5px; color: #555; }
-.pi-cta { background: #c8920a; border-radius: 11px; padding: 11px; text-align: center; font-size: 12px; font-weight: 800; color: #000; flex-shrink: 0; }
+      .pi-sb {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 11px 14px 0;
+        flex-shrink: 0;
+      }
+      .pi-sb-t {
+        font-size: 8.5px;
+        font-weight: 600;
+        color: #fff;
+      }
+      .pi-sb-i {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+      }
+      .pi-hdr {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 7px 15px 0;
+        flex-shrink: 0;
+      }
+      .pi-name {
+        font-size: 17px;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -0.2px;
+      }
+      .pi-icons {
+        display: flex;
+        gap: 12px;
+      }
+      .pi-body {
+        flex: 1;
+        padding: 8px 14px 10px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .pi-feats {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        flex: 1;
+        margin-bottom: 8px;
+      }
+      .pi-feat {
+        background: #161616;
+        border-radius: 10px;
+        border: 1px solid #222;
+        padding: 8px 10px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+      }
+      .pi-fi {
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        background: #1e1e1e;
+        border: 1px solid #2a2a2a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .pi-ft {
+        font-size: 10px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 1px;
+      }
+      .pi-fd {
+        font-size: 8.5px;
+        color: #555;
+      }
+      .pi-cta {
+        background: #c8920a;
+        border-radius: 11px;
+        padding: 11px;
+        text-align: center;
+        font-size: 12px;
+        font-weight: 800;
+        color: #000;
+        flex-shrink: 0;
+      }
 
-</style>
-</head>
-<body>
+      /* ═══════════════════════════════════════════════════════
+   PRIVACY CARD VARIANTS — P1 Shield / P2 Checks / P3 Grid
+═══════════════════════════════════════════════════════ */
 
-<div class="page-header">
-  <h1>NomsAI — App Store Screenshots</h1>
-  <p>262 × 567px preview &nbsp;·&nbsp; Represents 1242 × 2688px &nbsp;·&nbsp; Screenshot each card individually</p>
-</div>
+      /* P1 — Shield Hero */
+      .ph-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 35px;
+        overflow: hidden;
+        background: #080808;
+        display: flex;
+        flex-direction: column;
+      }
+      .ph-hero {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 12px 0 8px;
+        position: relative;
+      }
+      .ph-glow {
+        position: absolute;
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(200, 146, 10, 0.22) 0%,
+          transparent 68%
+        );
+        pointer-events: none;
+      }
+      .ph-hero-lbl {
+        font-size: 7.5px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: rgba(200, 146, 10, 0.6);
+        margin-top: 7px;
+        font-family: -apple-system, sans-serif;
+      }
+      .ph-sep {
+        height: 1px;
+        background: #161616;
+        margin: 0;
+        flex-shrink: 0;
+      }
+      .ph-list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        padding: 2px 12px 8px;
+      }
+      .ph-row {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        padding: 0 0;
+        border-bottom: 1px solid #141414;
+        flex: 1;
+      }
+      .ph-row:last-child {
+        border-bottom: none;
+      }
+      .ph-ico {
+        width: 26px;
+        height: 26px;
+        border-radius: 7px;
+        background: rgba(200, 146, 10, 0.1);
+        border: 1px solid rgba(200, 146, 10, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .ph-t {
+        font-size: 9.5px;
+        font-weight: 700;
+        color: #e8e8e8;
+        font-family: -apple-system, sans-serif;
+        margin-bottom: 1px;
+      }
+      .ph-d {
+        font-size: 7.5px;
+        color: #3a3a3a;
+        line-height: 1.3;
+        font-family: -apple-system, sans-serif;
+      }
 
-<div class="row">
+      /* P2 — Big Checkmarks */
+      .pc-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 35px;
+        overflow: hidden;
+        background: #050505;
+        display: flex;
+        flex-direction: column;
+      }
+      .pc-hdr {
+        padding: 8px 14px 0;
+        flex-shrink: 0;
+      }
+      .pc-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 7px;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-transform: uppercase;
+        color: #c8920a;
+        border: 1px solid rgba(200, 146, 10, 0.3);
+        border-radius: 20px;
+        padding: 2.5px 8px;
+        font-family: -apple-system, sans-serif;
+      }
+      .pc-list {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 16px 14px 12px;
+      }
+      .pc-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .pc-item:last-child {
+        border-bottom: none;
+      }
+      .pc-ck {
+        font-size: 18px;
+        font-weight: 900;
+        color: #c8920a;
+        line-height: 1.15;
+        flex-shrink: 0;
+        font-family: -apple-system, sans-serif;
+      }
+      .pc-t {
+        font-size: 11.5px;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: 2px;
+        font-family: -apple-system, sans-serif;
+      }
+      .pc-d {
+        font-size: 8px;
+        color: #3c3c3c;
+        line-height: 1.3;
+        font-family: -apple-system, sans-serif;
+      }
 
-  <!-- ══════════════════════════════════
+      /* P3 — 2×2 Colour Grid */
+      .pg-inner {
+        width: 100%;
+        height: 100%;
+        border-radius: 35px;
+        overflow: hidden;
+        background: #080808;
+        display: flex;
+        flex-direction: column;
+      }
+      .pg-hdr {
+        padding: 7px 13px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-shrink: 0;
+      }
+      .pg-name {
+        font-size: 14px;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -0.2px;
+      }
+      .pg-badge {
+        font-size: 6.5px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        color: #c8920a;
+        background: rgba(200, 146, 10, 0.12);
+        border: 1px solid rgba(200, 146, 10, 0.25);
+        padding: 2.5px 5px;
+        border-radius: 4px;
+        font-family: -apple-system, sans-serif;
+      }
+      .pg-grid {
+        flex: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 5px;
+        padding: 6px 8px 8px;
+      }
+      .pg-tile {
+        border-radius: 10px;
+        padding: 9px 9px 7px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .pg-tile.gc {
+        background: rgba(200, 146, 10, 0.13);
+        border: 1px solid rgba(200, 146, 10, 0.25);
+      }
+      .pg-tile.bc {
+        background: rgba(99, 179, 237, 0.09);
+        border: 1px solid rgba(99, 179, 237, 0.2);
+      }
+      .pg-tile.vc {
+        background: rgba(72, 187, 120, 0.09);
+        border: 1px solid rgba(72, 187, 120, 0.2);
+      }
+      .pg-tile.rc {
+        background: rgba(252, 129, 74, 0.09);
+        border: 1px solid rgba(252, 129, 74, 0.2);
+      }
+      .pg-t {
+        font-size: 9.5px;
+        font-weight: 800;
+        color: #fff;
+        line-height: 1.2;
+        font-family: -apple-system, sans-serif;
+      }
+      .pg-d {
+        font-size: 7px;
+        color: #484848;
+        line-height: 1.3;
+        font-family: -apple-system, sans-serif;
+        margin-top: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-header">
+      <h1>NomsAI — App Store Screenshots</h1>
+      <p>
+        262 × 567px preview &nbsp;·&nbsp; Represents 1242 × 2688px &nbsp;·&nbsp;
+        Screenshot each card individually
+      </p>
+    </div>
+
+    <div class="row">
+      <!-- ══════════════════════════════════
        1 — DASHBOARD
        Dark bg, white text, app below
   ══════════════════════════════════ -->
-  <div>
-    <div class="card lt" style="background:#0d0d0d;">
-      <div class="card-text">
-        <span class="eyebrow">AI Calorie Tracking</span>
-        <div class="headline">Just type<br>what you <span class="gold">ate</span></div>
-        <div class="sub">No barcode. No searching.<br>Plain English — macros done.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns">
-            <span class="btn-mute"></span>
-            <span class="btn-vol-u"></span>
-            <span class="btn-vol-d"></span>
-            <span class="btn-power"></span>
-          </div>
-          <div class="phone-screen dark">
-            <div class="phone-sb">
-              <span class="phone-sb-time">9:41</span>
-              <div class="phone-sb-icons">
-                <svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg>
-                <svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg>
-                <svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg>
-              </div>
+      <div>
+        <div class="card lt" style="background: linear-gradient(to bottom, rgba(8,8,8,0.90) 0%, rgba(8,8,8,0.88) 30%, rgba(8,8,8,0.28) 52%, rgba(8,8,8,0.1) 100%), url('https://images.unsplash.com/photo-1534132927252-b55bbafba352?w=800&q=80') center/cover no-repeat">
+          <div class="card-text">
+            <span class="eyebrow">AI Calorie Tracking</span>
+            <div class="headline">
+              Type it. Say it.<br /><span class="gold">NomsAI</span> handles the rest.
             </div>
-            <div class="phone-img">
-              <img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142213_NomsAI.jpg">
+            <div class="sub">
+              Any language. Any food. Type, speak<br />or scan — AI figures out the macros.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span>
+                <span class="btn-vol-u"></span>
+                <span class="btn-vol-d"></span>
+                <span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      />
+                    </svg>
+                    <svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" />
+                    </svg>
+                    <svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142213_NomsAI.jpg"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="label">1 — Dashboard</div>
       </div>
-    </div>
-    <div class="label">1 — Dashboard</div>
-  </div>
 
-  <!-- ══════════════════════════════════
+      <!-- ══════════════════════════════════
        2 — FULL MACROS (light)
        Cream bg, dark text, app below
   ══════════════════════════════════ -->
-  <div>
-    <div class="card dk" style="background:#f0ece6;">
-      <div class="card-text">
-        <span class="eyebrow">Full Macro View</span>
-        <div class="headline">Every macro.<br><span class="gold">Every day.</span></div>
-        <div class="sub">Calories, protein, carbs, fat.<br>Plus water and workout burn.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone">
-          <div class="di"></div>
-          <div class="phone-btns">
-            <span class="btn-mute"></span>
-            <span class="btn-vol-u"></span>
-            <span class="btn-vol-d"></span>
-            <span class="btn-power"></span>
-          </div>
-          <div class="phone-screen light">
-            <div class="phone-sb">
-              <span class="phone-sb-time">9:41</span>
-              <div class="phone-sb-icons">
-                <svg width="9" height="7" viewBox="0 0 16 11" fill="#1c1714"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg>
-                <svg width="8" height="7" viewBox="0 0 14 11" fill="#1c1714"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg>
-                <svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="#1c1714" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#1c1714"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="#1c1714" fill-opacity=".35"/></svg>
-              </div>
+      <div>
+        <div class="card dk" style="background: linear-gradient(to bottom, rgba(240,236,230,0.96) 0%, rgba(240,236,230,0.92) 30%, rgba(240,236,230,0.28) 52%, rgba(240,236,230,0.08) 100%), url('https://images.unsplash.com/photo-1468408908883-029a25e230c1?w=800&q=80') center/cover no-repeat">
+          <div class="card-text">
+            <span class="eyebrow">Full Macro View</span>
+            <div class="headline">
+              Every macro.<br /><span class="gold">Every day.</span>
             </div>
-            <div class="phone-img">
-              <img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142848_NomsAI.jpg">
+            <div class="sub">
+              Calories, protein, carbs, fat.<br />Plus water and workout burn.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span>
+                <span class="btn-vol-u"></span>
+                <span class="btn-vol-d"></span>
+                <span class="btn-power"></span>
+              </div>
+              <div class="phone-screen light">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg
+                      width="9"
+                      height="7"
+                      viewBox="0 0 16 11"
+                      fill="#1c1714"
+                    >
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      />
+                    </svg>
+                    <svg
+                      width="8"
+                      height="7"
+                      viewBox="0 0 14 11"
+                      fill="#1c1714"
+                    >
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" />
+                    </svg>
+                    <svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="#1c1714"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="#1c1714"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="#1c1714"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142848_NomsAI.jpg"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="label">2 — Full macros</div>
       </div>
-    </div>
-    <div class="label">2 — Full macros</div>
-  </div>
 
-  <!-- ══════════════════════════════════
+      <!-- ══════════════════════════════════
        3 — PRIVACY
        Dark bg, text above, phone with custom UI
   ══════════════════════════════════ -->
-  <div>
-    <div class="card" style="background:#0a0d14;">
-      <div class="priv-screen">
-
-        <div class="ps-top">
-          <span class="ps-eyebrow">Privacy First</span>
-          <div class="ps-headline">No account.<br>No login. <span class="gold">Ever.</span></div>
-          <div class="ps-sub">Your diary lives on your device.<br>We literally cannot see it.</div>
-        </div>
-
-        <div class="ps-divider"></div>
-
-        <div class="ps-phone-wrap">
-          <div class="ps-phone silver">
-            <div class="ps-di"></div>
-            <div class="phone-btns">
-              <span class="btn-mute"></span>
-              <span class="btn-vol-u"></span>
-              <span class="btn-vol-d"></span>
-              <span class="btn-power"></span>
+      <div>
+        <div class="card" style="background: #0a0d14">
+          <div class="priv-screen">
+            <div class="ps-top">
+              <span class="ps-eyebrow">Privacy First</span>
+              <div class="ps-headline">
+                No account.<br />No login. <span class="gold">Ever.</span>
+              </div>
+              <div class="ps-sub">
+                Your diary lives on your device.<br />We literally cannot see
+                it.
+              </div>
             </div>
-            <div class="ps-inner">
-              <div class="pi-sb">
-                <span class="pi-sb-t">9:41</span>
-                <div class="pi-sb-i">
-                  <svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg>
-                  <svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="12" height="8" rx="1.5" fill="white"/></svg>
+
+            <div class="ps-divider"></div>
+
+            <div class="ps-phone-wrap">
+              <div class="ps-phone silver">
+                <div class="ps-di"></div>
+                <div class="phone-btns">
+                  <span class="btn-mute"></span>
+                  <span class="btn-vol-u"></span>
+                  <span class="btn-vol-d"></span>
+                  <span class="btn-power"></span>
                 </div>
-              </div>
-              <div class="pi-hdr">
-                <span class="pi-name">NomsAI</span>
-                <div class="pi-icons">
-                  <svg width="17" height="17" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#2a2a2a" stroke-width="1.5"/><path d="M10 6.5v7M6.5 10h7" stroke="#555" stroke-width="1.5" stroke-linecap="round"/></svg>
-                  <svg width="17" height="17" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8.5" stroke="#2a2a2a" stroke-width="1.5"/><circle cx="10" cy="8" r="2.5" stroke="#555" stroke-width="1.3"/><path d="M4.5 16c0-2.2 2.24-4 5.5-4s5.5 1.8 5.5 4" stroke="#555" stroke-width="1.3" stroke-linecap="round"/></svg>
+                <div class="ps-inner">
+                  <div class="pi-sb">
+                    <span class="pi-sb-t">9:41</span>
+                    <div class="pi-sb-i">
+                      <svg
+                        width="9"
+                        height="7"
+                        viewBox="0 0 16 11"
+                        fill="white"
+                      >
+                        <rect x="0" y="4" width="3" height="7" rx="1" />
+                        <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                        <rect x="8" y="1" width="3" height="10" rx="1" />
+                        <rect
+                          x="12"
+                          y="0"
+                          width="3"
+                          height="11"
+                          rx="1"
+                          opacity=".3"
+                        />
+                      </svg>
+                      <svg
+                        width="14"
+                        height="7"
+                        viewBox="0 0 22 11"
+                        fill="none"
+                      >
+                        <rect
+                          x="0.5"
+                          y="0.5"
+                          width="18"
+                          height="10"
+                          rx="2.5"
+                          stroke="white"
+                          stroke-opacity=".35"
+                        />
+                        <rect
+                          x="1.5"
+                          y="1.5"
+                          width="12"
+                          height="8"
+                          rx="1.5"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="pi-hdr">
+                    <span class="pi-name">NomsAI</span>
+                    <div class="pi-icons">
+                      <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                      >
+                        <circle
+                          cx="10"
+                          cy="10"
+                          r="8.5"
+                          stroke="#2a2a2a"
+                          stroke-width="1.5"
+                        />
+                        <path
+                          d="M10 6.5v7M6.5 10h7"
+                          stroke="#555"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                      <svg
+                        width="17"
+                        height="17"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                      >
+                        <circle
+                          cx="10"
+                          cy="10"
+                          r="8.5"
+                          stroke="#2a2a2a"
+                          stroke-width="1.5"
+                        />
+                        <circle
+                          cx="10"
+                          cy="8"
+                          r="2.5"
+                          stroke="#555"
+                          stroke-width="1.3"
+                        />
+                        <path
+                          d="M4.5 16c0-2.2 2.24-4 5.5-4s5.5 1.8 5.5 4"
+                          stroke="#555"
+                          stroke-width="1.3"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="pi-body">
+                    <div class="pi-feats">
+                      <div class="pi-feat">
+                        <div class="pi-fi">
+                          <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 15 15"
+                            fill="none"
+                          >
+                            <rect
+                              x="1"
+                              y="1"
+                              width="13"
+                              height="13"
+                              rx="3"
+                              stroke="#c8920a"
+                              stroke-width="1.3"
+                            />
+                            <path
+                              d="M4 7.5l2.5 2.5 4.5-4.5"
+                              stroke="#c8920a"
+                              stroke-width="1.3"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <div class="pi-ft">All data stored on-device</div>
+                          <div class="pi-fd">
+                            Logs, weight, workouts — never uploaded
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pi-feat">
+                        <div class="pi-fi">
+                          <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 15 15"
+                            fill="none"
+                          >
+                            <circle
+                              cx="7.5"
+                              cy="5.5"
+                              r="2.5"
+                              stroke="#c8920a"
+                              stroke-width="1.3"
+                            />
+                            <path
+                              d="M2.5 13c0-2.2 2.24-4 5-4s5 1.8 5 4"
+                              stroke="#c8920a"
+                              stroke-width="1.3"
+                              stroke-linecap="round"
+                            />
+                            <path
+                              d="M11 5l1.5-1.5M12.5 5H11"
+                              stroke="#c8920a"
+                              stroke-width="1.1"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <div class="pi-ft">No email or password</div>
+                          <div class="pi-fd">
+                            Open and start tracking immediately
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pi-feat">
+                        <div class="pi-fi">
+                          <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 15 15"
+                            fill="none"
+                          >
+                            <circle
+                              cx="7.5"
+                              cy="7.5"
+                              r="6"
+                              stroke="#c8920a"
+                              stroke-width="1.3"
+                            />
+                            <path
+                              d="M5 7.5l2 2 3.5-3.5"
+                              stroke="#c8920a"
+                              stroke-width="1.3"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <div class="pi-ft">Zero tracking or analytics</div>
+                          <div class="pi-fd">
+                            We literally can't see what you log
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pi-feat">
+                        <div class="pi-fi">
+                          <svg
+                            width="13"
+                            height="13"
+                            viewBox="0 0 15 15"
+                            fill="none"
+                          >
+                            <path
+                              d="M3 4l1 9h7l1-9"
+                              stroke="#c8920a"
+                              stroke-width="1.3"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                            <path
+                              d="M1.5 4h12M6 4V2.5h3V4"
+                              stroke="#c8920a"
+                              stroke-width="1.3"
+                              stroke-linecap="round"
+                            />
+                          </svg>
+                        </div>
+                        <div>
+                          <div class="pi-ft">Delete everything, anytime</div>
+                          <div class="pi-fd">
+                            One tap wipes your data completely
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pi-cta">Get started — it's free</div>
+                  </div>
                 </div>
-              </div>
-              <div class="pi-body">
-                <div class="pi-feats">
-                  <div class="pi-feat">
-                    <div class="pi-fi"><svg width="13" height="13" viewBox="0 0 15 15" fill="none"><rect x="1" y="1" width="13" height="13" rx="3" stroke="#c8920a" stroke-width="1.3"/><path d="M4 7.5l2.5 2.5 4.5-4.5" stroke="#c8920a" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-                    <div><div class="pi-ft">All data stored on-device</div><div class="pi-fd">Logs, weight, workouts — never uploaded</div></div>
-                  </div>
-                  <div class="pi-feat">
-                    <div class="pi-fi"><svg width="13" height="13" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="5.5" r="2.5" stroke="#c8920a" stroke-width="1.3"/><path d="M2.5 13c0-2.2 2.24-4 5-4s5 1.8 5 4" stroke="#c8920a" stroke-width="1.3" stroke-linecap="round"/><path d="M11 5l1.5-1.5M12.5 5H11" stroke="#c8920a" stroke-width="1.1" stroke-linecap="round"/></svg></div>
-                    <div><div class="pi-ft">No email or password</div><div class="pi-fd">Open and start tracking immediately</div></div>
-                  </div>
-                  <div class="pi-feat">
-                    <div class="pi-fi"><svg width="13" height="13" viewBox="0 0 15 15" fill="none"><path d="M2 4h11M2 7.5h7M2 11h4" stroke="#c8920a" stroke-width="1.3" stroke-linecap="round"/><circle cx="11.5" cy="11" r="2.5" stroke="#c8920a" stroke-width="1.2"/><path d="M13.5 13l1.5 1.5" stroke="#c8920a" stroke-width="1.2" stroke-linecap="round"/></svg></div>
-                    <div><div class="pi-ft">Export your data anytime</div><div class="pi-fd">Full GDPR portability — it's yours</div></div>
-                  </div>
-                  <div class="pi-feat">
-                    <div class="pi-fi"><svg width="13" height="13" viewBox="0 0 15 15" fill="none"><rect x="5" y="7.5" width="10" height="7" rx="2" stroke="#c8920a" stroke-width="1.2"/><path d="M7 7.5V5a3 3 0 016 0v2.5" stroke="#c8920a" stroke-width="1.2" stroke-linecap="round"/><circle cx="10" cy="11" r="1.2" fill="#c8920a"/></svg></div>
-                    <div><div class="pi-ft">Supporter pass restores cross-device</div><div class="pi-fd">App Store receipt — no login needed</div></div>
-                  </div>
-                </div>
-                <div class="pi-cta">Get started — it's free</div>
               </div>
             </div>
           </div>
         </div>
-
+        <div class="label">3 — Privacy</div>
       </div>
-    </div>
-    <div class="label">3 — Privacy</div>
-  </div>
 
-  <!-- ══════════════════════════════════
+      <!-- ══════════════════════════════════
        4 — FEATURES
        Dark bg, text above, features sheet
   ══════════════════════════════════ -->
-  <div>
-    <div class="card lt" style="background:#090e09;">
-      <div class="card-text">
-        <span class="eyebrow">Four Ways To Log</span>
-        <div class="headline">More than<br>just <span class="gold">calories</span></div>
-        <div class="sub">Barcode scanner, workouts,<br>recipe builder — all in one.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns">
-            <span class="btn-mute"></span>
-            <span class="btn-vol-u"></span>
-            <span class="btn-vol-d"></span>
-            <span class="btn-power"></span>
-          </div>
-          <div class="phone-screen dark">
-            <div class="phone-sb">
-              <span class="phone-sb-time">9:41</span>
-              <div class="phone-sb-icons">
-                <svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg>
-                <svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg>
-                <svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg>
-              </div>
+      <div>
+        <div class="card lt card-inv" style="background: #090e09">
+          <div class="card-text">
+            <span class="eyebrow">Choose Your Way To Log</span>
+            <div class="headline">
+              More than<br />just <span class="gold">calories</span>
             </div>
-            <div class="phone-img">
-              <img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142230_NomsAI.jpg">
+            <div class="sub">
+              Barcode scanner, workouts,<br />recipe builder — all in one.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span>
+                <span class="btn-vol-u"></span>
+                <span class="btn-vol-d"></span>
+                <span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      />
+                    </svg>
+                    <svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" />
+                    </svg>
+                    <svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142230_NomsAI.jpg"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="label">4 — Features</div>
       </div>
-    </div>
-    <div class="label">4 — Features</div>
-  </div>
 
-  <!-- ══════════════════════════════════
+      <!-- ══════════════════════════════════
        5 — PROGRESS
        Cream bg, dark text, weight graph
   ══════════════════════════════════ -->
-  <div>
-    <div class="card dk" style="background:#ece8e2;">
-      <div class="card-text">
-        <span class="eyebrow">Weight Tracking</span>
-        <div class="headline">Watch the<br>graph go <span class="gold">down</span></div>
-        <div class="sub">Personal bests, 30/90-day trends.<br>Proof that it's working.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone">
-          <div class="di"></div>
-          <div class="phone-btns">
-            <span class="btn-mute"></span>
-            <span class="btn-vol-u"></span>
-            <span class="btn-vol-d"></span>
-            <span class="btn-power"></span>
+      <div>
+        <div class="card dk" style="background: #ece8e2">
+          <div class="card-text">
+            <span class="eyebrow">Progress Tracking</span>
+            <div class="headline">
+              Your goals.<br />Your <span class="gold">progress.</span>
+            </div>
+            <div class="sub">
+              30-day trends, personal bests,<br />weekly summaries. You set the goal.
+            </div>
           </div>
-          <div class="phone-screen light">
-            <div class="phone-sb">
-              <span class="phone-sb-time">9:41</span>
-              <div class="phone-sb-icons">
-                <svg width="9" height="7" viewBox="0 0 16 11" fill="#1c1714"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg>
-                <svg width="8" height="7" viewBox="0 0 14 11" fill="#1c1714"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg>
-                <svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="#1c1714" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#1c1714"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="#1c1714" fill-opacity=".35"/></svg>
+          <div class="phone-wrap">
+            <div class="phone">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span>
+                <span class="btn-vol-u"></span>
+                <span class="btn-vol-d"></span>
+                <span class="btn-power"></span>
+              </div>
+              <div class="phone-screen light">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg
+                      width="9"
+                      height="7"
+                      viewBox="0 0 16 11"
+                      fill="#1c1714"
+                    >
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      />
+                    </svg>
+                    <svg
+                      width="8"
+                      height="7"
+                      viewBox="0 0 14 11"
+                      fill="#1c1714"
+                    >
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" />
+                    </svg>
+                    <svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="#1c1714"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="#1c1714"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="#1c1714"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143007_NomsAI.jpg"
+                  />
+                </div>
               </div>
             </div>
-            <div class="phone-img">
-              <img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143007_NomsAI.jpg">
+          </div>
+        </div>
+        <div class="label">5 — Progress</div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+     ALTERNATIVE OPTIONS
+══════════════════════════════════════════════════════ -->
+    <div class="row-header"><h2>Alternative Options</h2></div>
+
+    <div class="row">
+      <!-- A1 — Recipe autocomplete (dark) -->
+      <div>
+        <div class="card lt card-inv" style="background: #0d0d0d">
+          <div class="card-text">
+            <span class="eyebrow">Smart Logging</span>
+            <div class="headline">
+              Your recipes,<br /><span class="gold">remembered</span>
+            </div>
+            <div class="sub">
+              Type a name and it fills from your saved recipes instantly.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142609_NomsAI.jpg"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
+        <div class="label">A1 — Recipe recall</div>
       </div>
-    </div>
-    <div class="label">5 — Progress</div>
-  </div>
 
-</div>
-
-<!-- ══════════════════════════════════════════════════════
-     ALTERNATIVE OPTIONS
-══════════════════════════════════════════════════════ -->
-<div class="row-header"><h2>Alternative Options</h2></div>
-
-<div class="row">
-
-  <!-- A1 — Recipe autocomplete (dark) -->
-  <div>
-    <div class="card lt" style="background:#0d0d0d;">
-      <div class="card-text">
-        <span class="eyebrow">Smart Logging</span>
-        <div class="headline">Your recipes,<br><span class="gold">remembered</span></div>
-        <div class="sub">Type a name and it fills from your saved recipes instantly.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen dark">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142609_NomsAI.jpg"></div>
+      <!-- A2 — Recipes screen (dark, warm) -->
+      <div>
+        <div class="card lt" style="background: #100d07">
+          <div class="card-text">
+            <span class="eyebrow">Recipe Library</span>
+            <div class="headline">
+              Save meals.<br />Log in <span class="gold">seconds.</span>
+            </div>
+            <div class="sub">
+              Build a recipe once. Log any serving size forever.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142622_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A2 — Recipes</div>
       </div>
-    </div>
-    <div class="label">A1 — Recipe recall</div>
-  </div>
 
-  <!-- A2 — Recipes screen (dark, warm) -->
-  <div>
-    <div class="card lt" style="background:#100d07;">
-      <div class="card-text">
-        <span class="eyebrow">Recipe Library</span>
-        <div class="headline">Save meals.<br>Log in <span class="gold">seconds.</span></div>
-        <div class="sub">Build a recipe once. Log any serving size forever.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen dark">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142622_NomsAI.jpg"></div>
+      <!-- A3 — History 7 days (dark navy) -->
+      <div>
+        <div class="card lt" style="background: #070a10">
+          <div class="card-text">
+            <span class="eyebrow">Weekly History</span>
+            <div class="headline">
+              See every<br />day at a <span class="gold">glance</span>
+            </div>
+            <div class="sub">
+              Over-target days in red. On track in gold. Honest data.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142720_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A3 — History 7d</div>
       </div>
-    </div>
-    <div class="label">A2 — Recipes</div>
-  </div>
 
-  <!-- A3 — History 7 days (dark navy) -->
-  <div>
-    <div class="card lt" style="background:#070a10;">
-      <div class="card-text">
-        <span class="eyebrow">Weekly History</span>
-        <div class="headline">See every<br>day at a <span class="gold">glance</span></div>
-        <div class="sub">Over-target days in red. On track in gold. Honest data.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen dark">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142720_NomsAI.jpg"></div>
+      <!-- A4 — Workout logging (dark green) -->
+      <div>
+        <div class="card lt" style="background: #080e08">
+          <div class="card-text">
+            <span class="eyebrow">Workout Tracking</span>
+            <div class="headline">
+              Log workouts.<br />Eat <span class="gold">back</span> more.
+            </div>
+            <div class="sub">
+              Pick activity and duration. Calories burned added to your daily
+              target.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142744_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A4 — Workout logging</div>
       </div>
-    </div>
-    <div class="label">A3 — History 7d</div>
-  </div>
 
-  <!-- A4 — Workout logging (dark green) -->
-  <div>
-    <div class="card lt" style="background:#080e08;">
-      <div class="card-text">
-        <span class="eyebrow">Workout Tracking</span>
-        <div class="headline">Log workouts.<br>Eat <span class="gold">back</span> more.</div>
-        <div class="sub">Pick activity and duration. Calories burned added to your daily target.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen dark">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142744_NomsAI.jpg"></div>
+      <!-- A5 — Water log (light) -->
+      <div>
+        <div class="card dk" style="background: #edf0f3">
+          <div class="card-text">
+            <span class="eyebrow">Hydration</span>
+            <div class="headline">
+              Track water<br />too — it <span class="gold">adds up</span>
+            </div>
+            <div class="sub">
+              Log in one tap from the dashboard. Daily progress bar included.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen light">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg
+                      width="9"
+                      height="7"
+                      viewBox="0 0 16 11"
+                      fill="#1c1714"
+                    >
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg
+                      width="8"
+                      height="7"
+                      viewBox="0 0 14 11"
+                      fill="#1c1714"
+                    >
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="#1c1714"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="#1c1714"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="#1c1714"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142822_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A5 — Water log</div>
       </div>
     </div>
-    <div class="label">A4 — Workout logging</div>
-  </div>
 
-  <!-- A5 — Water log (light) -->
-  <div>
-    <div class="card dk" style="background:#edf0f3;">
-      <div class="card-text">
-        <span class="eyebrow">Hydration</span>
-        <div class="headline">Track water<br>too — it <span class="gold">adds up</span></div>
-        <div class="sub">Log in one tap from the dashboard. Daily progress bar included.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen light">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="#1c1714"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="#1c1714"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="#1c1714" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#1c1714"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="#1c1714" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142822_NomsAI.jpg"></div>
+    <div class="row">
+      <!-- A6 — Water + workout (light) -->
+      <div>
+        <div class="card dk card-inv" style="background: #f0ece6">
+          <div class="card-text">
+            <span class="eyebrow">Everything in one place</span>
+            <div class="headline">
+              Calories, water,<br />workouts — <span class="gold">done</span>
+            </div>
+            <div class="sub">
+              The full picture from a single screen. No switching apps.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen light">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg
+                      width="9"
+                      height="7"
+                      viewBox="0 0 16 11"
+                      fill="#1c1714"
+                    >
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg
+                      width="8"
+                      height="7"
+                      viewBox="0 0 14 11"
+                      fill="#1c1714"
+                    >
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="#1c1714"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="#1c1714"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="#1c1714"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142831_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A6 — Water + workout</div>
       </div>
-    </div>
-    <div class="label">A5 — Water log</div>
-  </div>
 
-</div>
-
-<div class="row">
-
-  <!-- A6 — Water + workout (light) -->
-  <div>
-    <div class="card dk" style="background:#f0ece6;">
-      <div class="card-text">
-        <span class="eyebrow">Everything in one place</span>
-        <div class="headline">Calories, water,<br>workouts — <span class="gold">done</span></div>
-        <div class="sub">The full picture from a single screen. No switching apps.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen light">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="#1c1714"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="#1c1714"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="#1c1714" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="#1c1714"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="#1c1714" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_142831_NomsAI.jpg"></div>
+      <!-- A7 — History 30 days (dark warm) -->
+      <div>
+        <div class="card lt" style="background: #0d0a07">
+          <div class="card-text">
+            <span class="eyebrow">30-Day View</span>
+            <div class="headline">
+              Patterns show<br />up over <span class="gold">time</span>
+            </div>
+            <div class="sub">
+              Zoom to 30 days. See exactly where the wheels came off.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143108_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A7 — History 30d</div>
       </div>
-    </div>
-    <div class="label">A6 — Water + workout</div>
-  </div>
 
-  <!-- A7 — History 30 days (dark warm) -->
-  <div>
-    <div class="card lt" style="background:#0d0a07;">
-      <div class="card-text">
-        <span class="eyebrow">30-Day View</span>
-        <div class="headline">Patterns show<br>up over <span class="gold">time</span></div>
-        <div class="sub">Zoom to 30 days. See exactly where the wheels came off.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen dark">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143108_NomsAI.jpg"></div>
+      <!-- A8 — Edit log (dark) -->
+      <div>
+        <div class="card lt" style="background: #0a0a0a">
+          <div class="card-text">
+            <span class="eyebrow">Full Control</span>
+            <div class="headline">
+              Tweak anything,<br /><span class="gold">anytime</span>
+            </div>
+            <div class="sub">
+              Edit amounts, swap items, reassign meals. Your log, your rules.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143122_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A8 — Edit log</div>
       </div>
-    </div>
-    <div class="label">A7 — History 30d</div>
-  </div>
 
-  <!-- A8 — Edit log (dark) -->
-  <div>
-    <div class="card lt" style="background:#0a0a0a;">
-      <div class="card-text">
-        <span class="eyebrow">Full Control</span>
-        <div class="headline">Tweak anything,<br><span class="gold">anytime</span></div>
-        <div class="sub">Edit amounts, swap items, reassign meals. Your log, your rules.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen dark">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143122_NomsAI.jpg"></div>
+      <!-- A9 — Settings (dark) -->
+      <div>
+        <div class="card lt" style="background: #0d0d0d">
+          <div class="card-text">
+            <span class="eyebrow">Your Way</span>
+            <div class="headline">
+              Set your goals.<br />Track your <span class="gold">way.</span>
+            </div>
+            <div class="sub">
+              Custom macro targets, water tracking, weekly summaries and backup.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143212_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A9 — Settings</div>
       </div>
-    </div>
-    <div class="label">A8 — Edit log</div>
-  </div>
 
-  <!-- A9 — Settings (dark) -->
-  <div>
-    <div class="card lt" style="background:#0d0d0d;">
-      <div class="card-text">
-        <span class="eyebrow">Your Way</span>
-        <div class="headline">Set your goals.<br>Track your <span class="gold">way.</span></div>
-        <div class="sub">Custom macro targets, water tracking, weekly summaries and backup.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen dark">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143212_NomsAI.jpg"></div>
+      <!-- A10 — Dark dashboard with workout burn arc -->
+      <div>
+        <div class="card lt" style="background: #0a0d0a">
+          <div class="card-text">
+            <span class="eyebrow">Eat Back</span>
+            <div class="headline">
+              Active day?<br />Eat <span class="gold">more.</span>
+            </div>
+            <div class="sub">
+              Workouts push your daily target up automatically.
+            </div>
+          </div>
+          <div class="phone-wrap">
+            <div class="phone silver">
+              <div class="di"></div>
+              <div class="phone-btns">
+                <span class="btn-mute"></span><span class="btn-vol-u"></span
+                ><span class="btn-vol-d"></span><span class="btn-power"></span>
+              </div>
+              <div class="phone-screen dark">
+                <div class="phone-sb">
+                  <span class="phone-sb-time">9:41</span>
+                  <div class="phone-sb-icons">
+                    <svg width="9" height="7" viewBox="0 0 16 11" fill="white">
+                      <rect x="0" y="4" width="3" height="7" rx="1" />
+                      <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                      <rect x="8" y="1" width="3" height="10" rx="1" />
+                      <rect
+                        x="12"
+                        y="0"
+                        width="3"
+                        height="11"
+                        rx="1"
+                        opacity=".3"
+                      /></svg
+                    ><svg width="8" height="7" viewBox="0 0 14 11" fill="white">
+                      <path
+                        d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"
+                      />
+                      <path
+                        d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"
+                      />
+                      <circle cx="7" cy="9.5" r="1.5" /></svg
+                    ><svg width="14" height="7" viewBox="0 0 22 11" fill="none">
+                      <rect
+                        x="0.5"
+                        y="0.5"
+                        width="18"
+                        height="10"
+                        rx="2.5"
+                        stroke="white"
+                        stroke-opacity=".35"
+                      />
+                      <rect
+                        x="1.5"
+                        y="1.5"
+                        width="14"
+                        height="8"
+                        rx="1.5"
+                        fill="white"
+                      />
+                      <path
+                        d="M20 3.5v4a1.5 1.5 0 000-4z"
+                        fill="white"
+                        fill-opacity=".35"
+                      />
+                    </svg>
+                  </div>
+                </div>
+                <div class="phone-img">
+                  <img
+                    src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143236_NomsAI.jpg"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">A10 — Workout burn</div>
       </div>
     </div>
-    <div class="label">A9 — Settings</div>
-  </div>
 
-  <!-- A10 — Dark dashboard with workout burn arc -->
-  <div>
-    <div class="card lt" style="background:#0a0d0a;">
-      <div class="card-text">
-        <span class="eyebrow">Eat Back</span>
-        <div class="headline">Active day?<br>Eat <span class="gold">more.</span></div>
-        <div class="sub">Workouts push your daily target up automatically.</div>
-      </div>
-      <div class="phone-wrap">
-        <div class="phone silver">
-          <div class="di"></div>
-          <div class="phone-btns"><span class="btn-mute"></span><span class="btn-vol-u"></span><span class="btn-vol-d"></span><span class="btn-power"></span></div>
-          <div class="phone-screen dark">
-            <div class="phone-sb"><span class="phone-sb-time">9:41</span><div class="phone-sb-icons"><svg width="9" height="7" viewBox="0 0 16 11" fill="white"><rect x="0" y="4" width="3" height="7" rx="1"/><rect x="4" y="2.5" width="3" height="8.5" rx="1"/><rect x="8" y="1" width="3" height="10" rx="1"/><rect x="12" y="0" width="3" height="11" rx="1" opacity=".3"/></svg><svg width="8" height="7" viewBox="0 0 14 11" fill="white"><path d="M7 2.5C9.2 2.5 11.2 3.4 12.6 4.9L14 3.4C12.2 1.3 9.7 0 7 0S1.8 1.3 0 3.4L1.4 4.9C2.8 3.4 4.8 2.5 7 2.5z"/><path d="M7 5.5C8.4 5.5 9.7 6.1 10.6 7L12 5.5C10.7 4.1 8.9 3.2 7 3.2S3.3 4.1 2 5.5L3.4 7C4.3 6.1 5.6 5.5 7 5.5z"/><circle cx="7" cy="9.5" r="1.5"/></svg><svg width="14" height="7" viewBox="0 0 22 11" fill="none"><rect x="0.5" y="0.5" width="18" height="10" rx="2.5" stroke="white" stroke-opacity=".35"/><rect x="1.5" y="1.5" width="14" height="8" rx="1.5" fill="white"/><path d="M20 3.5v4a1.5 1.5 0 000-4z" fill="white" fill-opacity=".35"/></svg></div></div>
-            <div class="phone-img"><img src="file:///Users/joben/Downloads/drive-download-20260526T133442Z-3-001/Screenshot_20260526_143236_NomsAI.jpg"></div>
+    <div class="row-header"><h2>Privacy Card Variants</h2></div>
+    <div class="row">
+      <!-- ══════ P1 — SHIELD HERO ══════ -->
+      <div>
+        <div class="card" style="background: #0a0d14">
+          <div class="priv-screen">
+            <div class="ps-top">
+              <span class="ps-eyebrow">Privacy First</span>
+              <div class="ps-headline">
+                No account.<br />No login. <span class="gold">Ever.</span>
+              </div>
+              <div class="ps-sub">
+                Your diary lives on your device.<br />We literally cannot see
+                it.
+              </div>
+            </div>
+            <div class="ps-divider"></div>
+            <div class="ps-phone-wrap">
+              <div class="ps-phone silver">
+                <div class="ps-di"></div>
+                <div class="phone-btns">
+                  <span class="btn-mute"></span><span class="btn-vol-u"></span
+                  ><span class="btn-vol-d"></span
+                  ><span class="btn-power"></span>
+                </div>
+                <div class="ph-inner">
+                  <div class="pi-sb">
+                    <span class="pi-sb-t">9:41</span>
+                    <div class="pi-sb-i">
+                      <svg
+                        width="9"
+                        height="7"
+                        viewBox="0 0 16 11"
+                        fill="white"
+                      >
+                        <rect x="0" y="4" width="3" height="7" rx="1" />
+                        <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                        <rect x="8" y="1" width="3" height="10" rx="1" />
+                        <rect
+                          x="12"
+                          y="0"
+                          width="3"
+                          height="11"
+                          rx="1"
+                          opacity=".3"
+                        />
+                      </svg>
+                      <svg
+                        width="14"
+                        height="7"
+                        viewBox="0 0 22 11"
+                        fill="none"
+                      >
+                        <rect
+                          x="0.5"
+                          y="0.5"
+                          width="18"
+                          height="10"
+                          rx="2.5"
+                          stroke="white"
+                          stroke-opacity=".35"
+                        />
+                        <rect
+                          x="1.5"
+                          y="1.5"
+                          width="12"
+                          height="8"
+                          rx="1.5"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="ph-hero">
+                    <div class="ph-glow"></div>
+                    <svg width="40" height="44" viewBox="0 0 40 44" fill="none">
+                      <path
+                        d="M20 2L4 8v12c0 11 7 20.5 16 23.8C29 40.5 36 31 36 20V8L20 2z"
+                        fill="rgba(200,146,10,0.13)"
+                        stroke="#c8920a"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M13.5 22l4.5 4.5 9-9"
+                        stroke="#c8920a"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <div class="ph-hero-lbl">Protected by default</div>
+                  </div>
+                  <div class="ph-sep"></div>
+                  <div class="ph-list">
+                    <div class="ph-row">
+                      <div class="ph-ico">
+                        <svg
+                          width="13"
+                          height="13"
+                          viewBox="0 0 13 13"
+                          fill="none"
+                        >
+                          <rect
+                            x="2.5"
+                            y="0.5"
+                            width="8"
+                            height="12"
+                            rx="2"
+                            stroke="#c8920a"
+                            stroke-width="1.2"
+                          />
+                          <circle cx="6.5" cy="10" r="0.8" fill="#c8920a" />
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="ph-t">On-device storage</div>
+                        <div class="ph-d">Logs never leave your phone</div>
+                      </div>
+                    </div>
+                    <div class="ph-row">
+                      <div class="ph-ico">
+                        <svg
+                          width="13"
+                          height="13"
+                          viewBox="0 0 13 13"
+                          fill="none"
+                        >
+                          <rect
+                            x="3.5"
+                            y="6"
+                            width="6"
+                            height="6"
+                            rx="1.5"
+                            stroke="#c8920a"
+                            stroke-width="1.2"
+                          />
+                          <path
+                            d="M5 6V4.5a1.5 1.5 0 013 0V6"
+                            stroke="#c8920a"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="ph-t">No email or password</div>
+                        <div class="ph-d">Open and start tracking</div>
+                      </div>
+                    </div>
+                    <div class="ph-row">
+                      <div class="ph-ico">
+                        <svg
+                          width="13"
+                          height="13"
+                          viewBox="0 0 13 13"
+                          fill="none"
+                        >
+                          <path
+                            d="M1.5 6.5c0 0 2-3.5 5-3.5s5 3.5 5 3.5-2 3.5-5 3.5-5-3.5-5-3.5z"
+                            stroke="#c8920a"
+                            stroke-width="1.2"
+                          />
+                          <circle
+                            cx="6.5"
+                            cy="6.5"
+                            r="1.5"
+                            stroke="#c8920a"
+                            stroke-width="1.1"
+                          />
+                          <path
+                            d="M10.5 2.5L2.5 10.5"
+                            stroke="#c8920a"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="ph-t">Zero tracking</div>
+                        <div class="ph-d">We can't see what you log</div>
+                      </div>
+                    </div>
+                    <div class="ph-row">
+                      <div class="ph-ico">
+                        <svg
+                          width="13"
+                          height="13"
+                          viewBox="0 0 13 13"
+                          fill="none"
+                        >
+                          <path
+                            d="M2 3.5h9M5 3.5V2.5h3v1M4.5 3.5l.5 7h3l.5-7"
+                            stroke="#c8920a"
+                            stroke-width="1.2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                          />
+                        </svg>
+                      </div>
+                      <div>
+                        <div class="ph-t">Delete everything</div>
+                        <div class="ph-d">One tap wipes it all</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="label">P1 — Shield hero</div>
+      </div>
+
+      <!-- ══════ P2 — BIG CHECKMARKS ══════ -->
+      <div>
+        <div class="card" style="background: #0a0d14">
+          <div class="priv-screen">
+            <div class="ps-top">
+              <span class="ps-eyebrow">Privacy First</span>
+              <div class="ps-headline">
+                No account.<br />No login. <span class="gold">Ever.</span>
+              </div>
+              <div class="ps-sub">
+                Your diary lives on your device.<br />We literally cannot see
+                it.
+              </div>
+            </div>
+            <div class="ps-divider"></div>
+            <div class="ps-phone-wrap">
+              <div class="ps-phone silver">
+                <div class="ps-di"></div>
+                <div class="phone-btns">
+                  <span class="btn-mute"></span><span class="btn-vol-u"></span
+                  ><span class="btn-vol-d"></span
+                  ><span class="btn-power"></span>
+                </div>
+                <div class="pc-inner">
+                  <div class="pi-sb">
+                    <span class="pi-sb-t">9:41</span>
+                    <div class="pi-sb-i">
+                      <svg
+                        width="9"
+                        height="7"
+                        viewBox="0 0 16 11"
+                        fill="white"
+                      >
+                        <rect x="0" y="4" width="3" height="7" rx="1" />
+                        <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                        <rect x="8" y="1" width="3" height="10" rx="1" />
+                        <rect
+                          x="12"
+                          y="0"
+                          width="3"
+                          height="11"
+                          rx="1"
+                          opacity=".3"
+                        />
+                      </svg>
+                      <svg
+                        width="14"
+                        height="7"
+                        viewBox="0 0 22 11"
+                        fill="none"
+                      >
+                        <rect
+                          x="0.5"
+                          y="0.5"
+                          width="18"
+                          height="10"
+                          rx="2.5"
+                          stroke="white"
+                          stroke-opacity=".35"
+                        />
+                        <rect
+                          x="1.5"
+                          y="1.5"
+                          width="12"
+                          height="8"
+                          rx="1.5"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="ph-hero">
+                    <div class="ph-glow"></div>
+                    <svg width="40" height="44" viewBox="0 0 40 44" fill="none">
+                      <path
+                        d="M20 2L4 8v12c0 11 7 20.5 16 23.8C29 40.5 36 31 36 20V8L20 2z"
+                        fill="rgba(200,146,10,0.13)"
+                        stroke="#c8920a"
+                        stroke-width="1.6"
+                        stroke-linejoin="round"
+                      />
+                      <path
+                        d="M13.5 22l4.5 4.5 9-9"
+                        stroke="#c8920a"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                      />
+                    </svg>
+                    <div class="ph-hero-lbl">Protected by default</div>
+                  </div>
+                  <div class="ph-sep"></div>
+                  <div class="pc-list">
+                    <div class="pc-item">
+                      <span class="pc-ck">✓</span>
+                      <div>
+                        <div class="pc-t">All data on-device</div>
+                        <div class="pc-d">
+                          Logs, weight, workouts — never uploaded
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pc-item">
+                      <span class="pc-ck">✓</span>
+                      <div>
+                        <div class="pc-t">No email or password</div>
+                        <div class="pc-d">Open the app and start tracking</div>
+                      </div>
+                    </div>
+                    <div class="pc-item">
+                      <span class="pc-ck">✓</span>
+                      <div>
+                        <div class="pc-t">Zero tracking or analytics</div>
+                        <div class="pc-d">
+                          We literally can't see what you log
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pc-item">
+                      <span class="pc-ck">✓</span>
+                      <div>
+                        <div class="pc-t">Delete everything, anytime</div>
+                        <div class="pc-d">
+                          One tap wipes your data completely
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="label">P2 — Big checkmarks</div>
+      </div>
+
+      <!-- ══════ P3 — 2×2 COLOUR GRID ══════ -->
+      <div>
+        <div class="card" style="background: #0a0d14">
+          <div class="priv-screen">
+            <div class="ps-top">
+              <span class="ps-eyebrow">Privacy First</span>
+              <div class="ps-headline">
+                No account.<br />No login. <span class="gold">Ever.</span>
+              </div>
+              <div class="ps-sub">
+                Your diary lives on your device.<br />We literally cannot see
+                it.
+              </div>
+            </div>
+            <div class="ps-divider"></div>
+            <div class="ps-phone-wrap">
+              <div class="ps-phone silver">
+                <div class="ps-di"></div>
+                <div class="phone-btns">
+                  <span class="btn-mute"></span><span class="btn-vol-u"></span
+                  ><span class="btn-vol-d"></span
+                  ><span class="btn-power"></span>
+                </div>
+                <div class="pg-inner">
+                  <div class="pi-sb">
+                    <span class="pi-sb-t">9:41</span>
+                    <div class="pi-sb-i">
+                      <svg
+                        width="9"
+                        height="7"
+                        viewBox="0 0 16 11"
+                        fill="white"
+                      >
+                        <rect x="0" y="4" width="3" height="7" rx="1" />
+                        <rect x="4" y="2.5" width="3" height="8.5" rx="1" />
+                        <rect x="8" y="1" width="3" height="10" rx="1" />
+                        <rect
+                          x="12"
+                          y="0"
+                          width="3"
+                          height="11"
+                          rx="1"
+                          opacity=".3"
+                        />
+                      </svg>
+                      <svg
+                        width="14"
+                        height="7"
+                        viewBox="0 0 22 11"
+                        fill="none"
+                      >
+                        <rect
+                          x="0.5"
+                          y="0.5"
+                          width="18"
+                          height="10"
+                          rx="2.5"
+                          stroke="white"
+                          stroke-opacity=".35"
+                        />
+                        <rect
+                          x="1.5"
+                          y="1.5"
+                          width="12"
+                          height="8"
+                          rx="1.5"
+                          fill="white"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="pg-hdr">
+                    <span class="pg-name">NomsAI</span>
+                    <span class="pg-badge">Private</span>
+                  </div>
+                  <div class="pg-grid">
+                    <div class="pg-tile gc">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <rect
+                          x="3"
+                          y="0.5"
+                          width="10"
+                          height="15"
+                          rx="2.5"
+                          stroke="#c8920a"
+                          stroke-width="1.3"
+                        />
+                        <circle cx="8" cy="12.5" r="1" fill="#c8920a" />
+                        <path
+                          d="M5.5 3.5h5"
+                          stroke="#c8920a"
+                          stroke-width="1"
+                          stroke-linecap="round"
+                          opacity=".5"
+                        />
+                      </svg>
+                      <div>
+                        <div class="pg-t">On-device only</div>
+                        <div class="pg-d">Data never leaves your phone</div>
+                      </div>
+                    </div>
+                    <div class="pg-tile bc">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <circle
+                          cx="8"
+                          cy="5.5"
+                          r="2.8"
+                          stroke="#63b3ed"
+                          stroke-width="1.3"
+                        />
+                        <path
+                          d="M2.5 13.5c0-2.8 2.5-5 5.5-5s5.5 2.2 5.5 5"
+                          stroke="#63b3ed"
+                          stroke-width="1.3"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M12.5 2L3.5 13.5"
+                          stroke="#63b3ed"
+                          stroke-width="1.3"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                      <div>
+                        <div class="pg-t" style="color: #63b3ed">
+                          No login ever
+                        </div>
+                        <div class="pg-d">No email, no password</div>
+                      </div>
+                    </div>
+                    <div class="pg-tile vc">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M1.5 8c0 0 2.5-4.5 6.5-4.5S14.5 8 14.5 8s-2.5 4.5-6.5 4.5S1.5 8 1.5 8z"
+                          stroke="#48bb78"
+                          stroke-width="1.3"
+                        />
+                        <circle
+                          cx="8"
+                          cy="8"
+                          r="2"
+                          stroke="#48bb78"
+                          stroke-width="1.2"
+                        />
+                        <path
+                          d="M13 3L3 13"
+                          stroke="#48bb78"
+                          stroke-width="1.3"
+                          stroke-linecap="round"
+                        />
+                      </svg>
+                      <div>
+                        <div class="pg-t" style="color: #48bb78">
+                          No analytics
+                        </div>
+                        <div class="pg-d">Zero usage tracking</div>
+                      </div>
+                    </div>
+                    <div class="pg-tile rc">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                      >
+                        <path
+                          d="M2.5 4.5h11M6 4.5V3h4v1.5M5.5 4.5l.7 9h3.6l.7-9"
+                          stroke="#fc814a"
+                          stroke-width="1.3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                      <div>
+                        <div class="pg-t" style="color: #fc814a">
+                          Delete anytime
+                        </div>
+                        <div class="pg-d">One tap, all gone</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="label">P3 — Colour grid</div>
       </div>
     </div>
-    <div class="label">A10 — Workout burn</div>
-  </div>
-
-</div>
-</body>
+  </body>
 </html>
