@@ -14,7 +14,7 @@ export interface Props {
 const {
   title,
   description,
-  ogImage = '/og-image.png',
+  ogImage = '/og-image.jpg',
   ogTitle,
   ogDescription,
   canonicalURL,
@@ -52,6 +52,10 @@ const site = 'https://nomsai.app';
     <meta property="og:title" content={resolvedOgTitle} />
     <meta property="og:description" content={resolvedOgDescription} />
     <meta property="og:image" content={`${site}${ogImage}`} />
+    <meta property="og:image:secure_url" content={`${site}${ogImage}`} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="NomsAI" />
 
     <!-- Twitter / X -->
