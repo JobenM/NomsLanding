@@ -9,7 +9,7 @@ import AnimatedSection from '../components/AnimatedSection.tsx';
 // Mockup screens
 import PhoneVoiceInput from '../components/mockups/PhoneVoiceInput.astro';
 import PhoneReview     from '../components/mockups/PhoneReview.astro';
-import PhoneRecipe     from '../components/mockups/PhoneRecipe.astro';
+import PhoneMealIdeas  from '../components/mockups/PhoneMealIdeas.astro';
 import PhoneTypeahead  from '../components/mockups/PhoneTypeahead.astro';
 import PhonePrivacy        from '../components/mockups/PhonePrivacy.astro';
 import PhoneWorkouts       from '../components/mockups/PhoneWorkouts.astro';
@@ -83,24 +83,24 @@ const appSchema = [
     <PhoneReview slot="mockup" />
   </FeatureSpotlight>
 
-  <!-- 3. Save as Recipe -->
+  <!-- 3. Meal Ideas -->
   <FeatureSpotlight
-    featureId="fss-recipe"
-    eyebrow="Meals you love"
-    heading="Log once.\nSave forever."
-    subheading="After reviewing any meal, tap 'Save as Recipe' to store it permanently. Name it, set your usual portion, and next time just type the name — the whole meal logs in one tap."
-    pills={['3-step setup', 'One-tap future logging']}
+    featureId="fss-meal-ideas"
+    eyebrow="Smart meal ideas"
+    heading="What should\nI make\ntoday?"
+    subheading="Tell NomsAI how many calories you have left and it generates a full recipe — complete with macros, ingredients, and step-by-step method. Tick off what you already have in the fridge."
+    pills={['Tailored to your macro budget', 'Full recipe & method', 'Tick off your ingredients']}
     flip={false}
     bg="alt"
   >
-    <PhoneRecipe slot="mockup" />
+    <PhoneMealIdeas slot="mockup" />
   </FeatureSpotlight>
 
   <!-- 4. Typeahead + Smart Memory -->
   <FeatureSpotlight
     featureId="fss-typeahead"
     eyebrow="Gets smarter over time"
-    heading="It remembers\nwhat you eat."
+    heading="NomsAI remembers\nwhat you eat."
     subheading="As you build your log, NomsAI learns your habits. Start typing 'oat' and your usual oat milk latte appears before you finish the word. Your personal history — always local, never uploaded."
     pills={['Learns your patterns', 'Suggests from first keystroke', 'Always on-device']}
     flip={true}
