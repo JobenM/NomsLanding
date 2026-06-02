@@ -1,7 +1,7 @@
 ---
 title: "Macro Tracking Without an Account: Why Privacy Matters in Health Apps"
 description: "Your food diary is deeply personal. Here's why privacy-first design — keeping your data on your device with no login required — is the future of health tracking apps."
-pubDate: 2024-02-03
+pubDate: 2026-04-18
 tags: ["macro tracker no login", "privacy", "AI food diary", "health app privacy"]
 ---
 

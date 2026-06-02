@@ -1,7 +1,7 @@
 ---
 title: "Why AI Calorie Tracking Beats Manual Logging"
 description: "Discover how AI-powered calorie tracking eliminates the tedious barcode scanning and manual entry that kills most food diary habits — and why it leads to better results."
-pubDate: 2024-01-15
+pubDate: 2026-04-03
 tags: ["AI calorie tracker", "macro tracking", "nutrition", "calorie counter AI"]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "How to Track Calories Without Weighing Food"
 description: "Food scales are useful but not necessary. Here are practical methods for estimating your intake accurately enough to see real results — no weighing required."
-pubDate: 2025-03-12
+pubDate: 2026-05-01
 tags: ["calorie tracking", "no food scale", "portion estimation", "macro tracking", "AI calorie tracker"]
 ---
 

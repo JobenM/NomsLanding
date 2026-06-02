@@ -1,7 +1,7 @@
 ---
 title: "What Is an AI Food Diary App — and Is It Actually Useful?"
 description: "AI food diary apps let you log meals by describing them in plain language instead of scanning barcodes or searching databases. Here's how they work and whether they're worth it."
-pubDate: 2025-05-01
+pubDate: 2026-05-26
 tags: ["AI food diary", "AI calorie tracker", "food diary app", "calorie tracking app", "macro tracking AI"]
 ---
 

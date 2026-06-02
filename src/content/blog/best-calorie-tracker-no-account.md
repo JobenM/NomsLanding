@@ -1,7 +1,7 @@
 ---
 title: "The Best Calorie Trackers That Don't Require an Account"
 description: "Most calorie tracking apps demand an account before you can log a single meal. Here's why that matters, what to look for, and which apps let you start immediately."
-pubDate: 2025-04-08
+pubDate: 2026-05-14
 tags: ["calorie tracker no account", "no login calorie app", "anonymous food tracker", "privacy health app"]
 ---
 
