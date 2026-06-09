@@ -1,0 +1,126 @@
+---
+import AnimatedSection from './AnimatedSection.tsx';
+
+const freeFeatures = [
+  '5 AI logs every single day — refills every midnight',
+  '20 bonus welcome logs to test drive the app instantly',
+  'Speak or type what you ate — natural language AI parsing',
+  'Complete core tracking — calories, protein, carbs, fat, water & workouts',
+  'Weight & history tracking to watch your progress',
+  '100% private — no account, no login, entirely on-device',
+];
+
+const proExclusive = [
+  'Unlimited AI logs — track everything with zero daily limits*',
+  'Smart AI Meal Ideas — full recipes built around your remaining calories',
+  'One-tap recipe saving — build your meals once, log any serving size forever',
+  'Custom macro targets — dial in goals tailored to your diet or workout plan',
+  'Log massive meals — ultra-long entries with multiple ingredients at once',
+  'Secure data backups — back up and restore your data whenever you switch devices',
+];
+---
+
+<section class="py-20 sm:py-28 bg-white dark:bg-[#111111]">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+
+    <AnimatedSection animation="fadeUp" client:load>
+      <div class="text-center mb-12">
+        <p class="text-sm font-bold uppercase tracking-widest mb-3" style="color:#c8920a">Pricing</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-[#1c1714] dark:text-white">
+          Free to use. Forever.
+        </h2>
+        <p class="text-lg text-[#6b6560] dark:text-[#9ca3af] max-w-xl mx-auto">
+          Most people never pay a thing. Pro is there if you want to go unlimited.
+        </p>
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection animation="fadeUp" delay={0.1} client:load>
+      <div class="grid sm:grid-cols-2 gap-5">
+
+        <!-- Free -->
+        <div class="rounded-3xl p-8 border-2 bg-[#f4f2ef] dark:bg-[#1a1a1a] border-[#c8920a] flex flex-col">
+          <div class="inline-flex self-start items-center rounded-full px-3 py-1 text-xs font-bold mb-5" style="background:rgba(200,146,10,0.15);color:#c8920a">
+            Most users
+          </div>
+          <h3 class="text-2xl font-black text-[#1c1714] dark:text-white mb-1">Free</h3>
+          <p class="text-5xl font-black text-[#1c1714] dark:text-white mb-1">£0</p>
+          <p class="text-sm text-[#6b6560] dark:text-[#9ca3af] mb-8">No card. No trial. No catch.</p>
+
+          <ul class="space-y-3.5 flex-1">
+            {freeFeatures.map((f) => (
+              <li class="flex items-start gap-3 text-sm text-[#1c1714] dark:text-[#e5e5e5]">
+                <svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="8" fill="#c8920a" fill-opacity="0.15"/>
+                  <path d="M4.5 8l2.5 2.5 4.5-5" stroke="#c8920a" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Pro — dark in light mode, cream in dark mode -->
+        <div class="rounded-3xl p-8 flex flex-col bg-[#1c1714] dark:bg-[#f4f2ef]">
+          <div class="inline-flex self-start items-center rounded-full px-3 py-1 text-xs font-bold mb-5" style="background:rgba(200,146,10,0.25);color:#c8920a">
+            Unlimited
+          </div>
+          <h3 class="text-2xl font-black text-white dark:text-[#1c1714] mb-1">Pro</h3>
+
+          <div class="flex items-baseline gap-1.5 mb-1">
+            <span id="pricing-hero-price" data-gbp="£2.50" data-usd="$3.33" class="text-5xl font-black text-white dark:text-[#1c1714]">£2.50</span>
+            <span class="text-base font-medium text-white/50 dark:text-[#6b6560]">/mo</span>
+          </div>
+          <p class="text-sm mb-1 text-white/50 dark:text-[#6b6560]">
+            Billed as <span id="pricing-annual" data-gbp="£29.99/yr" data-usd="$39.99/yr" class="font-semibold text-white dark:text-[#1c1714]">£29.99/yr</span>
+            <span id="pricing-save" data-gbp="Save 50%" data-usd="Save 44%" class="ml-1.5 rounded-full px-2 py-0.5 text-xs font-bold" style="background:rgba(200,146,10,0.25);color:#c8920a">Save 50%</span>
+          </p>
+          <p id="pricing-monthly" data-gbp="or £4.99/mo monthly" data-usd="or $5.99/mo monthly" class="text-sm mb-8 text-white/30 dark:text-[#9ca3af]">or £4.99/mo monthly</p>
+
+          <ul class="space-y-3.5 flex-1">
+            {proExclusive.map((f) => (
+              <li class="flex items-start gap-3 text-sm text-white dark:text-[#1c1714]">
+                <svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <circle cx="8" cy="8" r="8" fill="#c8920a"/>
+                  <path d="M8 3l1.2 2.4 2.8.4-2 1.9.5 2.7L8 9.1l-2.5 1.3.5-2.7-2-1.9 2.8-.4z" fill="white"/>
+                </svg>
+                {f}
+              </li>
+            ))}
+            <li class="flex items-start gap-3 text-sm text-white/50 dark:text-[#9ca3af] pt-1">
+              <svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <circle cx="8" cy="8" r="8" fill="#c8920a" fill-opacity="0.15"/>
+                <path d="M4.5 8l2.5 2.5 4.5-5" stroke="#c8920a" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Plus all core tracking features included in the Free tier
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+
+      <p class="text-center text-sm text-[#6b6560] dark:text-[#9ca3af] mt-6">
+        Need a one-off top-up? Extra logs are available as a one-time purchase in-app — no subscription needed.
+      </p>
+      <p class="text-center text-xs text-[#9ca3af] dark:text-[#6b6560] mt-3">
+        *subject to <a href="https://nomsai.app/terms.html" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80 transition-opacity">Terms of Service</a>
+      </p>
+    </AnimatedSection>
+
+  </div>
+</section>
+
+<script>
+  function applyRegionalPricing() {
+    const isUS = /^en-US|^en-CA/.test(navigator.language);
+    if (!isUS) return;
+    const ids = ['pricing-hero-price', 'pricing-annual', 'pricing-save', 'pricing-monthly'];
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = el.dataset.usd ?? el.textContent;
+    });
+  }
+  applyRegionalPricing();
+  document.addEventListener('astro:after-swap', applyRegionalPricing);
+</script>

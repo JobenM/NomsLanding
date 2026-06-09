@@ -11,11 +11,11 @@ Anyone who has tried to stick with a calorie tracking app knows the drill: scan 
 
 Manual food logging has a compliance problem. Studies show that most people abandon traditional calorie tracking apps within two weeks — not because they stop caring about nutrition, but because the friction is too high.
 
-## Enter AI Food Parsing
+## Enter AI Food Logging
 
 AI calorie tracking changes the game. Instead of searching a database or scanning barcodes, you just type what you ate in plain English: *"two scrambled eggs, a slice of whole wheat toast, and a coffee with oat milk."*
 
-The AI instantly parses that description and returns a macro breakdown — calories, protein, carbs, and fat — in seconds.
+The AI instantly reads that description and returns a macro breakdown — calories, protein, carbs, and fat — in seconds.
 
 This is the core insight behind NomsAI: **the best food log is the one you actually use.**
 

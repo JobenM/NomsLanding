@@ -41,7 +41,7 @@ import AnimatedSection from './AnimatedSection.tsx';
 
             <!-- App Store badge -->
             <a
-              href="https://apps.apple.com/gb/app/nomsai-ai-calorie-counter/id6771914399"
+              href="https://apps.apple.com/app/nomsai-ai-calorie-counter/id6771914399"
               target="_blank" rel="noopener noreferrer"
               class="hover:scale-[1.03] active:scale-[0.97] transition-transform duration-150 flex-shrink-0"
               style="background:#000;border-radius:10px;padding:10px 16px 10px 13px;display:inline-flex;align-items:center;gap:11px;border:1px solid rgba(255,255,255,0.15)"
@@ -76,6 +76,23 @@ import AnimatedSection from './AnimatedSection.tsx';
               </div>
             </a>
 
+          </div>
+        </AnimatedSection>
+
+        <!-- Available in -->
+        <AnimatedSection animation="fadeUp" delay={0.3} client:load>
+          <div class="flex items-center justify-center lg:justify-start gap-2 mb-8 flex-wrap">
+            <span class="text-xs font-medium text-[#6b6560] dark:text-[#9ca3af]">Available in</span>
+            {[
+              { flag: '🇬🇧', label: 'UK' },
+              { flag: '🇺🇸', label: 'US' },
+              { flag: '🇨🇦', label: 'Canada' },
+              { flag: '🇮🇪', label: 'Ireland' },
+            ].map(({ flag, label }) => (
+              <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium bg-[#edeae5] dark:bg-[#1a1a1a] border border-[#d4ccc4] dark:border-[#2a2a2a] text-[#1c1714] dark:text-[#e5e5e5]">
+                {flag} {label}
+              </span>
+            ))}
           </div>
         </AnimatedSection>
 
