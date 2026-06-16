@@ -51,9 +51,9 @@ I could write a privacy policy that handles this. Other apps do. But "we don't k
 
 ## What I Built Instead
 
-Typing what you ate has problems too. It's slower than a photo on first glance. It requires you to know roughly what you ate — which sometimes you don't.
+Describing what you ate — typing it out, or just dictating it with the mic button — has problems too. It's slower than a photo on first glance. It requires you to know roughly what you ate, which sometimes you don't.
 
-But text input has a property that photo input doesn't: it forces you to engage with what you've eaten. The act of writing *"two slices of sourdough with butter and a poached egg"* makes you notice the butter. The act of writing *"chicken curry from the takeaway, about a portion and a half"* makes you notice the portion size. You can't accidentally undercount food you've explicitly written down.
+But user-supplied input has a property that photo input doesn't: it forces *you* to engage with what you've eaten. Saying *"two slices of sourdough with butter and a poached egg"* makes you notice the butter. Saying *"chicken curry from the takeaway, about a portion and a half"* makes you notice the portion size. You can't accidentally undercount food you've explicitly described.
 
 That noticing is, in my opinion, most of what calorie tracking is actually for. Not the precise number — the awareness. People who track consistently for a few months don't keep doing it because they need the numbers. They do it because the noticing has become a habit, and the habit changes what they eat.
 
@@ -67,9 +67,9 @@ I try to hold opinions loosely on this kind of thing. If on-device vision models
 
 What I won't do is ship a one-tap "photo in, calories out" button. The photo doesn't carry the calories. No amount of model improvement changes that.
 
-For now, the answer is no. NomsAI is a typing app. That's a deliberate constraint, not a missing feature.
+For now, the answer is no. NomsAI puts *you* in the loop — type it or say it — and lets the AI handle the lookup, not the guesswork. That's a deliberate constraint, not a missing feature.
 
-If you've used a photo-based tracker before and want something that takes your privacy seriously and is honest with you about what the numbers mean — try typing. You'll be surprised how fast it actually is, and how much more you notice.
+If you've used a photo-based tracker before and want something that takes your privacy seriously and is honest with you about what the numbers mean, give it a try. You'll be surprised how fast it is, and how much more you notice.
 
 ---
 
