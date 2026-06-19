@@ -5,6 +5,10 @@ import react from '@astrojs/react';
 
 export default defineConfig({
   site: 'https://nomsai.app',
+  trailingSlash: 'always',
+  build: {
+    format: 'directory',
+  },
   integrations: [
     tailwind(),
     sitemap({

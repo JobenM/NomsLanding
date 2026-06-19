@@ -56,7 +56,7 @@ function formatDate(date: Date): string {
           <div class="space-y-8">
             {posts.map((post) => (
               <article class="group rounded-3xl border border-[#d4ccc4] dark:border-[#2a2a2a] overflow-hidden transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 bg-white dark:bg-[#1a1a1a]">
-                <a href={`/articles/${post.slug}`} class="block p-8">
+                <a href={`/articles/${post.slug}/`} class="block p-8">
                   <div class="flex flex-wrap items-center gap-2 mb-4">
                     <time
                       datetime={post.data.pubDate.toISOString()}
