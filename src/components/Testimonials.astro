@@ -1,0 +1,98 @@
+---
+import AnimatedSection from './AnimatedSection.tsx';
+
+// Real, public app-store reviews — faithfully excerpted (trimmed for length,
+// never reworded in a way that changes meaning). Attribution uses the name as
+// shown on the store listing plus the platform it was left on. Do not invent
+// names, inflate counts, or fabricate quotes.
+type Platform = 'App Store' | 'Google Play';
+const reviews: { quote: string; name: string; platform: Platform }[] = [
+  {
+    quote:
+      "Finally, a calorie tracker that doesn't force me to create an account or steal my data. The natural language AI logging is super fast — I just type or speak what I ate and it figures out the macros instantly. Clean UI too!",
+    name: 'Will B',
+    platform: 'Google Play',
+  },
+  {
+    quote:
+      "So much easier than the old apps I used to track food with. I can literally just speak or type what I ate and it calculates the calories and tracks macros instantly. No annoying ads, and I didn't even have to make an account or hand over my email.",
+    name: 'Andrew B',
+    platform: 'App Store',
+  },
+  {
+    quote:
+      "I like the simplicity of just typing what I've had and letting the app do the work. I compared it to an app that made me search and select entries myself — the results were comparable. And I didn't have to sign up or share all my personal details.",
+    name: 'Alys',
+    platform: 'App Store',
+  },
+  {
+    quote:
+      "By far the best calorie tracking app I've used. Logging food is ridiculously quick — I just type what I've eaten and it does the rest. I was up and running within minutes, no unnecessary setup or clutter.",
+    name: 'Joe',
+    platform: 'Google Play',
+  },
+  {
+    quote:
+      "Other apps force you to create an account and fill out endless surveys before you can even use them. This app is the complete opposite. Staying consistent is SO much easier because there's no friction.",
+    name: 'Verified user',
+    platform: 'Google Play',
+  },
+  {
+    quote:
+      "The best things in life don't ask too much of you. Noms is the app that works so you don't have to. Calories, carbs, protein, fat. Done. Maximum gains. Minimum fuss.",
+    name: 'Victory',
+    platform: 'App Store',
+  },
+];
+---
+
+<section class="py-20 sm:py-28 bg-[#edeae5] dark:bg-[#111111]">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+
+    <AnimatedSection animation="fadeUp" client:load>
+      <div class="text-center mb-12">
+        <p class="text-sm font-bold uppercase tracking-widest mb-3" style="color:#c8920a">Loved by early users</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1c1714] dark:text-white tracking-tight">
+          Real reviews. Real people.
+        </h2>
+        <div class="mt-5 flex items-center justify-center gap-2.5" aria-label="Rated five stars">
+          <div class="flex items-center gap-0.5">
+            {Array.from({ length: 5 }).map(() => (
+              <svg class="h-5 w-5" viewBox="0 0 20 20" fill="#c8920a" aria-hidden="true">
+                <path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.51L10 14.6l-4.94 2.6.94-5.51-4-3.9 5.53-.8L10 1.5z" />
+              </svg>
+            ))}
+          </div>
+          <span class="text-sm font-medium text-[#6b6560] dark:text-[#9ca3af]">
+            5 stars on the App Store &amp; Google Play
+          </span>
+        </div>
+      </div>
+    </AnimatedSection>
+
+    <AnimatedSection animation="staggerUp" client:load>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 items-start">
+        {reviews.map(({ quote, name, platform }) => (
+          <figure class="flex h-full flex-col rounded-2xl border p-6 bg-white dark:bg-[#1a1a1a] border-[#d4ccc4] dark:border-[#2a2a2a]">
+            <div class="flex items-center gap-0.5 mb-4" aria-label="Five out of five stars">
+              {Array.from({ length: 5 }).map(() => (
+                <svg class="h-4 w-4" viewBox="0 0 20 20" fill="#c8920a" aria-hidden="true">
+                  <path d="M10 1.5l2.47 5.01 5.53.8-4 3.9.94 5.51L10 14.6l-4.94 2.6.94-5.51-4-3.9 5.53-.8L10 1.5z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote class="flex-1 text-[15px] leading-relaxed text-[#4a443f] dark:text-[#cbd2d9]">
+              “{quote}”
+            </blockquote>
+            <figcaption class="mt-5 flex items-center gap-2 text-sm">
+              <span class="font-semibold text-[#1c1714] dark:text-white">{name}</span>
+              <span class="text-[#bbb5af] dark:text-[#4a4a4a]" aria-hidden="true">·</span>
+              <span class="text-[#6b6560] dark:text-[#9ca3af]">{platform}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </AnimatedSection>
+
+  </div>
+</section>

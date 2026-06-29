@@ -72,6 +72,23 @@ const { variant = 'section' } = Astro.props;
           </span>
         ))}
       </div>
+
+      <!-- Availability -->
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-2">
+        <span class="text-sm mr-1" style="color:#9ca3af">Available in</span>
+        {[
+          { flag: '🇬🇧', label: 'UK' },
+          { flag: '🇺🇸', label: 'US' },
+          { flag: '🇨🇦', label: 'Canada' },
+          { flag: '🇮🇪', label: 'Ireland' },
+          { flag: '🇦🇺', label: 'Australia' },
+          { flag: '🇳🇿', label: 'New Zealand' },
+        ].map(({ flag, label }) => (
+          <span class="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium text-white" style="background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12)">
+            {flag} {label}
+          </span>
+        ))}
+      </div>
     </div>
   </section>
 ) : (

@@ -3,11 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import FeatureSpotlight from '../components/FeatureSpotlight.astro';
 import AppStoreBadges from '../components/AppStoreBadges.astro';
+import Testimonials from '../components/Testimonials.astro';
 import FAQPreview from '../components/FAQPreview.astro';
 import AnimatedSection from '../components/AnimatedSection.tsx';
 
 // Mockup screens
-import PhoneVoiceInput from '../components/mockups/PhoneVoiceInput.astro';
 import PhoneReview     from '../components/mockups/PhoneReview.astro';
 import PhoneMealIdeas  from '../components/mockups/PhoneMealIdeas.astro';
 import PhoneTypeahead  from '../components/mockups/PhoneTypeahead.astro';
@@ -57,19 +57,10 @@ const appSchema = [
   <!-- Hero -->
   <Hero />
 
-
-  <!-- 1. Type or Speak -->
-  <FeatureSpotlight
-    featureId="fss-voice"
-    eyebrow="Log your way"
-    heading="Type it.\nSay it.\nEither works."
-    subheading="Open the app and start typing — or tap the mic and speak your meal out loud. NomsAI transcribes your voice live and parses it just like text. Log in seconds, not minutes."
-    pills={['Live voice transcript', 'Hands-free logging']}
-    flip={false}
-    bg="alt"
-  >
-    <PhoneVoiceInput slot="mockup" />
-  </FeatureSpotlight>
+  <!-- Social proof — sits directly under the hero (the hero now carries the
+       animated type-to-log phone, so the old "Type or Speak" feature here is
+       redundant and has been removed). -->
+  <Testimonials />
 
   <!-- 2. Review & Confirm -->
   <FeatureSpotlight
